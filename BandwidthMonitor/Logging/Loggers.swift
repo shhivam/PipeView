@@ -15,4 +15,7 @@ extension Logger {
 
     /// Menu bar status item updates, menu actions
     static let menuBar = Logger(subsystem: subsystem, category: "menuBar")
+
+    /// Database operations: writes, aggregation, pruning, migration
+    static let persistence = Logger(subsystem: subsystem, category: "persistence")
 }

@@ -27,6 +27,7 @@
 		A10000010000000000000012 /* SpeedTextBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000015 /* SpeedTextBuilderTests.swift */; };
 		A10000010000000000000013 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000016 /* StatusBarController.swift */; };
 		A10000010000000000000014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000017 /* AppDelegate.swift */; };
+		A10000010000000000000020 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000020 /* AppDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A20000010000000000000015 /* SpeedTextBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTextBuilderTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000016 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		A20000010000000000000017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A20000010000000000000020 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				A20000010000000000000017 /* AppDelegate.swift */,
 				A70000010000000000000003 /* Monitoring */,
 				A70000010000000000000007 /* MenuBar */,
+				A70000010000000000000008 /* Persistence */,
 				A70000010000000000000004 /* Logging */,
 				A20000010000000000000004 /* Info.plist */,
 			);
@@ -135,6 +138,22 @@
 				A20000010000000000000016 /* StatusBarController.swift */,
 			);
 			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		A70000010000000000000008 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000020 /* AppDatabase.swift */,
+				A70000010000000000000009 /* Models */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		A70000010000000000000009 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A70000010000000000000005 /* BandwidthMonitorTests */ = {
@@ -177,6 +196,8 @@
 			name = BandwidthMonitor;
 			packageProductDependencies = (
 				AB0000010000000000000001 /* DequeModule */,
+				AB0000010000000000000002 /* GRDB */,
+				AB0000010000000000000003 /* GRDBQuery */,
 			);
 			productName = BandwidthMonitor;
 			productReference = A20000010000000000000005 /* BandwidthMonitor.app */;
@@ -195,6 +216,9 @@
 				A60000010000000000000002 /* PBXTargetDependency */,
 			);
 			name = BandwidthMonitorTests;
+			packageProductDependencies = (
+				AB0000010000000000000004 /* GRDB */,
+			);
 			productName = BandwidthMonitorTests;
 			productReference = A20000010000000000000006 /* BandwidthMonitorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -229,6 +253,8 @@
 			mainGroup = A70000010000000000000001 /* Root */;
 			packageReferences = (
 				AA0000010000000000000001 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				AA0000010000000000000002 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				AA0000010000000000000003 /* XCRemoteSwiftPackageReference "GRDBQuery" */,
 			);
 			productRefGroup = A70000010000000000000006 /* Products */;
 			projectDirPath = "";
@@ -258,6 +284,7 @@
 				A10000010000000000000010 /* SpeedTextBuilder.swift in Sources */,
 				A10000010000000000000013 /* StatusBarController.swift in Sources */,
 				A10000010000000000000014 /* AppDelegate.swift in Sources */,
+				A10000010000000000000020 /* AppDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +558,22 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		AA0000010000000000000002 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
+		AA0000010000000000000003 /* XCRemoteSwiftPackageReference "GRDBQuery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDBQuery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -538,6 +581,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA0000010000000000000001 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = DequeModule;
+		};
+		AB0000010000000000000002 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA0000010000000000000002 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		AB0000010000000000000003 /* GRDBQuery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA0000010000000000000003 /* XCRemoteSwiftPackageReference "GRDBQuery" */;
+			productName = GRDBQuery;
+		};
+		AB0000010000000000000004 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA0000010000000000000002 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 
