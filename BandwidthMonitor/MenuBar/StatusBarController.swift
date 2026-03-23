@@ -1,9 +1,10 @@
 import AppKit
 import Observation
 import os
+import SwiftUI
 
 @MainActor
-final class StatusBarController: NSObject {
+final class StatusBarController: NSObject, NSMenuDelegate {
     // MARK: - Properties
 
     private let statusItem: NSStatusItem
@@ -13,6 +14,36 @@ final class StatusBarController: NSObject {
     // Hardcoded defaults for Phase 2 (preferences deferred to Phase 5)
     private let displayMode: DisplayMode = .auto
     private let unitMode: SpeedFormatter.UnitMode = .auto
+
+    // Phase 4: Popover + context menu
+    private var selectedTab: PopoverTab = .metrics
+    private lazy var popover: NSPopover = {
+        let popover = NSPopover()
+        popover.contentSize = NSSize(width: 400, height: 500)
+        popover.behavior = .transient
+        popover.animates = true
+        popover.contentViewController = NSHostingController(
+            rootView: PopoverContentView(
+                networkMonitor: networkMonitor,
+                selectedTab: makeTabBinding()
+            )
+        )
+        return popover
+    }()
+
+    /// Creates a `Binding<PopoverTab>` that reads/writes `selectedTab` on the main actor.
+    /// Uses `MainActor.assumeIsolated` inside the Sendable closure because StatusBarController
+    /// is `@MainActor` and the Binding is only used from SwiftUI views (also main-thread).
+    private func makeTabBinding() -> Binding<PopoverTab> {
+        Binding(
+            get: { [weak self] in
+                MainActor.assumeIsolated { self?.selectedTab ?? .metrics }
+            },
+            set: { [weak self] newValue in
+                MainActor.assumeIsolated { self?.selectedTab = newValue }
+            }
+        )
+    }
 
     // MARK: - Init
 
@@ -28,8 +59,13 @@ final class StatusBarController: NSObject {
         // D-18: em dash before first poll
         updateStatusItemText(text: "\u{2014}")
 
-        // D-13: both left-click and right-click open same NSMenu
-        statusItem.menu = buildMenu()
+        // D-01: Left-click opens popover, right-click opens context menu
+        // Do NOT set statusItem.menu -- that intercepts all clicks
+        if let button = statusItem.button {
+            button.action = #selector(statusItemClicked(_:))
+            button.target = self
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        }
 
         startObserving()
 
@@ -72,17 +108,73 @@ final class StatusBarController: NSObject {
         )
     }
 
-    // MARK: - Menu (D-12, D-13)
+    // MARK: - Click Handling (D-01)
 
-    private func buildMenu() -> NSMenu {
+    @objc private func statusItemClicked(_ sender: NSStatusBarButton) {
+        guard let event = NSApp.currentEvent else { return }
+
+        if event.type == .rightMouseUp {
+            showContextMenu()
+        } else {
+            togglePopover()
+        }
+    }
+
+    private func togglePopover() {
+        if popover.isShown {
+            popover.performClose(nil)
+        } else if let button = statusItem.button {
+            // D-06: Default to Metrics tab on left-click open
+            selectedTab = .metrics
+            // Update the hosting controller's root view to reflect tab change
+            updatePopoverRootView()
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        }
+    }
+
+    private func showPopover() {
+        guard !popover.isShown else { return }
+        if let button = statusItem.button {
+            updatePopoverRootView()
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        }
+    }
+
+    private func showContextMenu() {
+        let menu = buildContextMenu()
+        statusItem.menu = menu
+        statusItem.button?.performClick(nil)
+        // menu is nilled out in menuDidClose(_:)
+    }
+
+    private func updatePopoverRootView() {
+        let rootView = PopoverContentView(
+            networkMonitor: networkMonitor,
+            selectedTab: makeTabBinding()
+        )
+        (popover.contentViewController as? NSHostingController<PopoverContentView>)?.rootView = rootView
+    }
+
+    // MARK: - Context Menu (D-02)
+
+    private func buildContextMenu() -> NSMenu {
         let menu = NSMenu()
+        menu.delegate = self
 
-        let metrics = NSMenuItem(title: "Metrics", action: nil, keyEquivalent: "")
-        metrics.isEnabled = false
+        let metrics = NSMenuItem(
+            title: "Metrics",
+            action: #selector(showMetrics),
+            keyEquivalent: ""
+        )
+        metrics.target = self
         menu.addItem(metrics)
 
-        let prefs = NSMenuItem(title: "Preferences", action: nil, keyEquivalent: "")
-        prefs.isEnabled = false
+        let prefs = NSMenuItem(
+            title: "Preferences",
+            action: #selector(showPreferences),
+            keyEquivalent: ""
+        )
+        prefs.target = self
         menu.addItem(prefs)
 
         menu.addItem(.separator())
@@ -103,6 +195,25 @@ final class StatusBarController: NSObject {
         menu.addItem(quit)
 
         return menu
+    }
+
+    // MARK: - Context Menu Actions (D-03)
+
+    @objc private func showMetrics() {
+        selectedTab = .metrics
+        showPopover()
+    }
+
+    @objc private func showPreferences() {
+        selectedTab = .preferences
+        showPopover()
+    }
+
+    // MARK: - NSMenuDelegate
+
+    func menuDidClose(_ menu: NSMenu) {
+        // Restore click handling to button action after menu closes
+        statusItem.menu = nil
     }
 
     // MARK: - Actions
