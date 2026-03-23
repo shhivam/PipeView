@@ -28,6 +28,7 @@
 		A10000010000000000000013 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000016 /* StatusBarController.swift */; };
 		A10000010000000000000014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000017 /* AppDelegate.swift */; };
 		A10000010000000000000020 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000020 /* AppDatabase.swift */; };
+		A10000010000000000000021 /* AppDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000021 /* AppDatabaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A20000010000000000000016 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		A20000010000000000000017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20000010000000000000020 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		A20000010000000000000021 /* AppDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				A20000010000000000000011 /* NetworkMonitorTests.swift */,
 				A20000010000000000000014 /* SpeedFormatterTests.swift */,
 				A20000010000000000000015 /* SpeedTextBuilderTests.swift */,
+				A20000010000000000000021 /* AppDatabaseTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A1000001000000000000000E /* NetworkMonitorTests.swift in Sources */,
 				A10000010000000000000011 /* SpeedFormatterTests.swift in Sources */,
 				A10000010000000000000012 /* SpeedTextBuilderTests.swift in Sources */,
+				A10000010000000000000021 /* AppDatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
