@@ -33,6 +33,10 @@
 		A10000010000000000000023 /* AggregatedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000023 /* AggregatedSample.swift */; };
 		A10000010000000000000030 /* BandwidthRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000030 /* BandwidthRecorder.swift */; };
 		A10000010000000000000031 /* BandwidthRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000031 /* BandwidthRecorderTests.swift */; };
+		A10000010000000000000040 /* AggregationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000040 /* AggregationEngine.swift */; };
+		A10000010000000000000041 /* PruningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000041 /* PruningManager.swift */; };
+		A10000010000000000000042 /* AggregationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000042 /* AggregationEngineTests.swift */; };
+		A10000010000000000000043 /* PruningManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000043 /* PruningManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		A20000010000000000000023 /* AggregatedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedSample.swift; sourceTree = "<group>"; };
 		A20000010000000000000030 /* BandwidthRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandwidthRecorder.swift; sourceTree = "<group>"; };
 		A20000010000000000000031 /* BandwidthRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandwidthRecorderTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000040 /* AggregationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationEngine.swift; sourceTree = "<group>"; };
+		A20000010000000000000041 /* PruningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningManager.swift; sourceTree = "<group>"; };
+		A20000010000000000000042 /* AggregationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationEngineTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000043 /* PruningManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				A20000010000000000000020 /* AppDatabase.swift */,
+				A20000010000000000000040 /* AggregationEngine.swift */,
 				A20000010000000000000030 /* BandwidthRecorder.swift */,
+				A20000010000000000000041 /* PruningManager.swift */,
 				A70000010000000000000009 /* Models */,
 			);
 			path = Persistence;
@@ -181,6 +191,8 @@
 				A20000010000000000000015 /* SpeedTextBuilderTests.swift */,
 				A20000010000000000000021 /* AppDatabaseTests.swift */,
 				A20000010000000000000031 /* BandwidthRecorderTests.swift */,
+				A20000010000000000000042 /* AggregationEngineTests.swift */,
+				A20000010000000000000043 /* PruningManagerTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -303,6 +315,8 @@
 				A10000010000000000000022 /* RawSample.swift in Sources */,
 				A10000010000000000000023 /* AggregatedSample.swift in Sources */,
 				A10000010000000000000030 /* BandwidthRecorder.swift in Sources */,
+				A10000010000000000000040 /* AggregationEngine.swift in Sources */,
+				A10000010000000000000041 /* PruningManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +333,8 @@
 				A10000010000000000000012 /* SpeedTextBuilderTests.swift in Sources */,
 				A10000010000000000000021 /* AppDatabaseTests.swift in Sources */,
 				A10000010000000000000031 /* BandwidthRecorderTests.swift in Sources */,
+				A10000010000000000000042 /* AggregationEngineTests.swift in Sources */,
+				A10000010000000000000043 /* PruningManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
