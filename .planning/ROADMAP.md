@@ -49,7 +49,7 @@ Plans:
 **UI hint**: yes
 
 Plans:
-- [ ] 02-01-PLAN.md -- SpeedFormatter and SpeedTextBuilder with TDD (formatting engine for speed text display)
+- [x] 02-01-PLAN.md -- SpeedFormatter and SpeedTextBuilder with TDD (formatting engine for speed text display)
 - [ ] 02-02-PLAN.md -- StatusBarController, AppDelegate, hybrid AppKit+SwiftUI entry point, and login item registration
 
 ### Phase 3: Data Persistence and Aggregation
