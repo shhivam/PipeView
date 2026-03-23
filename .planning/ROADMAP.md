@@ -29,11 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Loopback and inactive interfaces are automatically filtered out of results
   3. The monitoring process uses less than 1% CPU and minimal RAM during continuous operation
   4. Speed values update at regular intervals (1-2 seconds) without drift or timer accumulation
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Project scaffolding, data models, SysctlReader, InterfaceFilter, SpeedComputation, and unit tests
+- [ ] 01-02-PLAN.md -- InterfaceDetector, SleepWakeHandler, NetworkMonitor engine, and integration tests
 
 ### Phase 2: Menu Bar Display
 **Goal**: Users can see their current network speeds at a glance in the macOS menu bar, formatted to their preference, every time their Mac starts
@@ -106,7 +106,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Monitoring Engine | 0/0 | Not started | - |
+| 1. Core Monitoring Engine | 0/2 | Planned | - |
 | 2. Menu Bar Display | 0/0 | Not started | - |
 | 3. Data Persistence and Aggregation | 0/0 | Not started | - |
 | 4. Popover Shell and Interface Views | 0/0 | Not started | - |
