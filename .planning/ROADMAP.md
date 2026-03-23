@@ -45,12 +45,12 @@ Plans:
   3. User can switch display format between upload+download, download only, upload only, or combined total
   4. Menu bar text does not jitter or cause neighboring menu bar items to shift when values change
   5. The app starts automatically when macOS boots without requiring manual launch
-**Plans**: TBD
+**Plans**: 2 plans
 **UI hint**: yes
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- SpeedFormatter and SpeedTextBuilder with TDD (formatting engine for speed text display)
+- [ ] 02-02-PLAN.md -- StatusBarController, AppDelegate, hybrid AppKit+SwiftUI entry point, and login item registration
 
 ### Phase 3: Data Persistence and Aggregation
 **Goal**: The app silently records and aggregates all bandwidth data into SQLite so historical views can query it efficiently
@@ -107,7 +107,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Monitoring Engine | 0/2 | Planned | - |
-| 2. Menu Bar Display | 0/0 | Not started | - |
+| 2. Menu Bar Display | 0/2 | Planned | - |
 | 3. Data Persistence and Aggregation | 0/0 | Not started | - |
 | 4. Popover Shell and Interface Views | 0/0 | Not started | - |
 | 5. Historical Charts, Statistics, and Settings | 0/0 | Not started | - |
