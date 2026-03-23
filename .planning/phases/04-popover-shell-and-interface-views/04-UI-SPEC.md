@@ -33,19 +33,17 @@ Declared values (must be multiples of 4):
 
 | Token | Value | SwiftUI Equivalent | Usage |
 |-------|-------|--------------------|-------|
-| xs | 4px | `.padding(4)` | Inline icon-to-label gaps, minimal separators |
+| xs | 4px | `.padding(4)` | Inline icon-to-label gaps, minimal separators, gap between rows |
 | sm | 8px | `.padding(8)` | Compact element spacing, inner row padding |
-| md | 12px | `.padding(12)` | Default content padding within sections |
-| lg | 16px | `.padding(16)` | Popover content insets (top, bottom, leading, trailing) |
+| lg | 16px | `.padding(16)` | Default content padding within sections, popover content insets (top, bottom, leading, trailing), segmented control top margin |
 | xl | 24px | `.padding(24)` | Space between aggregate header and interface list |
 | 2xl | 32px | `.padding(32)` | Not used in this phase |
 
 Exceptions:
 - Row height minimum: 44pt per interface row (accessibility touch target, even though macOS does not require it, maintains comfortable click area)
-- Segmented control top margin: 12px from popover top edge
 - Aggregate header bottom padding: 24px to visually separate from interface list
 
-**Source:** Claude's discretion (CONTEXT.md grants discretion over "exact spacing, padding, and font sizes within the popover"). Scale chosen to match macOS HIG density expectations for a utility popover -- tighter than iOS but not cramped.
+**Source:** Claude's discretion (CONTEXT.md grants discretion over "exact spacing, padding, and font sizes within the popover"). Scale chosen to match macOS HIG density expectations for a utility popover -- tighter than iOS but not cramped. All values are members of the standard spacing set {4, 8, 16, 24, 32, 48, 64}.
 
 ---
 
@@ -57,14 +55,14 @@ All typography uses the macOS system font (SF Pro) via SwiftUI text styles. Size
 |------|-------------|----------------------|--------|-------------|
 | Aggregate speed value | `.title2` | 17pt | `.semibold` (600) | 1.2 |
 | Aggregate label | `.subheadline` | 11pt | `.regular` (400) | 1.5 |
-| Interface name | `.body` | 13pt | `.medium` (500) | 1.5 |
+| Interface name | `.body` | 13pt | `.regular` (400) | 1.5 |
 | Interface speed value | `.body` | 13pt | `.regular` (400) | 1.5 |
 | Speed unit suffix | `.body` | 13pt | `.regular` (400) | 1.5 |
 | Tab label (segmented) | `.body` | 13pt | `.regular` (400) | system default |
 | Placeholder text | `.body` | 13pt | `.regular` (400) | 1.5 |
 | Empty state message | `.subheadline` | 11pt | `.regular` (400) | 1.5 |
 
-**Weights used:** 2 weights maximum -- `.regular` (400) for body text and values, `.semibold` (600) for aggregate speed emphasis. `.medium` (500) for interface names only (provides subtle distinction without adding a third visual weight tier).
+**Weights used:** 2 weights -- `.regular` (400) for body text, labels, interface names, and speed values; `.semibold` (600) for aggregate speed emphasis only. Interface names achieve visual distinction through their leading position in the row and `.primary` color, not through a separate weight.
 
 **Monospaced digits:** All speed values (aggregate and per-interface) use `.monospacedDigit()` modifier to prevent layout jitter when numbers change. This matches the menu bar pattern established in Phase 2 (StatusBarController uses `NSFont.monospacedDigitSystemFont`).
 
@@ -142,6 +140,7 @@ This phase uses exclusively semantic SwiftUI colors per D-14. No custom hex valu
 | Segments | "Metrics", "Preferences" |
 | Default selection | Metrics (D-06) |
 | Position | Top of popover, full width with 16px horizontal insets |
+| Top margin | 16px from popover top edge |
 | Bottom margin | 16px below segmented control before content begins |
 
 ### Metrics Tab Layout (top to bottom)
@@ -158,7 +157,7 @@ This phase uses exclusively semantic SwiftUI colors per D-14. No custom hex valu
 3. **Interface List**
    - `ScrollView` if content exceeds available height (Claude's discretion)
    - Each row: 44pt minimum height, 16px horizontal padding, 8px vertical padding
-   - Row layout: SF Symbol icon (16pt) + 8px gap + display name (`.body`, `.medium`) | upload speed + download speed (right-aligned, `.body`, `.regular`, `.monospacedDigit()`)
+   - Row layout: SF Symbol icon (16pt) + 8px gap + display name (`.body`, `.regular`) | upload speed + download speed (right-aligned, `.body`, `.regular`, `.monospacedDigit()`)
    - 4px gap between rows (or use `List` with `.insetGrouped` for natural spacing)
    - Upload/download values stacked vertically per interface or shown inline (inline preferred: `arrow.up value arrow.down value`)
 
@@ -167,7 +166,7 @@ This phase uses exclusively semantic SwiftUI colors per D-14. No custom hex valu
 | Element | Position | Font | Color |
 |---------|----------|------|-------|
 | SF Symbol (interface type) | Leading, vertically centered | 16pt symbol | `.secondary` |
-| Interface display name | After icon, 8px gap | `.body` weight `.medium` | `.primary` |
+| Interface display name | After icon, 8px gap | `.body` weight `.regular` | `.primary` |
 | Upload speed | Trailing group, top or inline | `.body` `.monospacedDigit()` | `.primary` |
 | Download speed | Trailing group, bottom or inline | `.body` `.monospacedDigit()` | `.primary` |
 | Arrow indicators | Inline with speed values | `.caption` | `.secondary` |
