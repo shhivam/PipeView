@@ -38,6 +38,11 @@
 		A10000010000000000000042 /* AggregationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000042 /* AggregationEngineTests.swift */; };
 		A10000010000000000000043 /* PruningManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000043 /* PruningManagerTests.swift */; };
 		A10000010000000000000050 /* PopoverTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000050 /* PopoverTab.swift */; };
+		A10000010000000000000051 /* PopoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000051 /* PopoverContentView.swift */; };
+		A10000010000000000000052 /* AggregateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000052 /* AggregateHeaderView.swift */; };
+		A10000010000000000000053 /* InterfaceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000053 /* InterfaceRowView.swift */; };
+		A10000010000000000000054 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000054 /* MetricsView.swift */; };
+		A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000055 /* PreferencesPlaceholderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,11 @@
 		A20000010000000000000042 /* AggregationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationEngineTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000043 /* PruningManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningManagerTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000050 /* PopoverTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTab.swift; sourceTree = "<group>"; };
+		A20000010000000000000051 /* PopoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverContentView.swift; sourceTree = "<group>"; };
+		A20000010000000000000052 /* AggregateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateHeaderView.swift; sourceTree = "<group>"; };
+		A20000010000000000000053 /* InterfaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRowView.swift; sourceTree = "<group>"; };
+		A20000010000000000000054 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+		A20000010000000000000055 /* PreferencesPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				A20000010000000000000050 /* PopoverTab.swift */,
+				A20000010000000000000051 /* PopoverContentView.swift */,
+				A20000010000000000000052 /* AggregateHeaderView.swift */,
+				A20000010000000000000053 /* InterfaceRowView.swift */,
+				A20000010000000000000054 /* MetricsView.swift */,
+				A20000010000000000000055 /* PreferencesPlaceholderView.swift */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -329,6 +344,11 @@
 				A10000010000000000000040 /* AggregationEngine.swift in Sources */,
 				A10000010000000000000041 /* PruningManager.swift in Sources */,
 				A10000010000000000000050 /* PopoverTab.swift in Sources */,
+				A10000010000000000000051 /* PopoverContentView.swift in Sources */,
+				A10000010000000000000052 /* AggregateHeaderView.swift in Sources */,
+				A10000010000000000000053 /* InterfaceRowView.swift in Sources */,
+				A10000010000000000000054 /* MetricsView.swift in Sources */,
+				A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
