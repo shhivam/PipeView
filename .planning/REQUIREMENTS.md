@@ -14,7 +14,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **MON-03**: App records bandwidth samples to SQLite at regular intervals
 - [ ] **MON-04**: App aggregates raw samples into minute, hour, day, week, and month granularity tiers
 - [ ] **MON-05**: App prunes old raw samples while preserving aggregated data to keep database bounded
-- [ ] **MON-06**: App uses less than 1% CPU and minimal RAM during normal operation
+- [x] **MON-06**: App uses less than 1% CPU and minimal RAM during normal operation
 
 ### Menu Bar Display
 
@@ -80,7 +80,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MON-03 | Phase 3: Data Persistence and Aggregation | Pending |
 | MON-04 | Phase 3: Data Persistence and Aggregation | Pending |
 | MON-05 | Phase 3: Data Persistence and Aggregation | Pending |
-| MON-06 | Phase 1: Core Monitoring Engine | Pending |
+| MON-06 | Phase 1: Core Monitoring Engine | Complete |
 | BAR-01 | Phase 2: Menu Bar Display | Pending |
 | BAR-02 | Phase 2: Menu Bar Display | Pending |
 | BAR-03 | Phase 2: Menu Bar Display | Pending |

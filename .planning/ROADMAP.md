@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md -- Project scaffolding, data models, SysctlReader, InterfaceFilter, SpeedComputation, and unit tests
-- [ ] 01-02-PLAN.md -- InterfaceDetector, SleepWakeHandler, NetworkMonitor engine, and integration tests
+- [x] 01-02-PLAN.md -- InterfaceDetector, SleepWakeHandler, NetworkMonitor engine, and integration tests
 
 ### Phase 2: Menu Bar Display
 **Goal**: Users can see their current network speeds at a glance in the macOS menu bar, formatted to their preference, every time their Mac starts
