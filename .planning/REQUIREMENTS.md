@@ -75,30 +75,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MON-01 | — | Pending |
-| MON-02 | — | Pending |
-| MON-03 | — | Pending |
-| MON-04 | — | Pending |
-| MON-05 | — | Pending |
-| MON-06 | — | Pending |
-| BAR-01 | — | Pending |
-| BAR-02 | — | Pending |
-| BAR-03 | — | Pending |
-| BAR-04 | — | Pending |
-| POP-01 | — | Pending |
-| POP-02 | — | Pending |
-| POP-03 | — | Pending |
-| POP-04 | — | Pending |
-| POP-05 | — | Pending |
-| POP-06 | — | Pending |
-| SYS-01 | — | Pending |
-| SYS-02 | — | Pending |
+| MON-01 | Phase 1: Core Monitoring Engine | Pending |
+| MON-02 | Phase 1: Core Monitoring Engine | Pending |
+| MON-03 | Phase 3: Data Persistence and Aggregation | Pending |
+| MON-04 | Phase 3: Data Persistence and Aggregation | Pending |
+| MON-05 | Phase 3: Data Persistence and Aggregation | Pending |
+| MON-06 | Phase 1: Core Monitoring Engine | Pending |
+| BAR-01 | Phase 2: Menu Bar Display | Pending |
+| BAR-02 | Phase 2: Menu Bar Display | Pending |
+| BAR-03 | Phase 2: Menu Bar Display | Pending |
+| BAR-04 | Phase 2: Menu Bar Display | Pending |
+| POP-01 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-02 | Phase 5: Historical Charts, Statistics, and Settings | Pending |
+| POP-03 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-04 | Phase 5: Historical Charts, Statistics, and Settings | Pending |
+| POP-05 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-06 | Phase 4: Popover Shell and Interface Views | Pending |
+| SYS-01 | Phase 2: Menu Bar Display | Pending |
+| SYS-02 | Phase 5: Historical Charts, Statistics, and Settings | Pending |
 
 **Coverage:**
 - v1 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 ⚠️
+- Mapped to phases: 18
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-23*
-*Last updated: 2026-03-23 after initial definition*
+*Last updated: 2026-03-23 after roadmap creation*
