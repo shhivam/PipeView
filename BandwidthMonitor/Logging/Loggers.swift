@@ -1,0 +1,15 @@
+import Foundation
+import os
+
+extension Logger {
+    private static let subsystem = Bundle.main.bundleIdentifier ?? "com.bandwidth-monitor"
+
+    /// Monitoring loop lifecycle, poll timing, sysctl reads
+    static let monitoring = Logger(subsystem: subsystem, category: "monitoring")
+
+    /// Interface detection, enumeration, name resolution
+    static let interfaces = Logger(subsystem: subsystem, category: "interfaces")
+
+    /// Application lifecycle: sleep/wake, launch, terminate
+    static let lifecycle = Logger(subsystem: subsystem, category: "lifecycle")
+}
