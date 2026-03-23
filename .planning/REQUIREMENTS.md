@@ -25,11 +25,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Popover UI
 
-- [ ] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
+- [x] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
 - [ ] **POP-02**: Popover shows historical bar/area charts with switchable time ranges (hour, day, week, month)
-- [ ] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
+- [x] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
 - [ ] **POP-04**: Popover shows cumulative statistics (total data today, this week, this month)
-- [ ] **POP-05**: Popover supports dark mode and light mode automatically
+- [x] **POP-05**: Popover supports dark mode and light mode automatically
 - [ ] **POP-06**: Popover includes a quit button
 
 ### System Integration
@@ -85,11 +85,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BAR-02 | Phase 2: Menu Bar Display | Pending |
 | BAR-03 | Phase 2: Menu Bar Display | Pending |
 | BAR-04 | Phase 2: Menu Bar Display | Pending |
-| POP-01 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-01 | Phase 4: Popover Shell and Interface Views | Complete |
 | POP-02 | Phase 5: Historical Charts, Statistics, and Settings | Pending |
-| POP-03 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-03 | Phase 4: Popover Shell and Interface Views | Complete |
 | POP-04 | Phase 5: Historical Charts, Statistics, and Settings | Pending |
-| POP-05 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-05 | Phase 4: Popover Shell and Interface Views | Complete |
 | POP-06 | Phase 4: Popover Shell and Interface Views | Pending |
 | SYS-01 | Phase 2: Menu Bar Display | Pending |
 | SYS-02 | Phase 5: Historical Charts, Statistics, and Settings | Pending |

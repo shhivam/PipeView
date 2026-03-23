@@ -81,7 +81,7 @@ Plans:
 **UI hint**: yes
 
 Plans:
-- [ ] 04-01-PLAN.md -- SwiftUI popover views: PopoverTab, SF Symbol mapping, AggregateHeaderView, InterfaceRowView, MetricsView, PopoverContentView, PreferencesPlaceholderView
+- [x] 04-01-PLAN.md -- SwiftUI popover views: PopoverTab, SF Symbol mapping, AggregateHeaderView, InterfaceRowView, MetricsView, PopoverContentView, PreferencesPlaceholderView
 - [ ] 04-02-PLAN.md -- StatusBarController refactor for left-click popover + right-click context menu, unit tests, human verification
 
 ### Phase 5: Historical Charts, Statistics, and Settings
