@@ -61,11 +61,12 @@ Plans:
   2. Raw samples are automatically aggregated into minute, hour, day, week, and month granularity tiers
   3. Old raw samples are pruned while aggregated data is preserved, keeping the database size bounded over weeks of use
   4. Database writes do not block or degrade the monitoring loop or menu bar updates
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- GRDB/GRDBQuery SPM setup, AppDatabase with migrations, RawSample and aggregation tier record types
+- [ ] 03-02-PLAN.md -- BandwidthRecorder observer with snapshot accumulation, averaging, and database writing; AppDelegate wiring
+- [ ] 03-03-PLAN.md -- AggregationEngine cascading tier rollup, PruningManager 24h retention, background timer wiring
 
 ### Phase 4: Popover Shell and Interface Views
 **Goal**: Users can click the menu bar item to see a popover window with per-interface bandwidth details, styled correctly for their system appearance
@@ -108,6 +109,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Core Monitoring Engine | 0/2 | Planned | - |
 | 2. Menu Bar Display | 0/2 | Planned | - |
-| 3. Data Persistence and Aggregation | 0/0 | Not started | - |
+| 3. Data Persistence and Aggregation | 0/3 | Planned | - |
 | 4. Popover Shell and Interface Views | 0/0 | Not started | - |
 | 5. Historical Charts, Statistics, and Settings | 0/0 | Not started | - |
