@@ -31,6 +31,8 @@
 		A10000010000000000000021 /* AppDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000021 /* AppDatabaseTests.swift */; };
 		A10000010000000000000022 /* RawSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000022 /* RawSample.swift */; };
 		A10000010000000000000023 /* AggregatedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000023 /* AggregatedSample.swift */; };
+		A10000010000000000000030 /* BandwidthRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000030 /* BandwidthRecorder.swift */; };
+		A10000010000000000000031 /* BandwidthRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000031 /* BandwidthRecorderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		A20000010000000000000021 /* AppDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000022 /* RawSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSample.swift; sourceTree = "<group>"; };
 		A20000010000000000000023 /* AggregatedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedSample.swift; sourceTree = "<group>"; };
+		A20000010000000000000030 /* BandwidthRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandwidthRecorder.swift; sourceTree = "<group>"; };
+		A20000010000000000000031 /* BandwidthRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandwidthRecorderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				A20000010000000000000020 /* AppDatabase.swift */,
+				A20000010000000000000030 /* BandwidthRecorder.swift */,
 				A70000010000000000000009 /* Models */,
 			);
 			path = Persistence;
@@ -175,6 +180,7 @@
 				A20000010000000000000014 /* SpeedFormatterTests.swift */,
 				A20000010000000000000015 /* SpeedTextBuilderTests.swift */,
 				A20000010000000000000021 /* AppDatabaseTests.swift */,
+				A20000010000000000000031 /* BandwidthRecorderTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				A10000010000000000000020 /* AppDatabase.swift in Sources */,
 				A10000010000000000000022 /* RawSample.swift in Sources */,
 				A10000010000000000000023 /* AggregatedSample.swift in Sources */,
+				A10000010000000000000030 /* BandwidthRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +318,7 @@
 				A10000010000000000000011 /* SpeedFormatterTests.swift in Sources */,
 				A10000010000000000000012 /* SpeedTextBuilderTests.swift in Sources */,
 				A10000010000000000000021 /* AppDatabaseTests.swift in Sources */,
+				A10000010000000000000031 /* BandwidthRecorderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
