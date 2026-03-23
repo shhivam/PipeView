@@ -11,6 +11,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusBarController: StatusBarController?
     private let networkMonitor = NetworkMonitor()
 
+    // Phase 3: Database and recording
+    private var appDatabase: AppDatabase?
+    private var bandwidthRecorder: BandwidthRecorder?
+
     // MARK: - NSApplicationDelegate
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -27,6 +31,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         networkMonitor.start()
 
+        // Phase 3: Database + recording
+        do {
+            let database = try AppDatabase.makeDefault()
+            self.appDatabase = database
+
+            let recorder = BandwidthRecorder(
+                networkMonitor: networkMonitor,
+                database: database
+            )
+            recorder.start()
+            self.bandwidthRecorder = recorder
+
+            Logger.lifecycle.info("Database and recorder initialized")
+        } catch {
+            Logger.lifecycle.error("Failed to initialize database: \(error.localizedDescription)")
+            // App continues without recording -- monitoring and menu bar still work
+        }
+
         // D-16: Auto-register as login item on first launch
         registerLoginItem()
 
@@ -34,6 +56,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ notification: Notification) {
+        // Flush any buffered samples before terminating (per Pitfall 5)
+        if let recorder = bandwidthRecorder {
+            let semaphore = DispatchSemaphore(value: 0)
+            Task {
+                await recorder.flush()
+                semaphore.signal()
+            }
+            _ = semaphore.wait(timeout: .now() + 2.0) // 2 second timeout to avoid hanging
+            recorder.stop()
+        }
+
         networkMonitor.stop()
         Logger.lifecycle.info("Application terminating")
     }
