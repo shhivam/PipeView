@@ -10,6 +10,12 @@
 		A10000010000000000000001 /* BandwidthMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* BandwidthMonitorApp.swift */; };
 		A10000010000000000000002 /* NetworkSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* NetworkSample.swift */; };
 		A10000010000000000000003 /* Loggers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* Loggers.swift */; };
+		A10000010000000000000004 /* SysctlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000007 /* SysctlReader.swift */; };
+		A10000010000000000000005 /* InterfaceFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000008 /* InterfaceFilter.swift */; };
+		A10000010000000000000006 /* SpeedComputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000009 /* SpeedComputation.swift */; };
+		A10000010000000000000007 /* SpeedComputationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000A /* SpeedComputationTests.swift */; };
+		A10000010000000000000008 /* InterfaceFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000B /* InterfaceFilterTests.swift */; };
+		A10000010000000000000009 /* SysctlReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000C /* SysctlReaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		A20000010000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20000010000000000000005 /* BandwidthMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandwidthMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20000010000000000000006 /* BandwidthMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BandwidthMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000010000000000000007 /* SysctlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysctlReader.swift; sourceTree = "<group>"; };
+		A20000010000000000000008 /* InterfaceFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceFilter.swift; sourceTree = "<group>"; };
+		A20000010000000000000009 /* SpeedComputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedComputation.swift; sourceTree = "<group>"; };
+		A2000001000000000000000A /* SpeedComputationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedComputationTests.swift; sourceTree = "<group>"; };
+		A2000001000000000000000B /* InterfaceFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceFilterTests.swift; sourceTree = "<group>"; };
+		A2000001000000000000000C /* SysctlReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysctlReaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				A20000010000000000000002 /* NetworkSample.swift */,
+				A20000010000000000000007 /* SysctlReader.swift */,
+				A20000010000000000000008 /* InterfaceFilter.swift */,
+				A20000010000000000000009 /* SpeedComputation.swift */,
 			);
 			path = Monitoring;
 			sourceTree = "<group>";
@@ -88,6 +103,9 @@
 		A70000010000000000000005 /* BandwidthMonitorTests */ = {
 			isa = PBXGroup;
 			children = (
+				A2000001000000000000000A /* SpeedComputationTests.swift */,
+				A2000001000000000000000B /* InterfaceFilterTests.swift */,
+				A2000001000000000000000C /* SysctlReaderTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -189,6 +207,9 @@
 				A10000010000000000000001 /* BandwidthMonitorApp.swift in Sources */,
 				A10000010000000000000002 /* NetworkSample.swift in Sources */,
 				A10000010000000000000003 /* Loggers.swift in Sources */,
+				A10000010000000000000004 /* SysctlReader.swift in Sources */,
+				A10000010000000000000005 /* InterfaceFilter.swift in Sources */,
+				A10000010000000000000006 /* SpeedComputation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000010000000000000007 /* SpeedComputationTests.swift in Sources */,
+				A10000010000000000000008 /* InterfaceFilterTests.swift in Sources */,
+				A10000010000000000000009 /* SysctlReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
