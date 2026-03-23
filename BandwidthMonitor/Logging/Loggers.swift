@@ -12,4 +12,7 @@ extension Logger {
 
     /// Application lifecycle: sleep/wake, launch, terminate
     static let lifecycle = Logger(subsystem: subsystem, category: "lifecycle")
+
+    /// Menu bar status item updates, menu actions
+    static let menuBar = Logger(subsystem: subsystem, category: "menuBar")
 }
