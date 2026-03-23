@@ -29,6 +29,8 @@
 		A10000010000000000000014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000017 /* AppDelegate.swift */; };
 		A10000010000000000000020 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000020 /* AppDatabase.swift */; };
 		A10000010000000000000021 /* AppDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000021 /* AppDatabaseTests.swift */; };
+		A10000010000000000000022 /* RawSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000022 /* RawSample.swift */; };
+		A10000010000000000000023 /* AggregatedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000023 /* AggregatedSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		A20000010000000000000017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20000010000000000000020 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		A20000010000000000000021 /* AppDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000022 /* RawSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSample.swift; sourceTree = "<group>"; };
+		A20000010000000000000023 /* AggregatedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatedSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 		A70000010000000000000009 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A20000010000000000000022 /* RawSample.swift */,
+				A20000010000000000000023 /* AggregatedSample.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 				A10000010000000000000013 /* StatusBarController.swift in Sources */,
 				A10000010000000000000014 /* AppDelegate.swift in Sources */,
 				A10000010000000000000020 /* AppDatabase.swift in Sources */,
+				A10000010000000000000022 /* RawSample.swift in Sources */,
+				A10000010000000000000023 /* AggregatedSample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
