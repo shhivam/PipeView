@@ -15,6 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var appDatabase: AppDatabase?
     private var bandwidthRecorder: BandwidthRecorder?
 
+    // Phase 3: Aggregation and pruning
+    private var aggregationEngine: AggregationEngine?
+    private var pruningManager: PruningManager?
+    private var aggregationTask: Task<Void, Never>?
+    private var pruningTask: Task<Void, Never>?
+
     // MARK: - NSApplicationDelegate
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -43,7 +49,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             recorder.start()
             self.bandwidthRecorder = recorder
 
-            Logger.lifecycle.info("Database and recorder initialized")
+            // Aggregation engine
+            let engine = AggregationEngine(database: database)
+            self.aggregationEngine = engine
+
+            // Pruning manager
+            let pruner = PruningManager(database: database)
+            self.pruningManager = pruner
+
+            // Run pruning on launch (per D-09: catches stale data after days off)
+            Task {
+                try? await pruner.pruneOldSamples()
+                // Run initial aggregation to catch up on any un-aggregated data
+                await engine.runFullAggregation()
+            }
+
+            // Start background aggregation timer (every 2 minutes)
+            // Cascading is fast and idempotent, so a single full cycle is sufficient.
+            aggregationTask = Task { [weak engine] in
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .seconds(120), tolerance: .seconds(10))
+                    guard !Task.isCancelled else { break }
+                    await engine?.runFullAggregation()
+                }
+            }
+
+            // Start background pruning timer (per D-09: once per 24 hours while running)
+            pruningTask = Task { [weak pruner] in
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .seconds(86400), tolerance: .seconds(60))
+                    guard !Task.isCancelled else { break }
+                    try? await pruner?.pruneOldSamples()
+                }
+            }
+
+            Logger.lifecycle.info("Database, recorder, aggregation, and pruning initialized")
         } catch {
             Logger.lifecycle.error("Failed to initialize database: \(error.localizedDescription)")
             // App continues without recording -- monitoring and menu bar still work
@@ -56,6 +96,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ notification: Notification) {
+        // Cancel background aggregation and pruning tasks
+        aggregationTask?.cancel()
+        pruningTask?.cancel()
+
         // Flush any buffered samples before terminating (per Pitfall 5)
         if let recorder = bandwidthRecorder {
             let semaphore = DispatchSemaphore(value: 0)
