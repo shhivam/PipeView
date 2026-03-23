@@ -2,8 +2,8 @@
 phase: 3
 slug: data-persistence-and-aggregation
 status: draft
-nyquist_compliant: false
-wave_0_complete: false
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-03-24
 ---
 
@@ -38,24 +38,31 @@ created: 2026-03-24
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 03-01-01 | 01 | 1 | MON-03 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/AppDatabaseTests -quiet` | ❌ W0 | ⬜ pending |
-| 03-01-02 | 01 | 1 | MON-03 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/BandwidthRecorderTests -quiet` | ❌ W0 | ⬜ pending |
-| 03-01-03 | 01 | 1 | MON-04 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/AggregationEngineTests -quiet` | ❌ W0 | ⬜ pending |
-| 03-01-04 | 01 | 1 | MON-04 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/AggregationEngineTests -quiet` | ❌ W0 | ⬜ pending |
-| 03-01-05 | 01 | 1 | MON-05 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/PruningManagerTests -quiet` | ❌ W0 | ⬜ pending |
+| 03-01-02 | 01 | 1 | MON-03 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/AppDatabaseTests -quiet` | TDD inline | ⬜ pending |
+| 03-02-01 | 02 | 2 | MON-03 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/BandwidthRecorderTests -quiet` | TDD inline | ⬜ pending |
+| 03-03-01 | 03 | 3 | MON-04 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/AggregationEngineTests -quiet` | TDD inline | ⬜ pending |
+| 03-03-01 | 03 | 3 | MON-05 | unit | `xcodebuild test -only-testing:BandwidthMonitorTests/PruningManagerTests -quiet` | TDD inline | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+
+**Notes:**
+- All test files are created inline by their respective TDD tasks (tdd="true"), satisfying Wave 0 requirements without a separate Wave 0 plan.
+- AppDatabaseTests is created by Plan 01 Task 2 (tdd="true").
+- BandwidthRecorderTests is created by Plan 02 Task 1 (tdd="true").
+- AggregationEngineTests and PruningManagerTests are created by Plan 03 Task 1 (tdd="true").
 
 ---
 
 ## Wave 0 Requirements
 
-- [ ] `BandwidthMonitorTests/AppDatabaseTests.swift` — stubs for MON-03 (database creation, migration, table verification)
-- [ ] `BandwidthMonitorTests/BandwidthRecorderTests.swift` — stubs for MON-03 (sample accumulation and writing)
-- [ ] `BandwidthMonitorTests/AggregationEngineTests.swift` — stubs for MON-04 (all tier rollups, idempotency)
-- [ ] `BandwidthMonitorTests/PruningManagerTests.swift` — stubs for MON-05 (raw pruning, aggregate preservation)
-- [ ] GRDB.swift SPM dependency added to test target (BandwidthMonitorTests must link GRDB)
-- [ ] Use in-memory `DatabaseQueue(path: ":memory:")` for tests (faster, no cleanup)
+All Wave 0 requirements are satisfied by TDD inline tasks:
+
+- [x] `BandwidthMonitorTests/AppDatabaseTests.swift` — created by Plan 01 Task 2 (tdd="true"), covers MON-03
+- [x] `BandwidthMonitorTests/BandwidthRecorderTests.swift` — created by Plan 02 Task 1 (tdd="true"), covers MON-03
+- [x] `BandwidthMonitorTests/AggregationEngineTests.swift` — created by Plan 03 Task 1 (tdd="true"), covers MON-04
+- [x] `BandwidthMonitorTests/PruningManagerTests.swift` — created by Plan 03 Task 1 (tdd="true"), covers MON-05
+- [x] GRDB.swift SPM dependency added to test target (BandwidthMonitorTests must link GRDB) — Plan 01 Task 1
+- [x] Use in-memory `DatabaseQueue(path: ":memory:")` for tests (faster, no cleanup)
 
 ---
 
@@ -69,11 +76,11 @@ created: 2026-03-24
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 15s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references (all satisfied by TDD inline)
+- [x] No watch-mode flags
+- [x] Feedback latency < 15s
+- [x] `nyquist_compliant: true` set in frontmatter
 
 **Approval:** pending
