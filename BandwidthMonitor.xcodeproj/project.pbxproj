@@ -43,6 +43,7 @@
 		A10000010000000000000053 /* InterfaceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000053 /* InterfaceRowView.swift */; };
 		A10000010000000000000054 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000054 /* MetricsView.swift */; };
 		A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000055 /* PreferencesPlaceholderView.swift */; };
+		A10000010000000000000060 /* PopoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000060 /* PopoverTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		A20000010000000000000053 /* InterfaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRowView.swift; sourceTree = "<group>"; };
 		A20000010000000000000054 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		A20000010000000000000055 /* PreferencesPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPlaceholderView.swift; sourceTree = "<group>"; };
+		A20000010000000000000060 /* PopoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				A20000010000000000000031 /* BandwidthRecorderTests.swift */,
 				A20000010000000000000042 /* AggregationEngineTests.swift */,
 				A20000010000000000000043 /* PruningManagerTests.swift */,
+				A20000010000000000000060 /* PopoverTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A10000010000000000000031 /* BandwidthRecorderTests.swift in Sources */,
 				A10000010000000000000042 /* AggregationEngineTests.swift in Sources */,
 				A10000010000000000000043 /* PruningManagerTests.swift in Sources */,
+				A10000010000000000000060 /* PopoverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
