@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-23T20:53:33.955Z"
+status: Phase complete — ready for verification
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-03-23T21:05:34.422Z"
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -50,6 +50,7 @@ Plan: 3 of 3
 | Phase 01 P02 | 4min | 2 tasks | 6 files |
 | Phase 03 P01 | 7min | 2 tasks | 6 files |
 | Phase 03 P02 | 14min | 2 tasks | 4 files |
+| Phase 03 P03 | 9min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -68,6 +69,7 @@ Recent decisions affecting current work:
 - [Phase 03]: Separate concrete types per aggregation tier (MinuteSample, HourSample, etc.) per GRDB databaseTableName requirement
 - [Phase 03]: withObservationTracking re-registration pattern for BandwidthRecorder (matches StatusBarController), avoiding AsyncStream @Sendable issues with Swift 6 strict concurrency
 - [Phase 03]: Static nonisolated writeSamples with explicit parameters for off-main-thread DB writes; processAndWrite() as testable entry point
+- [Phase 03]: Single full aggregation cycle every 2 minutes rather than staggered tier timers; watermark-based incremental processing; UTC-only bucketing
 
 ### Pending Todos
 
@@ -81,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-23T20:53:33.952Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-23T21:05:34.419Z
+Stopped at: Completed 03-03-PLAN.md
 Resume file: None

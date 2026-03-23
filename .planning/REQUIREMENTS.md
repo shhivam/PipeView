@@ -12,8 +12,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **MON-01**: App measures real-time upload and download throughput per network interface using sysctl
 - [x] **MON-02**: App identifies and enumerates active network interfaces (Wi-Fi, Ethernet, VPN tunnels) filtering loopback and inactive
 - [x] **MON-03**: App records bandwidth samples to SQLite at regular intervals
-- [ ] **MON-04**: App aggregates raw samples into minute, hour, day, week, and month granularity tiers
-- [ ] **MON-05**: App prunes old raw samples while preserving aggregated data to keep database bounded
+- [x] **MON-04**: App aggregates raw samples into minute, hour, day, week, and month granularity tiers
+- [x] **MON-05**: App prunes old raw samples while preserving aggregated data to keep database bounded
 - [x] **MON-06**: App uses less than 1% CPU and minimal RAM during normal operation
 
 ### Menu Bar Display
@@ -78,8 +78,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MON-01 | Phase 1: Core Monitoring Engine | Complete |
 | MON-02 | Phase 1: Core Monitoring Engine | Complete |
 | MON-03 | Phase 3: Data Persistence and Aggregation | Complete |
-| MON-04 | Phase 3: Data Persistence and Aggregation | Pending |
-| MON-05 | Phase 3: Data Persistence and Aggregation | Pending |
+| MON-04 | Phase 3: Data Persistence and Aggregation | Complete |
+| MON-05 | Phase 3: Data Persistence and Aggregation | Complete |
 | MON-06 | Phase 1: Core Monitoring Engine | Complete |
 | BAR-01 | Phase 2: Menu Bar Display | Pending |
 | BAR-02 | Phase 2: Menu Bar Display | Pending |

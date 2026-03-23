@@ -66,7 +66,7 @@ Plans:
 Plans:
 - [x] 03-01-PLAN.md -- GRDB/GRDBQuery SPM setup, AppDatabase with migrations, RawSample and aggregation tier record types
 - [x] 03-02-PLAN.md -- BandwidthRecorder observer with snapshot accumulation, averaging, and database writing; AppDelegate wiring
-- [ ] 03-03-PLAN.md -- AggregationEngine cascading tier rollup, PruningManager 24h retention, background timer wiring
+- [x] 03-03-PLAN.md -- AggregationEngine cascading tier rollup, PruningManager 24h retention, background timer wiring
 
 ### Phase 4: Popover Shell and Interface Views
 **Goal**: Users can click the menu bar item to see a popover window with per-interface bandwidth details, styled correctly for their system appearance
