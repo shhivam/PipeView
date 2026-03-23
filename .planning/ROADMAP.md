@@ -50,7 +50,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md -- SpeedFormatter and SpeedTextBuilder with TDD (formatting engine for speed text display)
-- [ ] 02-02-PLAN.md -- StatusBarController, AppDelegate, hybrid AppKit+SwiftUI entry point, and login item registration
+- [x] 02-02-PLAN.md -- StatusBarController, AppDelegate, hybrid AppKit+SwiftUI entry point, and login item registration
 
 ### Phase 3: Data Persistence and Aggregation
 **Goal**: The app silently records and aggregates all bandwidth data into SQLite so historical views can query it efficiently
