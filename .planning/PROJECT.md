@@ -15,13 +15,12 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 - [x] Real-time upload/download throughput measurement per network interface — Validated in Phase 1: Core Monitoring Engine
 - [x] Per-interface breakdown (Wi-Fi, Ethernet, etc.) — Validated in Phase 1: Core Monitoring Engine
 - [x] Menu bar display showing current speeds as text (e.g. ↑ 1.2 MB/s ↓ 45 KB/s) — Validated in Phase 2: Menu Bar Display
+- [x] SQLite local database for persistent data storage — Validated in Phase 3: Data Persistence and Aggregation
+- [x] Data recording at minute, hour, day, week, month granularity — Validated in Phase 3: Data Persistence and Aggregation
 
 ### Active
 
 - [ ] User-configurable display units (KB/s, MB/s, Gb/s, auto-scale, etc.) — infrastructure built in Phase 2, user-facing preferences in Phase 5
-
-- [ ] SQLite local database for persistent data storage
-- [ ] Data recording at minute, hour, day, week, month granularity
 - [ ] Medium-sized popover window (~400x500px) on menu bar click
 - [ ] Time series line/area charts for recent bandwidth activity
 - [ ] Bar charts for historical data usage summaries (today, this week, this month)
@@ -79,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 — Phase 2 complete: live menu bar speed display with monospaced digits, context menu, login item registration, 60+ tests passing*
+*Last updated: 2026-03-24 — Phase 3 complete: GRDB persistence layer with raw sample recording, 5-tier cascading aggregation (minute/hour/day/week/month), automatic 24h pruning, 86+ tests passing*
