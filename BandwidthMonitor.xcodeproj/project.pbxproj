@@ -37,6 +37,7 @@
 		A10000010000000000000041 /* PruningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000041 /* PruningManager.swift */; };
 		A10000010000000000000042 /* AggregationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000042 /* AggregationEngineTests.swift */; };
 		A10000010000000000000043 /* PruningManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000043 /* PruningManagerTests.swift */; };
+		A10000010000000000000050 /* PopoverTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000050 /* PopoverTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		A20000010000000000000041 /* PruningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningManager.swift; sourceTree = "<group>"; };
 		A20000010000000000000042 /* AggregationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationEngineTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000043 /* PruningManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningManagerTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000050 /* PopoverTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				A20000010000000000000017 /* AppDelegate.swift */,
 				A70000010000000000000003 /* Monitoring */,
 				A70000010000000000000007 /* MenuBar */,
+				A7000001000000000000000A /* Popover */,
 				A70000010000000000000008 /* Persistence */,
 				A70000010000000000000004 /* Logging */,
 				A20000010000000000000004 /* Info.plist */,
@@ -177,6 +180,14 @@
 				A20000010000000000000023 /* AggregatedSample.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A7000001000000000000000A /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000050 /* PopoverTab.swift */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		A70000010000000000000005 /* BandwidthMonitorTests */ = {
@@ -317,6 +328,7 @@
 				A10000010000000000000030 /* BandwidthRecorder.swift in Sources */,
 				A10000010000000000000040 /* AggregationEngine.swift in Sources */,
 				A10000010000000000000041 /* PruningManager.swift in Sources */,
+				A10000010000000000000050 /* PopoverTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

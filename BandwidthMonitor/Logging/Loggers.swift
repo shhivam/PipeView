@@ -18,4 +18,7 @@ extension Logger {
 
     /// Database operations: writes, aggregation, pruning, migration
     static let persistence = Logger(subsystem: subsystem, category: "persistence")
+
+    /// Popover UI lifecycle, tab navigation, view events
+    static let popover = Logger(subsystem: subsystem, category: "popover")
 }
