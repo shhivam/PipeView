@@ -12,14 +12,15 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Real-time upload/download throughput measurement per network interface — Validated in Phase 1: Core Monitoring Engine
+- [x] Per-interface breakdown (Wi-Fi, Ethernet, etc.) — Validated in Phase 1: Core Monitoring Engine
 
 ### Active
 
-- [ ] Real-time upload/download throughput measurement per network interface
+
 - [ ] Menu bar display showing current speeds as text (e.g. ↑ 1.2 MB/s ↓ 45 MB/s)
 - [ ] User-configurable display units (KB/s, MB/s, Gb/s, auto-scale, etc.)
-- [ ] Per-interface breakdown (Wi-Fi, Ethernet, etc.)
+
 - [ ] SQLite local database for persistent data storage
 - [ ] Data recording at minute, hour, day, week, month granularity
 - [ ] Medium-sized popover window (~400x500px) on menu bar click
@@ -79,4 +80,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-23 after initialization*
+*Last updated: 2026-03-23 — Phase 1 complete: core monitoring engine with per-interface throughput measurement, 29 tests passing*
