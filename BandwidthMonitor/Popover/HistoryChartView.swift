@@ -5,6 +5,8 @@ import Charts
 ///
 /// Renders two `BarMark` per `ChartDataPoint` (download + upload), grouped by direction.
 /// Supports interactive selection with a tooltip showing formatted byte values.
+/// Y-axis is locked to a pre-computed max (CHRT-01), x-axis labels vary per time range (CHRT-02, CHRT-03),
+/// and y-axis labels show auto-scaled KB/MB/GB (CHRT-04).
 struct HistoryChartView: View {
     let dataPoints: [ChartDataPoint]
     let timeRange: HistoryTimeRange
@@ -13,10 +15,83 @@ struct HistoryChartView: View {
 
     private let formatter = ByteFormatter()
 
+    // CHRT-01: Pre-computed y-axis max for stable domain (10% headroom)
+    private var yAxisMax: Double {
+        ChartAxisFormatter.yAxisMaxValue(dataPoints: dataPoints)
+    }
+
+    // CHRT-04: Single unit for all y-axis labels
+    private var yAxisUnit: ChartAxisFormatter.ByteUnit {
+        let maxValue = dataPoints.map { max($0.totalBytesIn, $0.totalBytesOut) }.max() ?? 0
+        return ChartAxisFormatter.selectUnit(forMax: maxValue)
+    }
+
+    // CHRT-04: Pre-computed nice tick values in raw bytes
+    private var yAxisTicks: [Double] {
+        ChartAxisFormatter.niceTickValues(maxBytes: yAxisMax, unit: yAxisUnit)
+    }
+
+    // CHRT-02: "3/18" format for 7D view (short numeric date, NOT day-of-week)
+    private static let shortDateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "M/d"
+        return f
+    }()
+
+    // CHRT-03: "Mar 1" format for 30D view (every 5th day)
+    private static let mediumDateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "MMM d"
+        return f
+    }()
+
     var body: some View {
         ZStack {
-            chart
-                .frame(height: 200)
+            Group {
+                switch timeRange {
+                case .oneHour:
+                    chartBase.chartXAxis {
+                        AxisMarks(values: .stride(by: .minute, count: 15)) { _ in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel(format: .dateTime.hour().minute())
+                        }
+                    }
+                case .twentyFourHours:
+                    chartBase.chartXAxis {
+                        AxisMarks(values: .stride(by: .hour, count: 6)) { _ in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel(format: .dateTime.hour(.defaultDigits(amPM: .abbreviated)))
+                        }
+                    }
+                case .sevenDays:
+                    chartBase.chartXAxis {
+                        AxisMarks(values: .stride(by: .day)) { value in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel {
+                                if let date = value.as(Date.self) {
+                                    Text(Self.shortDateFormatter.string(from: date))
+                                }
+                            }
+                        }
+                    }
+                case .thirtyDays:
+                    chartBase.chartXAxis {
+                        AxisMarks(values: .stride(by: .day, count: 5)) { value in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel {
+                                if let date = value.as(Date.self) {
+                                    Text(Self.mediumDateFormatter.string(from: date))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .frame(height: 200)
 
             // Empty state overlay (per D-12)
             if dataPoints.isEmpty {
@@ -29,7 +104,7 @@ struct HistoryChartView: View {
 
     // MARK: - Chart
 
-    private var chart: some View {
+    private var chartBase: some View {
         Chart {
             ForEach(dataPoints) { point in
                 // Download bar
@@ -63,6 +138,20 @@ struct HistoryChartView: View {
             "Upload": Color.secondary.opacity(0.7)
         ])
         .chartXSelection(value: $selectedTimestamp)
+        // CHRT-01: Lock y-axis to prevent reflow on hover/selection
+        .chartYScale(domain: 0...yAxisMax)
+        // CHRT-04: Human-readable y-axis labels with auto-scaled unit
+        .chartYAxis {
+            AxisMarks(values: yAxisTicks) { value in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel {
+                    if let bytes = value.as(Double.self) {
+                        Text("\(ChartAxisFormatter.formatTick(bytes, unit: yAxisUnit)) \(yAxisUnit.rawValue)")
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - Tooltip
