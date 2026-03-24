@@ -17,7 +17,7 @@ final class BandwidthRecorder {
     let accumulationCount: Int
 
     /// Assumed polling interval for converting speed to bytes
-    let pollingInterval: TimeInterval
+    var pollingInterval: TimeInterval
 
     // MARK: - Dependencies
 
