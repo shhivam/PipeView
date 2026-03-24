@@ -24,15 +24,19 @@ struct StatCardView: View {
             Text(formatter.format(bytes: totalBytes))
                 .font(.title3)
                 .fontWeight(.semibold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
 
             // Per-direction breakdown
             HStack(spacing: 8) {
                 Text("\u{2193} \(formatter.format(bytes: totalIn))")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
+                    .lineLimit(1)
                 Text("\u{2191} \(formatter.format(bytes: totalOut))")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
+                    .lineLimit(1)
             }
         }
         .padding(8)
