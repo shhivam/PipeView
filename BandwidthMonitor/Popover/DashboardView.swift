@@ -1,4 +1,5 @@
 import SwiftUI
+import GRDB
 import os
 
 /// Combined live speeds + history view for the Dashboard tab (per D-04, D-05, D-06).
@@ -6,15 +7,19 @@ import os
 /// Composes the aggregate header, per-interface list, and history section (time range picker,
 /// chart, cumulative stats) in a single scrollable view. Inlines content from MetricsView
 /// and HistoryView to avoid nested ScrollViews (per RESEARCH.md Pitfall 3).
+///
+/// Chart data and cumulative stats are observed reactively via GRDB ValueObservation.
+/// When the aggregation engine writes new data to tier tables (~every 2 minutes),
+/// the observations fire and the UI updates automatically.
 struct DashboardView: View {
     let networkMonitor: NetworkMonitor
     let appDatabase: AppDatabase?
 
     @State private var selectedRange: HistoryTimeRange = .twentyFourHours
     @State private var chartData: [ChartDataPoint] = []
-    @State private var todayStats: (totalIn: Double, totalOut: Double) = (0, 0)
-    @State private var weekStats: (totalIn: Double, totalOut: Double) = (0, 0)
-    @State private var monthStats: (totalIn: Double, totalOut: Double) = (0, 0)
+    @State private var cumulativeStats: CumulativeStats = CumulativeStats(
+        today: (0, 0), week: (0, 0), month: (0, 0)
+    )
 
     var body: some View {
         ScrollView {
@@ -70,64 +75,67 @@ struct DashboardView: View {
 
                     // Cumulative stats
                     CumulativeStatsView(
-                        today: todayStats,
-                        week: weekStats,
-                        month: monthStats
+                        today: cumulativeStats.today,
+                        week: cumulativeStats.week,
+                        month: cumulativeStats.month
                     )
                     .padding(.top, 8)
                 }
             }
         }
-        .task {
-            loadChartData()
-            loadStats()
+        // Chart data observation: restarts when selectedRange changes.
+        // .task(id:) cancels the previous task and starts a new one,
+        // which stops the old ValueObservation and starts a fresh one
+        // for the new tier/time range.
+        .task(id: selectedRange) {
+            await observeChartData()
         }
-        .onChange(of: selectedRange) {
-            loadChartData()
+        // Cumulative stats observation: runs once, auto-updates when
+        // hour_samples table changes via aggregation (~every 2 min).
+        .task {
+            await observeCumulativeStats()
         }
     }
 
-    // MARK: - Data Loading
+    // MARK: - Reactive Data Observation
 
-    private func loadChartData() {
+    /// Observes chart data for the current selectedRange via GRDB ValueObservation.
+    /// Emits new values whenever the underlying aggregation tier table is written to.
+    /// Cancelled automatically by SwiftUI when the view disappears or selectedRange changes.
+    private func observeChartData() async {
         guard let appDatabase else { return }
         let since = Date.now.addingTimeInterval(-selectedRange.timeInterval)
+        let observation = appDatabase.observeChartData(
+            tier: selectedRange.tier,
+            since: since
+        )
         do {
-            chartData = try appDatabase.fetchChartData(
-                tier: selectedRange.tier,
-                since: since
-            )
-            Logger.history.debug("Loaded \(chartData.count) chart data points for \(selectedRange.rawValue)")
+            for try await newData in observation.values(in: appDatabase.dbWriter) {
+                chartData = newData
+            }
+        } catch is CancellationError {
+            // Task cancelled (view disappeared or selectedRange changed) -- expected
         } catch {
-            Logger.history.error("Failed to load chart data: \(error.localizedDescription)")
+            Logger.history.error("Chart data observation failed: \(error.localizedDescription)")
             chartData = []
         }
     }
 
-    private func loadStats() {
+    /// Observes cumulative stats (Today/Week/Month) via GRDB ValueObservation.
+    /// Emits new values whenever hour_samples table is written to (~every 2 min).
+    /// Cancelled automatically by SwiftUI when the view disappears.
+    private func observeCumulativeStats() async {
         guard let appDatabase else { return }
-        let calendar = Calendar.current
-        let now = Date.now
-
-        // Today: start of current day in local timezone (per Pitfall 6)
-        let todayStart = calendar.startOfDay(for: now)
-
-        // This Week: start of current week in local timezone
-        let weekStart = calendar.dateInterval(of: .weekOfYear, for: now)?.start ?? todayStart
-
-        // This Month: start of current month in local timezone
-        let monthStart = calendar.dateInterval(of: .month, for: now)?.start ?? todayStart
-
+        let observation = appDatabase.observeCumulativeStats()
         do {
-            todayStats = try appDatabase.fetchCumulativeStats(since: todayStart)
-            weekStats = try appDatabase.fetchCumulativeStats(since: weekStart)
-            monthStats = try appDatabase.fetchCumulativeStats(since: monthStart)
-            Logger.history.debug("Loaded cumulative stats: today, week, month")
+            for try await newStats in observation.values(in: appDatabase.dbWriter) {
+                cumulativeStats = newStats
+            }
+        } catch is CancellationError {
+            // Task cancelled (view disappeared) -- expected
         } catch {
-            Logger.history.error("Failed to load cumulative stats: \(error.localizedDescription)")
-            todayStats = (0, 0)
-            weekStats = (0, 0)
-            monthStats = (0, 0)
+            Logger.history.error("Cumulative stats observation failed: \(error.localizedDescription)")
+            cumulativeStats = CumulativeStats(today: (0, 0), week: (0, 0), month: (0, 0))
         }
     }
 }

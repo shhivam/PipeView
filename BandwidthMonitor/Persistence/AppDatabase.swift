@@ -145,3 +145,83 @@ extension AppDatabase {
         }
     }
 }
+
+// MARK: - Reactive Observations (ValueObservation)
+
+extension AppDatabase {
+
+    /// Returns a ValueObservation that tracks chart data for a given tier and time range.
+    /// Emits a new value whenever the underlying aggregation tier table changes.
+    /// Use with `observation.values(in:)` for an async sequence in SwiftUI `.task {}`.
+    func observeChartData(tier: AggregationTier, since: Date) -> ValueObservation<ValueReducers.Fetch<[ChartDataPoint]>> {
+        let sinceEpoch = since.timeIntervalSince1970
+        let tableName = tier.tableName
+        return ValueObservation.tracking { db in
+            let sql = """
+                SELECT bucketTimestamp,
+                       SUM(totalBytesIn) AS totalIn,
+                       SUM(totalBytesOut) AS totalOut
+                FROM \(tableName)
+                WHERE bucketTimestamp >= ?
+                GROUP BY bucketTimestamp
+                ORDER BY bucketTimestamp ASC
+                """
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [sinceEpoch])
+            return rows.map { row in
+                ChartDataPoint(
+                    timestamp: Date(timeIntervalSince1970: row["bucketTimestamp"]),
+                    totalBytesIn: row["totalIn"],
+                    totalBytesOut: row["totalOut"]
+                )
+            }
+        }
+    }
+
+    /// Returns a ValueObservation that tracks cumulative stats from hour_samples.
+    /// Emits a new `CumulativeStats` whenever hour_samples changes (every ~2 min aggregation).
+    func observeCumulativeStats() -> ValueObservation<ValueReducers.Fetch<CumulativeStats>> {
+        ValueObservation.tracking { db in
+            let calendar = Calendar.current
+            let now = Date.now
+
+            let todayStart = calendar.startOfDay(for: now)
+            let weekStart = calendar.dateInterval(of: .weekOfYear, for: now)?.start ?? todayStart
+            let monthStart = calendar.dateInterval(of: .month, for: now)?.start ?? todayStart
+
+            func fetchStats(since: Date, from db: Database) throws -> (totalIn: Double, totalOut: Double) {
+                let sinceEpoch = since.timeIntervalSince1970
+                let sql = """
+                    SELECT COALESCE(SUM(totalBytesIn), 0) AS totalIn,
+                           COALESCE(SUM(totalBytesOut), 0) AS totalOut
+                    FROM hour_samples
+                    WHERE bucketTimestamp >= ?
+                    """
+                let row = try Row.fetchOne(db, sql: sql, arguments: [sinceEpoch])!
+                return (totalIn: row["totalIn"], totalOut: row["totalOut"])
+            }
+
+            let today = try fetchStats(since: todayStart, from: db)
+            let week = try fetchStats(since: weekStart, from: db)
+            let month = try fetchStats(since: monthStart, from: db)
+
+            return CumulativeStats(today: today, week: week, month: month)
+        }
+    }
+}
+
+/// Container for cumulative stats across three time periods.
+/// Used by `observeCumulativeStats()` ValueObservation to emit all three periods atomically.
+struct CumulativeStats: Sendable, Equatable {
+    let today: (totalIn: Double, totalOut: Double)
+    let week: (totalIn: Double, totalOut: Double)
+    let month: (totalIn: Double, totalOut: Double)
+
+    static func == (lhs: CumulativeStats, rhs: CumulativeStats) -> Bool {
+        lhs.today.totalIn == rhs.today.totalIn &&
+        lhs.today.totalOut == rhs.today.totalOut &&
+        lhs.week.totalIn == rhs.week.totalIn &&
+        lhs.week.totalOut == rhs.week.totalOut &&
+        lhs.month.totalIn == rhs.month.totalIn &&
+        lhs.month.totalOut == rhs.month.totalOut
+    }
+}

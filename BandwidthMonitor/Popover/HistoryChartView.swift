@@ -92,6 +92,9 @@ struct HistoryChartView: View {
                 }
             }
             .frame(height: 200)
+            // Prevent y-axis labels (especially the topmost) from overflowing
+            // above the chart frame and overlapping with the interface breakdown section.
+            .clipped()
 
             // Empty state overlay (per D-12)
             if dataPoints.isEmpty {
@@ -100,6 +103,9 @@ struct HistoryChartView: View {
                     .font(.callout)
             }
         }
+        // Reserve space above the chart so the topmost y-axis label has room
+        // to render within the clipped bounds without being cut off.
+        .padding(.top, 4)
     }
 
     // MARK: - Chart

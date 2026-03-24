@@ -65,11 +65,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 await engine.runFullAggregation()
             }
 
-            // Start background aggregation timer (every 2 minutes)
+            // Start background aggregation timer (every 10 seconds)
             // Cascading is fast and idempotent, so a single full cycle is sufficient.
             aggregationTask = Task { [weak engine] in
                 while !Task.isCancelled {
-                    try? await Task.sleep(for: .seconds(120), tolerance: .seconds(10))
+                    try? await Task.sleep(for: .seconds(10), tolerance: .seconds(2))
                     guard !Task.isCancelled else { break }
                     await engine?.runFullAggregation()
                 }
