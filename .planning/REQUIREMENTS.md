@@ -42,19 +42,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| UIST-01 | — | Pending |
-| UIST-02 | — | Pending |
-| CHRT-01 | — | Pending |
-| CHRT-02 | — | Pending |
-| CHRT-03 | — | Pending |
-| CHRT-04 | — | Pending |
-| LYOT-01 | — | Pending |
+| UIST-01 | Phase 8 | Pending |
+| UIST-02 | Phase 8 | Pending |
+| CHRT-01 | Phase 9 | Pending |
+| CHRT-02 | Phase 9 | Pending |
+| CHRT-03 | Phase 9 | Pending |
+| CHRT-04 | Phase 9 | Pending |
+| LYOT-01 | Phase 9 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 7 total
-- Mapped to phases: 0
-- Unmapped: 7 ⚠️
+- Mapped to phases: 7
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-24*
-*Last updated: 2026-03-24 after initial definition*
+*Last updated: 2026-03-24 after roadmap creation*
