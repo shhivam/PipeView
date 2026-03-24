@@ -31,6 +31,11 @@ struct HistoryChartView: View {
         ChartAxisFormatter.niceTickValues(maxBytes: yAxisMax, unit: yAxisUnit)
     }
 
+    // X-axis domain: always span the full selected time range regardless of data sparsity
+    private var xDomainStart: Date {
+        Date.now.addingTimeInterval(-timeRange.timeInterval)
+    }
+
     // CHRT-02: "3/18" format for 7D view (short numeric date, NOT day-of-week)
     private static let shortDateFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -144,6 +149,8 @@ struct HistoryChartView: View {
             "Upload": Color.secondary.opacity(0.7)
         ])
         .chartXSelection(value: $selectedTimestamp)
+        // Lock x-axis to the full selected time range so sparse data doesn't compress the axis
+        .chartXScale(domain: xDomainStart...Date.now)
         // CHRT-01: Lock y-axis to prevent reflow on hover/selection
         .chartYScale(domain: 0...yAxisMax)
         // CHRT-04: Human-readable y-axis labels with auto-scaled unit
