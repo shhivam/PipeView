@@ -1,15 +1,15 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: v1.0 milestone complete
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-03-24T08:50:39.467Z"
+milestone: v1.1
+milestone_name: UI Polish & Chart Fixes
+status: Defining requirements
+stopped_at: null
+last_updated: "2026-03-24T09:00:00.000Z"
 progress:
-  total_phases: 7
-  completed_phases: 7
-  total_plans: 14
-  completed_plans: 14
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
 ---
 
 # Project State
@@ -19,11 +19,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** Reliable, always-visible network throughput monitoring -- glance at the menu bar for current speeds, open the popover for usage patterns over time
-**Current focus:** Planning next milestone
+**Current focus:** v1.1 UI Polish & Chart Fixes
 
 ## Current Position
 
-Milestone v1.0 complete. No active phase.
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-24 — Milestone v1.1 started
 
 ## Performance Metrics
 

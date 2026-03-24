@@ -41,7 +41,22 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 
 ### Active
 
-(none — planning next milestone)
+- [ ] Merge Metrics + History into a single combined tab
+- [ ] Replace NSPopover with floating utility panel
+- [ ] Fix chart hover behavior (y-axis shift / compression)
+- [ ] Fix 7D view — one bar per day with proper labels
+- [ ] Fix 30D view — one bar per day with proper labels
+- [ ] Human-readable y-axis labels (KB/MB/GB)
+- [ ] Fix stat card text wrapping
+
+## Current Milestone: v1.1 UI Polish & Chart Fixes
+
+**Goal:** Improve the popover UI — combine tabs, fix chart rendering issues, and upgrade to a floating panel window for more space.
+
+**Target features:**
+- Merge Metrics + History into single combined tab (live speeds at top, charts + stats below)
+- Replace NSPopover with floating utility panel (always-on-top, dismisses on focus loss)
+- Fix chart hover, 7D/30D views, y-axis formatting, and stat card layout
 
 ### Out of Scope
 
@@ -100,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 after v1.0 milestone*
+*Last updated: 2026-03-24 after v1.1 milestone started*
