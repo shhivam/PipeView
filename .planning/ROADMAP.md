@@ -93,12 +93,13 @@ Plans:
   2. The popover displays cumulative statistics showing total data transferred today, this week, and this month
   3. A preferences interface allows the user to configure display units, display format, update interval, and other settings
   4. Chart data loads quickly from pre-aggregated tables without visible delay when switching time ranges
-**Plans**: TBD
+**Plans**: 3 plans
 **UI hint**: yes
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md -- Data layer foundation: shared types (PreferenceKeys, ByteFormatter, HistoryTimeRange, ChartDataPoint), AppDatabase query methods, unit tests
+- [ ] 05-02-PLAN.md -- History tab UI: PopoverTab.history, HistoryView, HistoryChartView, CumulativeStatsView, StatCardView, PopoverContentView updates
+- [ ] 05-03-PLAN.md -- Preferences UI and wiring: PreferencesView, StatusBarController preference reading, NetworkMonitor interval update, human verification
 
 ## Progress
 
@@ -111,4 +112,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Menu Bar Display | 0/2 | Planned | - |
 | 3. Data Persistence and Aggregation | 0/3 | Planned | - |
 | 4. Popover Shell and Interface Views | 0/2 | Planned | - |
-| 5. Historical Charts, Statistics, and Settings | 0/0 | Not started | - |
+| 5. Historical Charts, Statistics, and Settings | 0/3 | Planned | - |
