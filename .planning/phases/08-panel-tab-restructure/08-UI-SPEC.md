@@ -42,7 +42,7 @@ Declared values (must be multiples of 4). Derived from existing codebase pattern
 | 3xl | 64px | Not used in this phase |
 
 Exceptions:
-- 6px -- tooltip internal padding and tooltip indicator-to-text spacing (HistoryChartView tooltip, inherited from v1.0)
+- 8px -- tooltip internal padding and tooltip indicator-to-text spacing (HistoryChartView tooltip, updated from 6px v1.0 to align with grid)
 - 12px -- speed value pair spacing in InterfaceRowView (upload-to-download gap), chart top padding below time range picker
 - 44px -- minimum row height for InterfaceRowView (accessibility touch target, inherited from v1.0)
 
@@ -56,12 +56,10 @@ All sizes use the macOS San Francisco system font. SwiftUI semantic font styles 
 |------|--------------|------------------|--------|-------------|-------|
 | Display | `.title2.monospacedDigit()` | 22pt | `.semibold` (600) | System default (~1.2) | AggregateHeaderView: primary upload/download speed values |
 | Heading | `.title3` | 20pt | `.semibold` (600) | System default (~1.2) | StatCardView: primary cumulative total (e.g., "1.24 GB") |
-| Body | `.body` / `.body.monospacedDigit()` | 13pt | `.regular` (400) | System default (~1.4) | InterfaceRowView: interface names and per-interface speed values |
-| Label | `.caption` | 10pt | `.regular` (400) | System default (~1.3) | StatCardView title labels ("Today", "This Week", "This Month") |
-| Small | `.caption2` | 10pt | `.regular` (400) | System default (~1.3) | StatCardView per-direction breakdowns, chart tooltip text |
-| Secondary | `.subheadline` / `.callout` | 12pt / 12pt | `.regular` (400) | System default (~1.4) | Empty state messages |
+| Body | `.body` / `.body.monospacedDigit()` | 13pt | `.regular` (400) | System default (~1.4) | InterfaceRowView: interface names and per-interface speed values, empty state messages |
+| Label | `.caption` / `.caption.monospacedDigit()` | 10pt | `.regular` (400) | System default (~1.3) | StatCardView title labels ("Today", "This Week", "This Month"), StatCardView per-direction breakdowns, chart tooltip text |
 
-**Weights used (exactly 2):** `.regular` (400) for body text, labels, and secondary content; `.semibold` (600) for primary speed values and stat totals.
+**Weights used (exactly 2):** `.regular` (400) for body text and labels; `.semibold` (600) for primary speed values and stat totals.
 
 **Monospaced digits:** All numeric speed/byte values use `.monospacedDigit()` to prevent layout jitter during live updates.
 
