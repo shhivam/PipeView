@@ -100,16 +100,48 @@ final class AppDatabase: Sendable {
 extension AppDatabase {
 
     /// Fetches chart data points for a given aggregation tier, summed across all interfaces.
-    /// Returns points sorted by timestamp ASC.
+    /// Returns points sorted by timestamp ASC (per D-07: aggregate across interfaces).
     func fetchChartData(tier: AggregationTier, since: Date) throws -> [ChartDataPoint] {
-        // Stub: returns empty to fail tests
-        return []
+        let sinceEpoch = since.timeIntervalSince1970
+        let sql = """
+            SELECT bucketTimestamp,
+                   SUM(totalBytesIn) AS totalIn,
+                   SUM(totalBytesOut) AS totalOut
+            FROM \(tier.tableName)
+            WHERE bucketTimestamp >= ?
+            GROUP BY bucketTimestamp
+            ORDER BY bucketTimestamp ASC
+            """
+
+        return try dbWriter.read { db in
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [sinceEpoch])
+            return rows.map { row in
+                ChartDataPoint(
+                    timestamp: Date(timeIntervalSince1970: row["bucketTimestamp"]),
+                    totalBytesIn: row["totalIn"],
+                    totalBytesOut: row["totalOut"]
+                )
+            }
+        }
     }
 
     /// Fetches cumulative bytes (in + out) from hour_samples since the given date.
     /// Uses hour_samples for partial-day accuracy (more current than day_samples).
+    /// Caller computes local timezone start-of-period (per Pitfall 6: UTC vs local time).
     func fetchCumulativeStats(since: Date) throws -> (totalIn: Double, totalOut: Double) {
-        // Stub: returns zeroes to fail tests
-        return (0, 0)
+        let sinceEpoch = since.timeIntervalSince1970
+        let sql = """
+            SELECT COALESCE(SUM(totalBytesIn), 0) AS totalIn,
+                   COALESCE(SUM(totalBytesOut), 0) AS totalOut
+            FROM hour_samples
+            WHERE bucketTimestamp >= ?
+            """
+
+        return try dbWriter.read { db in
+            let row = try Row.fetchOne(db, sql: sql, arguments: [sinceEpoch])!
+            let totalIn: Double = row["totalIn"]
+            let totalOut: Double = row["totalOut"]
+            return (totalIn: totalIn, totalOut: totalOut)
+        }
     }
 }
