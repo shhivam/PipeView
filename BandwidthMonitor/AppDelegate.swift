@@ -21,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var aggregationTask: Task<Void, Never>?
     private var pruningTask: Task<Void, Never>?
 
+    // Phase 5: UserDefaults observer for update interval preference
+    private var preferencesObserver: NSObjectProtocol?
+
     // MARK: - NSApplicationDelegate
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -90,7 +93,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         statusBarController?.setup()
 
+        // Phase 5: Set initial polling interval from user preference before starting
+        let initialInterval = UpdateIntervalPref(
+            rawValue: UserDefaults.standard.integer(forKey: PreferenceKey.updateInterval)
+        ) ?? .twoSeconds
+        networkMonitor.pollingInterval = initialInterval.duration
+
         networkMonitor.start()
+
+        // Phase 5: Observe update interval preference changes (Pitfall 7)
+        // Note: The closure is @Sendable but runs on .main queue, so we use
+        // MainActor.assumeIsolated to access @MainActor properties safely.
+        preferencesObserver = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                let intervalPref = UpdateIntervalPref(
+                    rawValue: UserDefaults.standard.integer(forKey: PreferenceKey.updateInterval)
+                ) ?? .twoSeconds
+                self.networkMonitor.pollingInterval = intervalPref.duration
+            }
+        }
 
         // D-16: Auto-register as login item on first launch
         registerLoginItem()

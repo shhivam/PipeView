@@ -42,7 +42,7 @@
 		A10000010000000000000052 /* AggregateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000052 /* AggregateHeaderView.swift */; };
 		A10000010000000000000053 /* InterfaceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000053 /* InterfaceRowView.swift */; };
 		A10000010000000000000054 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000054 /* MetricsView.swift */; };
-		A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000055 /* PreferencesPlaceholderView.swift */; };
+		A10000010000000000000055 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000055 /* PreferencesView.swift */; };
 		A10000010000000000000060 /* PopoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000060 /* PopoverTests.swift */; };
 		A10000010000000000000070 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000070 /* PreferenceKeys.swift */; };
 		A10000010000000000000071 /* ByteFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000071 /* ByteFormatter.swift */; };
@@ -107,7 +107,7 @@
 		A20000010000000000000052 /* AggregateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateHeaderView.swift; sourceTree = "<group>"; };
 		A20000010000000000000053 /* InterfaceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceRowView.swift; sourceTree = "<group>"; };
 		A20000010000000000000054 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
-		A20000010000000000000055 /* PreferencesPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPlaceholderView.swift; sourceTree = "<group>"; };
+		A20000010000000000000055 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		A20000010000000000000060 /* PopoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000070 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		A20000010000000000000071 /* ByteFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteFormatter.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				A20000010000000000000052 /* AggregateHeaderView.swift */,
 				A20000010000000000000053 /* InterfaceRowView.swift */,
 				A20000010000000000000054 /* MetricsView.swift */,
-				A20000010000000000000055 /* PreferencesPlaceholderView.swift */,
+				A20000010000000000000055 /* PreferencesView.swift */,
 				A20000010000000000000080 /* HistoryView.swift */,
 				A20000010000000000000081 /* HistoryChartView.swift */,
 				A20000010000000000000082 /* CumulativeStatsView.swift */,
@@ -395,7 +395,7 @@
 				A10000010000000000000052 /* AggregateHeaderView.swift in Sources */,
 				A10000010000000000000053 /* InterfaceRowView.swift in Sources */,
 				A10000010000000000000054 /* MetricsView.swift in Sources */,
-				A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */,
+				A10000010000000000000055 /* PreferencesView.swift in Sources */,
 				A10000010000000000000070 /* PreferenceKeys.swift in Sources */,
 				A10000010000000000000071 /* ByteFormatter.swift in Sources */,
 				A10000010000000000000072 /* HistoryTimeRange.swift in Sources */,

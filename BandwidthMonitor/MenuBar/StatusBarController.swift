@@ -12,10 +12,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private let appDatabase: AppDatabase?
     private let textBuilder = SpeedTextBuilder()
 
-    // Hardcoded defaults for Phase 2 (preferences deferred to Phase 5)
-    private let displayMode: DisplayMode = .auto
-    private let unitMode: SpeedFormatter.UnitMode = .auto
-
     // Phase 4: Popover + context menu
     private var selectedTab: PopoverTab = .metrics
     private lazy var popover: NSPopover = {
@@ -82,10 +78,20 @@ final class StatusBarController: NSObject, NSMenuDelegate {
             let speed = self.networkMonitor.aggregateSpeed
             let hasInterfaces = !self.networkMonitor.interfaceSpeeds.isEmpty
 
+            // D-15: Read display preferences from UserDefaults on each cycle.
+            // Since withObservationTracking re-registers every ~2 seconds,
+            // preference changes are picked up within one poll cycle.
+            let displayModePref = DisplayModePref(
+                rawValue: UserDefaults.standard.string(forKey: PreferenceKey.displayMode) ?? "auto"
+            ) ?? .auto
+            let unitModePref = UnitModePref(
+                rawValue: UserDefaults.standard.string(forKey: PreferenceKey.unitMode) ?? "auto"
+            ) ?? .auto
+
             let text = self.textBuilder.build(
                 speed: speed,
-                mode: self.displayMode,
-                unit: self.unitMode,
+                mode: displayModePref.toDisplayMode(),
+                unit: unitModePref.toUnitMode(),
                 hasInterfaces: hasInterfaces
             )
 

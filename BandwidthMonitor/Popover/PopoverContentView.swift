@@ -28,7 +28,7 @@ struct PopoverContentView: View {
             case .history:
                 HistoryView(appDatabase: appDatabase)
             case .preferences:
-                PreferencesPlaceholderView()
+                PreferencesView()
             }
         }
         .frame(width: 400, height: 550)
