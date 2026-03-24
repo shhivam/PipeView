@@ -56,4 +56,8 @@ enum UpdateIntervalPref: Int, CaseIterable, Sendable {
     var duration: Duration {
         return .seconds(rawValue)
     }
+
+    var timeInterval: TimeInterval {
+        return TimeInterval(rawValue)
+    }
 }

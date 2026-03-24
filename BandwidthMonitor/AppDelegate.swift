@@ -32,6 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             withLength: NSStatusItem.variableLength
         )
 
+        // Phase 6: Compute initial interval once, used for both NetworkMonitor and BandwidthRecorder
+        let initialInterval = UpdateIntervalPref(
+            rawValue: UserDefaults.standard.integer(forKey: PreferenceKey.updateInterval)
+        ) ?? .twoSeconds
+
         // Phase 3: Database + recording
         do {
             let database = try AppDatabase.makeDefault()
@@ -39,7 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             let recorder = BandwidthRecorder(
                 networkMonitor: networkMonitor,
-                database: database
+                database: database,
+                pollingInterval: initialInterval.timeInterval
             )
             recorder.start()
             self.bandwidthRecorder = recorder
@@ -94,9 +100,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarController?.setup()
 
         // Phase 5: Set initial polling interval from user preference before starting
-        let initialInterval = UpdateIntervalPref(
-            rawValue: UserDefaults.standard.integer(forKey: PreferenceKey.updateInterval)
-        ) ?? .twoSeconds
         networkMonitor.pollingInterval = initialInterval.duration
 
         networkMonitor.start()
@@ -115,6 +118,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     rawValue: UserDefaults.standard.integer(forKey: PreferenceKey.updateInterval)
                 ) ?? .twoSeconds
                 self.networkMonitor.pollingInterval = intervalPref.duration
+                self.bandwidthRecorder?.pollingInterval = intervalPref.timeInterval
             }
         }
 
