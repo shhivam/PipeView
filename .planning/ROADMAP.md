@@ -115,7 +115,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 06-01-PLAN.md -- Make BandwidthRecorder.pollingInterval mutable, wire AppDelegate preference observer, add multi-interval tests
+- [x] 06-01-PLAN.md -- Make BandwidthRecorder.pollingInterval mutable, wire AppDelegate preference observer, add multi-interval tests
 
 ### Phase 7: Verification and Artifact Cleanup
 **Goal**: All phases have verification artifacts and all requirement checkboxes accurately reflect implementation status
