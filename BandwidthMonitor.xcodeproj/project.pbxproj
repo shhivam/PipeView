@@ -56,6 +56,7 @@
 		A10000010000000000000081 /* HistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000081 /* HistoryChartView.swift */; };
 		A10000010000000000000082 /* CumulativeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000082 /* CumulativeStatsView.swift */; };
 		A10000010000000000000083 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000083 /* StatCardView.swift */; };
+		A10000010000000000000090 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000090 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		A20000010000000000000081 /* HistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChartView.swift; sourceTree = "<group>"; };
 		A20000010000000000000082 /* CumulativeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeStatsView.swift; sourceTree = "<group>"; };
 		A20000010000000000000083 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
+		A20000010000000000000090 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			children = (
 				A20000010000000000000050 /* PopoverTab.swift */,
 				A20000010000000000000051 /* PopoverContentView.swift */,
+				A20000010000000000000090 /* DashboardView.swift */,
 				A20000010000000000000052 /* AggregateHeaderView.swift */,
 				A20000010000000000000053 /* InterfaceRowView.swift */,
 				A20000010000000000000054 /* MetricsView.swift */,
@@ -404,6 +407,7 @@
 				A10000010000000000000081 /* HistoryChartView.swift in Sources */,
 				A10000010000000000000082 /* CumulativeStatsView.swift in Sources */,
 				A10000010000000000000083 /* StatCardView.swift in Sources */,
+				A10000010000000000000090 /* DashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

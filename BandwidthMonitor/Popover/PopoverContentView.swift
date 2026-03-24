@@ -1,10 +1,9 @@
 import SwiftUI
 
-/// Root view for the popover content, with a segmented tab switcher (per D-04, D-06, D-15, POP-01).
+/// Root view for the panel content, with a segmented tab switcher (per D-07, D-09, D-10).
 ///
-/// Takes a `@Binding` for tab selection so that the StatusBarController (Plan 02) can
-/// drive tab selection from the right-click context menu (per D-03). The default selection
-/// of `.metrics` (per D-06) is set by the StatusBarController when it initializes the shared tab state.
+/// Shows a 2-segment picker (Dashboard | Preferences) at the top. The Dashboard tab
+/// shows the combined DashboardView with live speeds and history. Preferences is unchanged.
 struct PopoverContentView: View {
     let networkMonitor: NetworkMonitor
     let appDatabase: AppDatabase?
@@ -23,14 +22,15 @@ struct PopoverContentView: View {
             .padding(.bottom, 16)
 
             switch popoverState.selectedTab {
-            case .metrics:
-                MetricsView(networkMonitor: networkMonitor)
-            case .history:
-                HistoryView(appDatabase: appDatabase)
+            case .dashboard:
+                DashboardView(
+                    networkMonitor: networkMonitor,
+                    appDatabase: appDatabase
+                )
             case .preferences:
                 PreferencesView()
             }
         }
-        .frame(width: 400, height: 550)
+        .frame(width: 480, height: 650)
     }
 }

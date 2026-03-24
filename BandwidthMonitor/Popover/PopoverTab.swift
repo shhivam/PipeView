@@ -1,11 +1,10 @@
 import Network
 import Observation
 
-/// Tab state for the popover's segmented control (per D-04, D-06)
-/// Order determines segmented control layout: Metrics | History | Preferences
+/// Tab state for the panel's segmented control (per D-07)
+/// Order determines segmented control layout: Dashboard | Preferences
 enum PopoverTab: String, CaseIterable, Sendable {
-    case metrics = "Metrics"
-    case history = "History"
+    case dashboard = "Dashboard"
     case preferences = "Preferences"
 }
 
@@ -14,7 +13,7 @@ enum PopoverTab: String, CaseIterable, Sendable {
 /// trigger SwiftUI view updates.
 @MainActor @Observable
 final class PopoverState {
-    var selectedTab: PopoverTab = .metrics
+    var selectedTab: PopoverTab = .dashboard
 }
 
 /// Maps an interface's type and BSD name to the appropriate SF Symbol (per D-08).

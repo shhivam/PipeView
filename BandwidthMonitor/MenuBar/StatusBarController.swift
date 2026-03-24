@@ -119,8 +119,8 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         if popover.isShown {
             popover.performClose(nil)
         } else if let button = statusItem.button {
-            // D-06: Default to Metrics tab on left-click open
-            popoverState.selectedTab = .metrics
+            // D-07: Default to Dashboard tab on left-click open
+            popoverState.selectedTab = .dashboard
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
     }
@@ -146,21 +146,13 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         let menu = NSMenu()
         menu.delegate = self
 
-        let metrics = NSMenuItem(
-            title: "Metrics",
-            action: #selector(showMetrics),
+        let dashboard = NSMenuItem(
+            title: "Dashboard",
+            action: #selector(showDashboard),
             keyEquivalent: ""
         )
-        metrics.target = self
-        menu.addItem(metrics)
-
-        let history = NSMenuItem(
-            title: "History",
-            action: #selector(showHistory),
-            keyEquivalent: ""
-        )
-        history.target = self
-        menu.addItem(history)
+        dashboard.target = self
+        menu.addItem(dashboard)
 
         let prefs = NSMenuItem(
             title: "Preferences",
@@ -192,13 +184,8 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     // MARK: - Context Menu Actions (D-03)
 
-    @objc private func showMetrics() {
-        popoverState.selectedTab = .metrics
-        showPopover()
-    }
-
-    @objc private func showHistory() {
-        popoverState.selectedTab = .history
+    @objc private func showDashboard() {
+        popoverState.selectedTab = .dashboard
         showPopover()
     }
 
