@@ -226,4 +226,121 @@ final class BandwidthRecorderTests: XCTestCase {
 
         XCTAssertEqual(count, 0, "Empty snapshots should not produce any writes")
     }
+
+    // MARK: - Test 7: 1-second polling interval produces correct bytes
+
+    @MainActor
+    func testOneSecondPollingIntervalProducesCorrectBytes() async throws {
+        let db = try AppDatabase.makeEmpty()
+        let monitor = NetworkMonitor()
+        let recorder = BandwidthRecorder(
+            networkMonitor: monitor,
+            database: db,
+            accumulationCount: 5,
+            pollingInterval: 1.0
+        )
+
+        // 5 snapshots with en0 at 1000 B/s in, 500 B/s out
+        let snapshots = (0..<5).map { _ in
+            makeSnapshot(interfaceSpeeds: [("en0", 1000.0, 500.0)])
+        }
+
+        await recorder.processAndWrite(snapshots: snapshots)
+
+        let samples = try await db.dbWriter.read { dbConn in
+            try RawSample.fetchAll(dbConn)
+        }
+
+        XCTAssertEqual(samples.count, 1, "Should write one RawSample for one interface")
+        let sample = samples[0]
+        XCTAssertEqual(sample.interfaceId, "en0")
+        // bytesIn = speed * pollingInterval * count = 1000 * 1.0 * 5 = 5000
+        XCTAssertEqual(sample.bytesIn, 5000.0, accuracy: 0.01)
+        // bytesOut = speed * pollingInterval * count = 500 * 1.0 * 5 = 2500
+        XCTAssertEqual(sample.bytesOut, 2500.0, accuracy: 0.01)
+        // duration = pollingInterval * count = 1.0 * 5 = 5.0
+        XCTAssertEqual(sample.duration, 5.0, accuracy: 0.01)
+    }
+
+    // MARK: - Test 8: 5-second polling interval produces correct bytes
+
+    @MainActor
+    func testFiveSecondPollingIntervalProducesCorrectBytes() async throws {
+        let db = try AppDatabase.makeEmpty()
+        let monitor = NetworkMonitor()
+        let recorder = BandwidthRecorder(
+            networkMonitor: monitor,
+            database: db,
+            accumulationCount: 5,
+            pollingInterval: 5.0
+        )
+
+        // 5 snapshots with en0 at 1000 B/s in, 500 B/s out
+        let snapshots = (0..<5).map { _ in
+            makeSnapshot(interfaceSpeeds: [("en0", 1000.0, 500.0)])
+        }
+
+        await recorder.processAndWrite(snapshots: snapshots)
+
+        let samples = try await db.dbWriter.read { dbConn in
+            try RawSample.fetchAll(dbConn)
+        }
+
+        XCTAssertEqual(samples.count, 1, "Should write one RawSample for one interface")
+        let sample = samples[0]
+        XCTAssertEqual(sample.interfaceId, "en0")
+        // bytesIn = speed * pollingInterval * count = 1000 * 5.0 * 5 = 25000
+        XCTAssertEqual(sample.bytesIn, 25000.0, accuracy: 0.01)
+        // bytesOut = speed * pollingInterval * count = 500 * 5.0 * 5 = 12500
+        XCTAssertEqual(sample.bytesOut, 12500.0, accuracy: 0.01)
+        // duration = pollingInterval * count = 5.0 * 5 = 25.0
+        XCTAssertEqual(sample.duration, 25.0, accuracy: 0.01)
+    }
+
+    // MARK: - Test 9: Changing pollingInterval after init affects subsequent writes
+
+    @MainActor
+    func testChangingPollingIntervalAffectsSubsequentWrites() async throws {
+        let db = try AppDatabase.makeEmpty()
+        let monitor = NetworkMonitor()
+        let recorder = BandwidthRecorder(
+            networkMonitor: monitor,
+            database: db,
+            accumulationCount: 5,
+            pollingInterval: 2.0
+        )
+
+        // First batch: 5 snapshots at 1000 B/s with pollingInterval = 2.0
+        let batch1 = (0..<5).map { _ in
+            makeSnapshot(interfaceSpeeds: [("en0", 1000.0, 500.0)])
+        }
+        await recorder.processAndWrite(snapshots: batch1)
+
+        // Verify first batch uses pollingInterval 2.0
+        let firstSamples = try await db.dbWriter.read { dbConn in
+            try RawSample.fetchAll(dbConn)
+        }
+        XCTAssertEqual(firstSamples.count, 1)
+        // bytesIn = 1000 * 2.0 * 5 = 10000
+        XCTAssertEqual(firstSamples[0].bytesIn, 10000.0, accuracy: 0.01)
+
+        // Change pollingInterval at runtime
+        recorder.pollingInterval = 5.0
+
+        // Second batch: 5 snapshots at 1000 B/s with pollingInterval = 5.0
+        let batch2 = (0..<5).map { _ in
+            makeSnapshot(interfaceSpeeds: [("en0", 1000.0, 500.0)])
+        }
+        await recorder.processAndWrite(snapshots: batch2)
+
+        // Verify second batch uses pollingInterval 5.0
+        let allSamples = try await db.dbWriter.read { dbConn in
+            try RawSample.order(RawSample.Columns.id).fetchAll(dbConn)
+        }
+        XCTAssertEqual(allSamples.count, 2)
+        // Second sample: bytesIn = 1000 * 5.0 * 5 = 25000
+        XCTAssertEqual(allSamples[1].bytesIn, 25000.0, accuracy: 0.01)
+        // Second sample: duration = 5.0 * 5 = 25.0
+        XCTAssertEqual(allSamples[1].duration, 25.0, accuracy: 0.01)
+    }
 }
