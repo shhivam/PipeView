@@ -46,6 +46,46 @@
 
 ---
 
+## Milestone: v1.1 — UI Polish & Chart Fixes
+
+**Shipped:** 2026-03-25
+**Phases:** 2 | **Plans:** 4 | **Tasks:** 8
+
+### What Was Built
+- Merged Metrics + History tabs into a single Dashboard view with unified ScrollView layout (480x650)
+- Replaced NSPopover with floating NSPanel utility window (stays on top, dismisses on focus loss)
+- TDD ChartAxisFormatter with KB/MB/GB unit selection, nice-number tick calculation (21 tests)
+- Locked y-axis domain and per-time-range x-axis labels (1H/24H/7D/30D)
+- Stat card truncation safety net with lineLimit + minimumScaleFactor
+
+### What Worked
+- TDD for ChartAxisFormatter (Plan 09-01) produced a clean, well-tested formatter that wired in seamlessly in Plan 09-02
+- Phase ordering (structural UI changes in Phase 8, then fixes in Phase 9) prevented rework — chart fixes built on the new 480x650 canvas
+- resignKey() override for NSPanel dismiss was simpler and more reliable than NSEvent global monitors
+- Zero deviations from plan in 3 of 4 plans — clear discuss/research phases led to precise execution
+
+### What Was Inefficient
+- Nothing significant — v1.1 was a focused 2-phase milestone with clear requirements
+- MetricsView and HistoryView are still dead code from v1.0 (should clean up in future)
+
+### Patterns Established
+- FloatingPanel pattern: NSPanel subclass with resignKey() dismiss, no animation, reusable instance
+- Chart axis restructure: chartBase computed property + switch for per-range axis modifiers
+- Static DateFormatter pattern for chart labels (avoid per-render allocation)
+- Verify-only safety net approach: lineLimit + minimumScaleFactor as zero-cost guards
+
+### Key Lessons
+1. Structural UI changes (tab merge, window type) should come before visual fixes — provides the correct canvas for subsequent work
+2. Pure-function formatters (ChartAxisFormatter) are ideal TDD targets — no dependencies, fast tests, clean integration
+3. NSPanel with .nonactivatingPanel is the standard pattern for macOS floating utility windows
+
+### Cost Observations
+- Model mix: ~60% opus, ~30% sonnet, ~10% haiku
+- Sessions: ~2 sessions across 1 day
+- Notable: 4 plans executed across 2 phases in 1 day — efficient for a UI polish milestone
+
+---
+
 ## Cross-Milestone Trends
 
 ### Process Evolution
@@ -53,14 +93,18 @@
 | Milestone | Sessions | Phases | Key Change |
 |-----------|----------|--------|------------|
 | v1.0 | ~6 | 7 | Initial GSD workflow — established verification, artifact, and aggregation patterns |
+| v1.1 | ~2 | 2 | Focused UI polish — zero deviations in 3/4 plans, TDD formatter pattern |
 
 ### Cumulative Quality
 
 | Milestone | Tests | Coverage | Zero-Dep Additions |
 |-----------|-------|----------|-------------------|
 | v1.0 | ~100 | Partial (unit + integration) | 2 (swift-collections, swift-algorithms) |
+| v1.1 | ~121 | Partial (unit + integration + UAT) | 0 |
 
 ### Top Lessons (Verified Across Milestones)
 
 1. Verification artifacts should be created at phase completion, never retroactively
 2. Single-character bugs (let vs var) are caught by multi-configuration tests — always test with multiple settings
+3. Pure-function formatters are ideal TDD targets — validated in both v1.0 (SpeedFormatter) and v1.1 (ChartAxisFormatter)
+4. Structural UI changes before visual fixes prevents rework — validated in v1.1 (Phase 8 before Phase 9)

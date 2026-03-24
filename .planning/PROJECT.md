@@ -10,11 +10,11 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 
 ## Current State
 
-Shipped v1.0 MVP with 4,543 lines of Swift across 7 phases and 14 plans. v1.1 milestone complete — Phase 8 merged tabs + floating panel, Phase 9 fixed chart axes and stat card layout.
+Shipped v1.1 UI Polish & Chart Fixes with 5,029 lines of Swift across 9 phases (2 milestones). v1.1 merged tabs into a single Dashboard view, replaced NSPopover with a floating NSPanel utility window, and fixed chart axis rendering with TDD ChartAxisFormatter.
 
 Tech stack: Swift 6.0 + SwiftUI + AppKit hybrid, GRDB.swift 7.10.0 for SQLite, Swift Charts for historical visualizations, sysctl IFMIB_IFDATA for network byte counters, NWPathMonitor for interface detection, SystemConfiguration for human-readable interface names.
 
-Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI (popover content, charts, preferences). @Observable pattern throughout with strict concurrency.
+Architecture: ~20% AppKit (NSStatusItem, FloatingPanel NSPanel, AppDelegate) + ~80% SwiftUI (popover content, charts, preferences). @Observable pattern throughout with strict concurrency.
 
 ## Requirements
 
@@ -38,25 +38,17 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 - ✓ Quit button via right-click context menu — v1.0
 - ✓ Launch at login via SMAppService — v1.0
 - ✓ Less than 1% CPU during normal operation — v1.0
+- ✓ Merge Metrics + History into a single combined tab — v1.1
+- ✓ Replace NSPopover with floating utility panel — v1.1
+- ✓ Fix chart hover behavior (y-axis shift / compression) — v1.1
+- ✓ Fix 7D view — one bar per day with proper labels — v1.1
+- ✓ Fix 30D view — one bar per day with proper labels — v1.1
+- ✓ Human-readable y-axis labels (KB/MB/GB) — v1.1
+- ✓ Fix stat card text wrapping — v1.1
 
 ### Active
 
-- ✓ Merge Metrics + History into a single combined tab — Phase 8
-- ✓ Replace NSPopover with floating utility panel — Phase 8
-- ✓ Fix chart hover behavior (y-axis shift / compression) — Phase 9
-- ✓ Fix 7D view — one bar per day with proper labels — Phase 9
-- ✓ Fix 30D view — one bar per day with proper labels — Phase 9
-- ✓ Human-readable y-axis labels (KB/MB/GB) — Phase 9
-- ✓ Fix stat card text wrapping — Phase 9
-
-## Current Milestone: v1.1 UI Polish & Chart Fixes
-
-**Goal:** Improve the popover UI — combine tabs, fix chart rendering issues, and upgrade to a floating panel window for more space.
-
-**Target features:**
-- Merge Metrics + History into single combined tab (live speeds at top, charts + stats below)
-- Replace NSPopover with floating utility panel (always-on-top, dismisses on focus loss)
-- Fix chart hover, 7D/30D views, y-axis formatting, and stat card layout
+(No active requirements — planning next milestone)
 
 ### Out of Scope
 
@@ -74,8 +66,9 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 - Hybrid AppKit+SwiftUI: NSStatusItem for menu bar text, floating NSPanel for window, SwiftUI for all content
 - Network stats via sysctl IFMIB_IFDATA (64-bit counters, avoids NET_RT_IFLIST2 batching/truncation bugs)
 - SQLite via GRDB.swift with 5-tier aggregation (raw → minute → hour → day → week/month)
-- Charts via Swift Charts framework (macOS 13+)
-- 100 git commits, 4,543 LOC Swift
+- Charts via Swift Charts framework (macOS 13+) with ChartAxisFormatter for stable y-axis
+- ~130 git commits, 5,029 LOC Swift
+- 2 milestones shipped: v1.0 MVP (7 phases), v1.1 UI Polish (2 phases)
 
 ## Constraints
 
@@ -96,6 +89,11 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 | @Observable pattern | Swift 6.0 strict concurrency with @MainActor | ✓ Good — compile-time data race safety |
 | No alerts in v1 | Keep scope focused on monitoring and visualization | ✓ Good — shipped clean, deferred to v2 |
 | withObservationTracking | Re-registration pattern for BandwidthRecorder/StatusBarController | ⚠ Revisit — verbose; consider AsyncStream in future |
+| Inline DashboardView composition | Single ScrollView avoids nested scroll issues | ✓ Good — clean layout, no performance issues |
+| NSPanel with .nonactivatingPanel | Floating utility window with resign-key dismiss | ✓ Good — simpler than NSEvent monitors, proper focus semantics |
+| ChartAxisFormatter (TDD) | Consistent KB/MB/GB formatting matching ByteFormatter thresholds | ✓ Good — 21 tests, stable y-axis display |
+| chartYScale pre-computed domain | Lock y-axis to prevent hover reflow | ✓ Good — eliminates chart jitter on interaction |
+| Static DateFormatters | Avoid per-render allocation in chart labels | ✓ Good — no measurable performance impact |
 
 ## Evolution
 
@@ -115,4 +113,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-25 after Phase 9 (Chart Fixes & Layout Polish) complete*
+*Last updated: 2026-03-25 after v1.1 milestone*

@@ -2,9 +2,9 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: UI Polish & Chart Fixes
-status: Milestone complete
-stopped_at: Completed 09-02-PLAN.md
-last_updated: "2026-03-24T18:29:31.992Z"
+status: Milestone complete — archived
+stopped_at: v1.1 milestone archived
+last_updated: "2026-03-25T00:00:00.000Z"
 progress:
   total_phases: 2
   completed_phases: 2
@@ -16,15 +16,15 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-24)
+See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** Reliable, always-visible network throughput monitoring -- glance at the menu bar for current speeds, open the popover for usage patterns over time
-**Current focus:** Phase 09 — chart-fixes-layout-polish
+**Current focus:** Planning next milestone
 
 ## Current Position
 
-Phase: 09
-Plan: Not started
+Phase: All v1.1 phases complete
+Plan: N/A — milestone archived
 
 ## Performance Metrics
 
@@ -47,23 +47,10 @@ Plan: Not started
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- [v1.1 Roadmap]: 2 phases derived from 7 requirements; structural UI changes first (floating panel + tab merge), then chart/layout fixes
-- [v1.0]: Hybrid AppKit+SwiftUI architecture (NSStatusItem + NSPopover + SwiftUI content)
-- [v1.0]: Three tabs (Metrics, History, Preferences) in popover -- Metrics and History merging in Phase 8
-- [v1.0]: Bar chart with grouped download/upload bars; aggregate data only; interactive hover tooltip
-- [v1.0]: withObservationTracking re-registration pattern for StatusBarController popover management
-- [Phase 08-01]: Inlined MetricsView+HistoryView content into DashboardView (single ScrollView, avoids nesting)
-- [Phase 08]: NSPanel with .nonactivatingPanel style mask for floating utility window; resignKey() override for dismiss-on-focus-loss
-- [Phase 09]: Used same 1000-based thresholds as ByteFormatter for ChartAxisFormatter unit selection consistency
-- [Phase 09-02]: chartYScale with pre-computed domain locks y-axis to prevent hover reflow
-- [Phase 09-02]: Switch-on-chartBase pattern for per-time-range x-axis formatting
-- [Phase 09-02]: Static DateFormatters avoid per-render allocation in chart labels
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -72,6 +59,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T18:16:43Z
-Stopped at: Completed 09-02-PLAN.md
+Last session: 2026-03-25
+Stopped at: v1.1 milestone archived
 Resume file: None

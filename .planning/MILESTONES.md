@@ -1,5 +1,18 @@
 # Milestones
 
+## v1.1 UI Polish & Chart Fixes (Shipped: 2026-03-24)
+
+**Phases completed:** 2 phases, 4 plans, 8 tasks
+
+**Key accomplishments:**
+
+- Merged Metrics + History tabs into single Dashboard tab with ScrollView layout, updated PopoverTab enum to 2 cases, expanded frame to 480x650
+- Replaced NSPopover with floating NSPanel utility window that centers on screen, stays on top, and dismisses on click-outside or focus loss
+- Pure-function ChartAxisFormatter with KB/MB/GB unit selection, nice-number tick calculation, and adaptive-precision label formatting for stable y-axis display
+- Wired ChartAxisFormatter into HistoryChartView with locked y-axis domain, per-time-range x-axis labels (M/d for 7D, MMM d for 30D), and stat card truncation safety net
+
+---
+
 ## v1.0 MVP (Shipped: 2026-03-24)
 
 **Phases completed:** 7 phases, 14 plans, 29 tasks
