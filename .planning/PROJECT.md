@@ -8,43 +8,59 @@ A macOS menu bar application that monitors real-time network throughput (upload/
 
 Reliable, always-visible network throughput monitoring — the user can glance at the menu bar and instantly know their current upload/download speeds, and open the popover to understand usage patterns over time.
 
+## Current State
+
+Shipped v1.0 MVP with 4,543 lines of Swift across 7 phases and 14 plans.
+
+Tech stack: Swift 6.0 + SwiftUI + AppKit hybrid, GRDB.swift 7.10.0 for SQLite, Swift Charts for historical visualizations, sysctl IFMIB_IFDATA for network byte counters, NWPathMonitor for interface detection, SystemConfiguration for human-readable interface names.
+
+Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI (popover content, charts, preferences). @Observable pattern throughout with strict concurrency.
+
 ## Requirements
 
 ### Validated
 
-- [x] Real-time upload/download throughput measurement per network interface — Validated in Phase 1: Core Monitoring Engine
-- [x] Per-interface breakdown (Wi-Fi, Ethernet, etc.) — Validated in Phase 1: Core Monitoring Engine
-- [x] Menu bar display showing current speeds as text (e.g. ↑ 1.2 MB/s ↓ 45 KB/s) — Validated in Phase 2: Menu Bar Display
-- [x] SQLite local database for persistent data storage — Validated in Phase 3: Data Persistence and Aggregation
-- [x] Data recording at minute, hour, day, week, month granularity — Validated in Phase 3: Data Persistence and Aggregation
-
-- [x] User-configurable display units (KB/s, MB/s, GB/s, auto-scale) — Validated in Phase 5: Historical Charts, Statistics, and Settings
-- [x] Popover window (400x550px) on menu bar click with tabbed interface — Validated in Phase 4: Popover Window and Phase 5
-- [x] Bar charts for historical data usage summaries with switchable time ranges (1H, 24H, 7D, 30D) — Validated in Phase 5: Historical Charts, Statistics, and Settings
-- [x] Cumulative usage statistics (Today, This Week, This Month) — Validated in Phase 5: Historical Charts, Statistics, and Settings
-- [x] Preferences interface (display mode, unit, update interval, launch at login) — Validated in Phase 5: Historical Charts, Statistics, and Settings
-- [x] Clean, modular Swift codebase with clear separation of concerns — Validated across all phases
+- ✓ Real-time upload/download throughput measurement per network interface — v1.0
+- ✓ Per-interface breakdown (Wi-Fi, Ethernet, etc.) — v1.0
+- ✓ Menu bar display showing current speeds as text (e.g. ↑ 1.2 MB/s ↓ 45 KB/s) — v1.0
+- ✓ Fixed-width formatting to prevent menu bar jitter — v1.0
+- ✓ User-configurable display units (KB/s, MB/s, GB/s, auto-scale) — v1.0
+- ✓ User-configurable display format (upload+download, download only, upload only, combined) — v1.0
+- ✓ SQLite local database for persistent data storage — v1.0
+- ✓ Data recording at minute, hour, day, week, month granularity — v1.0
+- ✓ Old raw samples pruned while aggregates preserved — v1.0
+- ✓ Popover window (400x550px) on menu bar click with tabbed interface — v1.0
+- ✓ Per-interface bandwidth breakdown with individual stats — v1.0
+- ✓ Bar charts for historical data usage with switchable time ranges (1H, 24H, 7D, 30D) — v1.0
+- ✓ Cumulative usage statistics (Today, This Week, This Month) — v1.0
+- ✓ Preferences interface (display mode, unit, update interval, launch at login) — v1.0
+- ✓ Dark mode and light mode automatic support — v1.0
+- ✓ Quit button via right-click context menu — v1.0
+- ✓ Launch at login via SMAppService — v1.0
+- ✓ Less than 1% CPU during normal operation — v1.0
 
 ### Active
 
-(none — all v1.0 requirements delivered)
+(none — planning next milestone)
 
 ### Out of Scope
 
-- Speed tests (Speedtest.net style) — not the goal, this is about live throughput monitoring
-- Data cap alerts / notifications — not needed for v1
+- Per-application bandwidth breakdown — requires nettop/Network Extension, pushes CPU from <1% to 5-15%
+- Speed tests (Speedtest.net style) — different product category; measures max capability, not actual throughput
+- Cloud sync / multi-device — massive scope increase; local-only tool
+- Network diagnostics / traceroute — different product category
+- macOS widgets — WidgetKit refreshes every 5-15 min, misleading for real-time data
 - Mobile app — macOS only
-- Per-application bandwidth breakdown — OS-level interface monitoring only
-- Real-time chat or cloud sync — purely local tool
+- Data cap alerts / notifications — deferred to v2
 
 ## Context
 
-- Built as a native macOS app in Swift
-- Menu bar apps use NSStatusItem + NSPopover pattern
-- Network stats available via macOS system APIs (likely `nw_path_monitor` or reading from IOKit/sysctl)
-- SQLite via Swift packages (e.g., GRDB or SQLite.swift)
-- Charts via Swift Charts framework (macOS 13+) or a charting library
-- Should be easy to debug — clean architecture, modular components
+- Native macOS app in Swift 6.0 with strict concurrency
+- Hybrid AppKit+SwiftUI: NSStatusItem for menu bar text, NSPopover for window, SwiftUI for all content
+- Network stats via sysctl IFMIB_IFDATA (64-bit counters, avoids NET_RT_IFLIST2 batching/truncation bugs)
+- SQLite via GRDB.swift with 5-tier aggregation (raw → minute → hour → day → week/month)
+- Charts via Swift Charts framework (macOS 13+)
+- 100 git commits, 4,543 LOC Swift
 
 ## Constraints
 
@@ -57,27 +73,31 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Swift + SwiftUI | Native macOS, modern UI framework, good menu bar app support | — Pending |
-| SQLite for storage | Simple, local, no dependencies on external services | — Pending |
-| Per-interface monitoring | User wants to see breakdown by Wi-Fi/Ethernet/etc. | — Pending |
-| No alerts in v1 | Keep scope focused on monitoring and visualization | — Pending |
+| Swift + SwiftUI + AppKit hybrid | Native macOS, SwiftUI for content, AppKit for menu bar performance | ✓ Good — clean separation, <1% CPU |
+| GRDB.swift for SQLite | Type-safe queries, migrations, WAL mode, ValueObservation | ✓ Good — reliable, excellent test support via DatabaseQueue |
+| sysctl IFMIB_IFDATA | 64-bit counters, avoids NET_RT_IFLIST2 batching/truncation bugs | ✓ Good — accurate readings, but Apple could patch no-batching behavior |
+| Per-interface monitoring | User wants breakdown by Wi-Fi/Ethernet/VPN | ✓ Good — SF Symbols per interface type |
+| 5-tier aggregation | Cascading rollup (raw→min→hr→day→wk/mo) with watermarks | ✓ Good — efficient queries, bounded DB size |
+| @Observable pattern | Swift 6.0 strict concurrency with @MainActor | ✓ Good — compile-time data race safety |
+| No alerts in v1 | Keep scope focused on monitoring and visualization | ✓ Good — shipped clean, deferred to v2 |
+| withObservationTracking | Re-registration pattern for BandwidthRecorder/StatusBarController | ⚠ Revisit — verbose; consider AsyncStream in future |
 
 ## Evolution
 
 This document evolves at phase transitions and milestone boundaries.
 
-**After each phase transition** (via `/gsd:transition`):
+**After each phase transition:**
 1. Requirements invalidated? → Move to Out of Scope with reason
 2. Requirements validated? → Move to Validated with phase reference
 3. New requirements emerged? → Add to Active
 4. Decisions to log? → Add to Key Decisions
 5. "What This Is" still accurate? → Update if drifted
 
-**After each milestone** (via `/gsd:complete-milestone`):
+**After each milestone:**
 1. Full review of all sections
 2. Core Value check — still the right priority?
 3. Audit Out of Scope — reasons still valid?
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 — Phase 7 complete: All planning artifacts consistent — Phase 4 VERIFICATION.md created, 18/18 v1 requirements satisfied, all roadmap checkboxes corrected. v1.0 milestone ready for final audit.*
+*Last updated: 2026-03-24 after v1.0 milestone*
