@@ -80,4 +80,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 — Phase 5 complete (all phases delivered): Historical bar charts with 4 time ranges, cumulative stats cards, full preferences UI with live wiring. v1.0 milestone feature-complete.*
+*Last updated: 2026-03-24 — Phase 6 complete: Fixed polling interval sync defect — BandwidthRecorder now uses the user's chosen update interval instead of hardcoded 2.0s. Data accuracy correct across all polling intervals (1s/2s/5s).*
