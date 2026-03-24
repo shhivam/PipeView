@@ -1,7 +1,9 @@
 import SwiftUI
 
 /// Horizontal row of 3 StatCardView cards: Today, This Week, This Month (per D-11, POP-04).
-/// Full implementation in Task 2.
+///
+/// Arranges three `StatCardView` cards in a horizontal stack for cumulative
+/// bandwidth statistics over different time periods.
 struct CumulativeStatsView: View {
     let today: (totalIn: Double, totalOut: Double)
     let week: (totalIn: Double, totalOut: Double)
