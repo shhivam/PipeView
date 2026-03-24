@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Core Monitoring Engine** - Accurate real-time per-interface network throughput measurement with energy-efficient polling
 - [ ] **Phase 2: Menu Bar Display** - Live upload/download speeds visible in the macOS menu bar with configurable units and launch at login
 - [ ] **Phase 3: Data Persistence and Aggregation** - SQLite storage with tiered aggregation and bounded retention for historical data
-- [ ] **Phase 4: Popover Shell and Interface Views** - Clickable popover window showing per-interface breakdown with dark/light mode support
+- [x] **Phase 4: Popover Shell and Interface Views** - Clickable popover window showing per-interface breakdown with dark/light mode support (completed 2026-03-24)
 - [ ] **Phase 5: Historical Charts, Statistics, and Settings** - Time-range historical charts, cumulative usage stats, and a preferences interface
 
 ## Phase Details
@@ -111,5 +111,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Core Monitoring Engine | 0/2 | Planned | - |
 | 2. Menu Bar Display | 0/2 | Planned | - |
 | 3. Data Persistence and Aggregation | 0/3 | Planned | - |
-| 4. Popover Shell and Interface Views | 0/2 | Planned | - |
+| 4. Popover Shell and Interface Views | 0/2 | Complete    | 2026-03-24 |
 | 5. Historical Charts, Statistics, and Settings | 0/3 | Planned | - |
