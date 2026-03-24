@@ -57,6 +57,7 @@
 		A10000010000000000000082 /* CumulativeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000082 /* CumulativeStatsView.swift */; };
 		A10000010000000000000083 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000083 /* StatCardView.swift */; };
 		A10000010000000000000090 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000090 /* DashboardView.swift */; };
+		A10000010000000000000091 /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000091 /* FloatingPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		A20000010000000000000082 /* CumulativeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeStatsView.swift; sourceTree = "<group>"; };
 		A20000010000000000000083 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		A20000010000000000000090 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A20000010000000000000091 /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		A70000010000000000000007 /* MenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				A20000010000000000000091 /* FloatingPanel.swift */,
 				A20000010000000000000012 /* SpeedFormatter.swift */,
 				A20000010000000000000013 /* SpeedTextBuilder.swift */,
 				A20000010000000000000016 /* StatusBarController.swift */,
@@ -408,6 +411,7 @@
 				A10000010000000000000082 /* CumulativeStatsView.swift in Sources */,
 				A10000010000000000000083 /* StatCardView.swift in Sources */,
 				A10000010000000000000090 /* DashboardView.swift in Sources */,
+				A10000010000000000000091 /* FloatingPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

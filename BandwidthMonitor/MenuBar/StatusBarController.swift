@@ -12,21 +12,18 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private let appDatabase: AppDatabase?
     private let textBuilder = SpeedTextBuilder()
 
-    // Phase 4: Popover + context menu
+    // Phase 8: Floating panel + context menu
     private let popoverState = PopoverState()
-    private lazy var popover: NSPopover = {
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 400, height: 550)
-        popover.behavior = .transient
-        popover.animates = true
-        popover.contentViewController = NSHostingController(
+    private lazy var panel: FloatingPanel = {
+        let panel = FloatingPanel(contentRect: NSRect(x: 0, y: 0, width: 480, height: 650))
+        panel.contentView = NSHostingView(
             rootView: PopoverContentView(
                 networkMonitor: networkMonitor,
                 appDatabase: appDatabase,
                 popoverState: popoverState
             )
         )
-        return popover
+        return panel
     }()
 
     // MARK: - Init
@@ -44,7 +41,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         // D-18: em dash before first poll
         updateStatusItemText(text: "\u{2014}")
 
-        // D-01: Left-click opens popover, right-click opens context menu
+        // D-01: Left-click opens panel, right-click opens context menu
         // Do NOT set statusItem.menu -- that intercepts all clicks
         if let button = statusItem.button {
             button.action = #selector(statusItemClicked(_:))
@@ -111,25 +108,41 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         if event.type == .rightMouseUp {
             showContextMenu()
         } else {
-            togglePopover()
+            togglePanel()
         }
     }
 
-    private func togglePopover() {
-        if popover.isShown {
-            popover.performClose(nil)
-        } else if let button = statusItem.button {
-            // D-07: Default to Dashboard tab on left-click open
+    // MARK: - Panel Management (D-01, D-02, D-03, D-09)
+
+    private func togglePanel() {
+        if panel.isVisible {
+            panel.close()
+        } else {
+            // D-09: Default to Dashboard tab on left-click open
             popoverState.selectedTab = .dashboard
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            centerPanelOnActiveScreen()
+            panel.makeKeyAndOrderFront(nil)
         }
     }
 
-    private func showPopover() {
-        guard !popover.isShown else { return }
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-        }
+    private func showPanel() {
+        guard !panel.isVisible else { return }
+        centerPanelOnActiveScreen()
+        panel.makeKeyAndOrderFront(nil)
+    }
+
+    /// Centers the panel on the screen that currently has keyboard focus.
+    /// Uses `visibleFrame` to avoid placing the panel behind the menu bar or Dock.
+    private func centerPanelOnActiveScreen() {
+        guard let screen = NSScreen.main ?? NSScreen.screens.first else { return }
+
+        let screenFrame = screen.visibleFrame
+        let panelSize = panel.frame.size
+
+        let x = screenFrame.origin.x + (screenFrame.width - panelSize.width) / 2
+        let y = screenFrame.origin.y + (screenFrame.height - panelSize.height) / 2
+
+        panel.setFrameOrigin(NSPoint(x: x, y: y))
     }
 
     private func showContextMenu() {
@@ -140,7 +153,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     }
 
 
-    // MARK: - Context Menu (D-02)
+    // MARK: - Context Menu (D-08)
 
     private func buildContextMenu() -> NSMenu {
         let menu = NSMenu()
@@ -182,16 +195,16 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         return menu
     }
 
-    // MARK: - Context Menu Actions (D-03)
+    // MARK: - Context Menu Actions (D-08, D-09)
 
     @objc private func showDashboard() {
         popoverState.selectedTab = .dashboard
-        showPopover()
+        showPanel()
     }
 
     @objc private func showPreferences() {
         popoverState.selectedTab = .preferences
-        showPopover()
+        showPanel()
     }
 
     // MARK: - NSMenuDelegate
