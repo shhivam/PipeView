@@ -40,7 +40,10 @@ Full details: `.planning/milestones/v1.0-ROADMAP.md`
   2. The floating panel dismisses when the user clicks outside it or switches focus to another application
   3. The user sees a single combined view with live per-interface speeds at the top and history charts + cumulative stats below, without needing to switch tabs
   4. The tab bar no longer shows separate "Metrics" and "History" tabs (only the combined view and Preferences remain)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 08-01-PLAN.md — Merge tabs into Dashboard view (PopoverTab enum, DashboardView, PopoverContentView, tests)
+- [ ] 08-02-PLAN.md — Replace NSPopover with floating panel (FloatingPanel, StatusBarController, context menu)
 **UI hint**: yes
 
 ### Phase 9: Chart Fixes & Layout Polish
@@ -70,5 +73,5 @@ Phases execute in numeric order: 8 -> 9
 | 5. Historical Charts, Statistics, and Settings | v1.0 | 3/3 | Complete | 2026-03-24 |
 | 6. Fix Polling Interval Sync | v1.0 | 1/1 | Complete | 2026-03-24 |
 | 7. Verification and Artifact Cleanup | v1.0 | 1/1 | Complete | 2026-03-24 |
-| 8. Panel & Tab Restructure | v1.1 | 0/0 | Not started | - |
+| 8. Panel & Tab Restructure | v1.1 | 0/2 | Planning | - |
 | 9. Chart Fixes & Layout Polish | v1.1 | 0/0 | Not started | - |
