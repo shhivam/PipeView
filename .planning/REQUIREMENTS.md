@@ -18,23 +18,23 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Menu Bar Display
 
-- [ ] **BAR-01**: Menu bar shows current upload and download speed as text (e.g. ↑ 1.2 MB/s ↓ 45 KB/s)
-- [ ] **BAR-02**: User can select preferred display unit (auto-scale, KB/s, MB/s, Gb/s) in preferences
-- [ ] **BAR-03**: User can configure display format (upload+download, download only, upload only, combined total) in preferences
-- [ ] **BAR-04**: Menu bar text uses fixed-width formatting to prevent jitter when values change
+- [x] **BAR-01**: Menu bar shows current upload and download speed as text (e.g. ↑ 1.2 MB/s ↓ 45 KB/s)
+- [x] **BAR-02**: User can select preferred display unit (auto-scale, KB/s, MB/s, Gb/s) in preferences
+- [x] **BAR-03**: User can configure display format (upload+download, download only, upload only, combined total) in preferences
+- [x] **BAR-04**: Menu bar text uses fixed-width formatting to prevent jitter when values change
 
 ### Popover UI
 
-- [ ] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
+- [x] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
 - [x] **POP-02**: Popover shows historical bar/area charts with switchable time ranges (hour, day, week, month)
-- [ ] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
+- [x] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
 - [x] **POP-04**: Popover shows cumulative statistics (total data today, this week, this month)
-- [ ] **POP-05**: Popover supports dark mode and light mode automatically
-- [ ] **POP-06**: Popover includes a quit button
+- [x] **POP-05**: Popover supports dark mode and light mode automatically
+- [x] **POP-06**: Popover includes a quit button
 
 ### System Integration
 
-- [ ] **SYS-01**: App registers as a login item and starts automatically when macOS boots (SMAppService)
+- [x] **SYS-01**: App registers as a login item and starts automatically when macOS boots (SMAppService)
 - [x] **SYS-02**: App provides a preferences/settings interface for configuring display options and update interval
 
 ## v2 Requirements
@@ -81,26 +81,26 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MON-04 | Phase 3 → Phase 6 (fix) | Complete |
 | MON-05 | Phase 3: Data Persistence and Aggregation | Complete |
 | MON-06 | Phase 1: Core Monitoring Engine | Complete |
-| BAR-01 | Phase 2: Menu Bar Display | Pending |
-| BAR-02 | Phase 2: Menu Bar Display | Pending |
-| BAR-03 | Phase 2: Menu Bar Display | Pending |
-| BAR-04 | Phase 2: Menu Bar Display | Pending |
-| POP-01 | Phase 4 → Phase 7 (verify) | Pending |
+| BAR-01 | Phase 2: Menu Bar Display | Complete |
+| BAR-02 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
+| BAR-03 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
+| BAR-04 | Phase 2: Menu Bar Display | Complete |
+| POP-01 | Phase 4 → Phase 7 (verify) | Complete |
 | POP-02 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
-| POP-03 | Phase 4 → Phase 7 (verify) | Pending |
+| POP-03 | Phase 4 → Phase 7 (verify) | Complete |
 | POP-04 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
-| POP-05 | Phase 4 → Phase 7 (verify) | Pending |
-| POP-06 | Phase 4 → Phase 7 (verify) | Pending |
-| SYS-01 | Phase 2: Menu Bar Display | Pending |
+| POP-05 | Phase 4 → Phase 7 (verify) | Complete |
+| POP-06 | Phase 4 → Phase 7 (verify) | Complete |
+| SYS-01 | Phase 2: Menu Bar Display | Complete |
 | SYS-02 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
 
 **Coverage:**
 - v1 requirements: 18 total
 - Mapped to phases: 18
-- Satisfied: 7 (checked)
-- Pending (gap closure): 11 (6 gap closure phases + 5 stale checkboxes to fix)
+- Satisfied: 18 (checked)
+- Pending: 0
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-23*
-*Last updated: 2026-03-24 after gap closure phase creation*
+*Last updated: 2026-03-24 -- all 18 v1 requirements satisfied*

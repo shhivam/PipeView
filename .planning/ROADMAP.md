@@ -12,12 +12,12 @@ This roadmap delivers a macOS menu bar bandwidth monitor in five phases, followi
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Core Monitoring Engine** - Accurate real-time per-interface network throughput measurement with energy-efficient polling
-- [ ] **Phase 2: Menu Bar Display** - Live upload/download speeds visible in the macOS menu bar with configurable units and launch at login
-- [ ] **Phase 3: Data Persistence and Aggregation** - SQLite storage with tiered aggregation and bounded retention for historical data
+- [x] **Phase 1: Core Monitoring Engine** - Accurate real-time per-interface network throughput measurement with energy-efficient polling (completed 2026-03-23)
+- [x] **Phase 2: Menu Bar Display** - Live upload/download speeds visible in the macOS menu bar with configurable units and launch at login (completed 2026-03-23)
+- [x] **Phase 3: Data Persistence and Aggregation** - SQLite storage with tiered aggregation and bounded retention for historical data (completed 2026-03-23)
 - [x] **Phase 4: Popover Shell and Interface Views** - Clickable popover window showing per-interface breakdown with dark/light mode support (completed 2026-03-24)
 - [x] **Phase 5: Historical Charts, Statistics, and Settings** - Time-range historical charts, cumulative usage stats, and a preferences interface (completed 2026-03-24)
-- [ ] **Phase 6: Fix Polling Interval Sync** - Fix BandwidthRecorder to use correct polling interval when user changes update preference
+- [x] **Phase 6: Fix Polling Interval Sync** - Fix BandwidthRecorder to use correct polling interval when user changes update preference (completed 2026-03-24)
 - [ ] **Phase 7: Verification and Artifact Cleanup** - Create Phase 4 VERIFICATION.md, fix stale checkboxes across REQUIREMENTS.md and ROADMAP.md
 
 ## Phase Details
@@ -84,7 +84,7 @@ Plans:
 
 Plans:
 - [x] 04-01-PLAN.md -- SwiftUI popover views: PopoverTab, SF Symbol mapping, AggregateHeaderView, InterfaceRowView, MetricsView, PopoverContentView, PreferencesPlaceholderView
-- [ ] 04-02-PLAN.md -- StatusBarController refactor for left-click popover + right-click context menu, unit tests, human verification
+- [x] 04-02-PLAN.md -- StatusBarController refactor for left-click popover + right-click context menu, unit tests, human verification
 
 ### Phase 5: Historical Charts, Statistics, and Settings
 **Goal**: Users can view historical bandwidth charts across multiple time ranges, see cumulative usage statistics, and configure all app preferences in one place
@@ -143,5 +143,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. Data Persistence and Aggregation | 3/3 | Complete | 2026-03-23 |
 | 4. Popover Shell and Interface Views | 2/2 | Complete | 2026-03-24 |
 | 5. Historical Charts, Statistics, and Settings | 3/3 | Complete | 2026-03-24 |
-| 6. Fix Polling Interval Sync | 0/1 | Planned | - |
+| 6. Fix Polling Interval Sync | 1/1 | Complete | 2026-03-24 |
 | 7. Verification and Artifact Cleanup | 0/1 | Planned | - |
