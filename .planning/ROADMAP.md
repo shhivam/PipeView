@@ -56,7 +56,10 @@ Plans:
   3. The 30D view shows one bar per day with readable date labels
   4. Y-axis labels display human-readable units (auto-scaled KB, MB, or GB) instead of raw byte values
   5. Stat card text for Today, This Week, and This Month is fully visible without truncation or wrapping
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 09-01-PLAN.md — TDD: Create ChartAxisFormatter (y-axis unit selection, nice tick calculation, tick formatting)
+- [ ] 09-02-PLAN.md — Apply chart axis fixes to HistoryChartView and stat card layout safety net
 **UI hint**: yes
 
 ## Progress
@@ -74,4 +77,4 @@ Phases execute in numeric order: 8 -> 9
 | 6. Fix Polling Interval Sync | v1.0 | 1/1 | Complete | 2026-03-24 |
 | 7. Verification and Artifact Cleanup | v1.0 | 1/1 | Complete | 2026-03-24 |
 | 8. Panel & Tab Restructure | v1.1 | 2/2 | Complete   | 2026-03-24 |
-| 9. Chart Fixes & Layout Polish | v1.1 | 0/0 | Not started | - |
+| 9. Chart Fixes & Layout Polish | v1.1 | 0/2 | Not started | - |
