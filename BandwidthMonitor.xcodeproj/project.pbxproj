@@ -58,6 +58,8 @@
 		A10000010000000000000083 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000083 /* StatCardView.swift */; };
 		A10000010000000000000090 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000090 /* DashboardView.swift */; };
 		A10000010000000000000091 /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000091 /* FloatingPanel.swift */; };
+		A100000100000000000000A0 /* ChartAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000100000000000000A0 /* ChartAxisFormatter.swift */; };
+		A100000100000000000000A1 /* ChartAxisFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000100000000000000A1 /* ChartAxisFormatterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		A20000010000000000000083 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		A20000010000000000000090 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		A20000010000000000000091 /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
+		A200000100000000000000A0 /* ChartAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAxisFormatter.swift; sourceTree = "<group>"; };
+		A200000100000000000000A1 /* ChartAxisFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAxisFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,7 @@
 				A20000010000000000000071 /* ByteFormatter.swift */,
 				A20000010000000000000072 /* HistoryTimeRange.swift */,
 				A20000010000000000000073 /* ChartDataPoint.swift */,
+				A200000100000000000000A0 /* ChartAxisFormatter.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				A20000010000000000000075 /* PreferencesTests.swift */,
 				A20000010000000000000076 /* HistoryDataTests.swift */,
 				A20000010000000000000077 /* AppDatabaseChartTests.swift */,
+				A200000100000000000000A1 /* ChartAxisFormatterTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				A10000010000000000000083 /* StatCardView.swift in Sources */,
 				A10000010000000000000090 /* DashboardView.swift in Sources */,
 				A10000010000000000000091 /* FloatingPanel.swift in Sources */,
+				A100000100000000000000A0 /* ChartAxisFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +442,7 @@
 				A10000010000000000000075 /* PreferencesTests.swift in Sources */,
 				A10000010000000000000076 /* HistoryDataTests.swift in Sources */,
 				A10000010000000000000077 /* AppDatabaseChartTests.swift in Sources */,
+				A100000100000000000000A1 /* ChartAxisFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
