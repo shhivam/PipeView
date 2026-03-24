@@ -59,7 +59,7 @@ Plans:
 **Plans:** 2 plans
 Plans:
 - [x] 09-01-PLAN.md — TDD: Create ChartAxisFormatter (y-axis unit selection, nice tick calculation, tick formatting)
-- [ ] 09-02-PLAN.md — Apply chart axis fixes to HistoryChartView and stat card layout safety net
+- [x] 09-02-PLAN.md — Apply chart axis fixes to HistoryChartView and stat card layout safety net
 **UI hint**: yes
 
 ## Progress
@@ -77,4 +77,4 @@ Phases execute in numeric order: 8 -> 9
 | 6. Fix Polling Interval Sync | v1.0 | 1/1 | Complete | 2026-03-24 |
 | 7. Verification and Artifact Cleanup | v1.0 | 1/1 | Complete | 2026-03-24 |
 | 8. Panel & Tab Restructure | v1.1 | 2/2 | Complete   | 2026-03-24 |
-| 9. Chart Fixes & Layout Polish | v1.1 | 0/2 | Not started | - |
+| 9. Chart Fixes & Layout Polish | v1.1 | 2/2 | Complete | 2026-03-24 |

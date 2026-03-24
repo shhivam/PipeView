@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: UI Polish & Chart Fixes
-status: Ready to execute
+status: Phase complete — ready for verification
 stopped_at: Completed 09-01-PLAN.md
-last_updated: "2026-03-24T18:10:20.224Z"
+last_updated: "2026-03-24T18:22:03.709Z"
 progress:
   total_phases: 2
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -40,6 +40,7 @@ Plan: 2 of 2
 | Phase 05 P01 | 9min | 2 tasks | 10 files |
 | Phase 05 P02 | 6min | 2 tasks | 11 files |
 | Phase 09 P01 | 3min | 1 tasks | 3 files |
+| Phase 09 P02 | 4min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -56,6 +57,9 @@ Recent decisions affecting current work:
 - [Phase 08-01]: Inlined MetricsView+HistoryView content into DashboardView (single ScrollView, avoids nesting)
 - [Phase 08]: NSPanel with .nonactivatingPanel style mask for floating utility window; resignKey() override for dismiss-on-focus-loss
 - [Phase 09]: Used same 1000-based thresholds as ByteFormatter for ChartAxisFormatter unit selection consistency
+- [Phase 09-02]: chartYScale with pre-computed domain locks y-axis to prevent hover reflow
+- [Phase 09-02]: Switch-on-chartBase pattern for per-time-range x-axis formatting
+- [Phase 09-02]: Static DateFormatters avoid per-render allocation in chart labels
 
 ### Pending Todos
 
@@ -68,6 +72,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T18:10:20.221Z
-Stopped at: Completed 09-01-PLAN.md
+Last session: 2026-03-24T18:16:43Z
+Stopped at: Completed 09-02-PLAN.md
 Resume file: None
