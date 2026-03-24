@@ -42,7 +42,7 @@ Full details: `.planning/milestones/v1.0-ROADMAP.md`
   4. The tab bar no longer shows separate "Metrics" and "History" tabs (only the combined view and Preferences remain)
 **Plans:** 2 plans
 Plans:
-- [ ] 08-01-PLAN.md — Merge tabs into Dashboard view (PopoverTab enum, DashboardView, PopoverContentView, tests)
+- [x] 08-01-PLAN.md — Merge tabs into Dashboard view (PopoverTab enum, DashboardView, PopoverContentView, tests)
 - [ ] 08-02-PLAN.md — Replace NSPopover with floating panel (FloatingPanel, StatusBarController, context menu)
 **UI hint**: yes
 

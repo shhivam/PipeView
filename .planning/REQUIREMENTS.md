@@ -9,7 +9,7 @@ Requirements for v1.1 UI Polish & Chart Fixes. Each maps to roadmap phases.
 
 ### UI Structure
 
-- [ ] **UIST-01**: User sees a single "Metrics" tab combining live interface speeds and history charts in one scrollable view
+- [x] **UIST-01**: User sees a single "Metrics" tab combining live interface speeds and history charts in one scrollable view
 - [ ] **UIST-02**: User interacts with a floating utility panel instead of a popover (stays on top, dismisses on focus loss)
 
 ### Charts
@@ -42,7 +42,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| UIST-01 | Phase 8 | Pending |
+| UIST-01 | Phase 8 | Complete |
 | UIST-02 | Phase 8 | Pending |
 | CHRT-01 | Phase 9 | Pending |
 | CHRT-02 | Phase 9 | Pending |
