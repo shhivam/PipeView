@@ -15,7 +15,7 @@ struct DashboardView: View {
     let networkMonitor: NetworkMonitor
     let appDatabase: AppDatabase?
 
-    @State private var selectedRange: HistoryTimeRange = .twentyFourHours
+    @Binding var selectedRange: HistoryTimeRange
     @State private var chartData: [ChartDataPoint] = []
     @State private var cumulativeStats: CumulativeStats = CumulativeStats(
         today: (0, 0), week: (0, 0), month: (0, 0)

@@ -25,7 +25,8 @@ struct PopoverContentView: View {
             case .dashboard:
                 DashboardView(
                     networkMonitor: networkMonitor,
-                    appDatabase: appDatabase
+                    appDatabase: appDatabase,
+                    selectedRange: $popoverState.selectedTimeRange
                 )
             case .preferences:
                 PreferencesView()

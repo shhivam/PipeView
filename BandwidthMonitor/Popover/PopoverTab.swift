@@ -14,6 +14,7 @@ enum PopoverTab: String, CaseIterable, Sendable {
 @MainActor @Observable
 final class PopoverState {
     var selectedTab: PopoverTab = .dashboard
+    var selectedTimeRange: HistoryTimeRange = .twentyFourHours
 }
 
 /// Maps an interface's type and BSD name to the appropriate SF Symbol (per D-08).
