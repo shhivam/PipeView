@@ -29,14 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             withLength: NSStatusItem.variableLength
         )
 
-        statusBarController = StatusBarController(
-            statusItem: statusItem,
-            networkMonitor: networkMonitor
-        )
-        statusBarController?.setup()
-
-        networkMonitor.start()
-
         // Phase 3: Database + recording
         do {
             let database = try AppDatabase.makeDefault()
@@ -88,6 +80,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Logger.lifecycle.error("Failed to initialize database: \(error.localizedDescription)")
             // App continues without recording -- monitoring and menu bar still work
         }
+
+        // Phase 5: StatusBarController created after database init so appDatabase can be passed.
+        // appDatabase is optional -- HistoryView handles nil gracefully (shows empty state).
+        statusBarController = StatusBarController(
+            statusItem: statusItem,
+            networkMonitor: networkMonitor,
+            appDatabase: appDatabase
+        )
+        statusBarController?.setup()
+
+        networkMonitor.start()
 
         // D-16: Auto-register as login item on first launch
         registerLoginItem()

@@ -9,6 +9,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     private let statusItem: NSStatusItem
     private let networkMonitor: NetworkMonitor
+    private let appDatabase: AppDatabase?
     private let textBuilder = SpeedTextBuilder()
 
     // Hardcoded defaults for Phase 2 (preferences deferred to Phase 5)
@@ -19,12 +20,13 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private var selectedTab: PopoverTab = .metrics
     private lazy var popover: NSPopover = {
         let popover = NSPopover()
-        popover.contentSize = NSSize(width: 400, height: 500)
+        popover.contentSize = NSSize(width: 400, height: 550)
         popover.behavior = .transient
         popover.animates = true
         popover.contentViewController = NSHostingController(
             rootView: PopoverContentView(
                 networkMonitor: networkMonitor,
+                appDatabase: appDatabase,
                 selectedTab: makeTabBinding()
             )
         )
@@ -47,9 +49,10 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     // MARK: - Init
 
-    init(statusItem: NSStatusItem, networkMonitor: NetworkMonitor) {
+    init(statusItem: NSStatusItem, networkMonitor: NetworkMonitor, appDatabase: AppDatabase? = nil) {
         self.statusItem = statusItem
         self.networkMonitor = networkMonitor
+        self.appDatabase = appDatabase
         super.init()
     }
 
@@ -150,6 +153,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private func updatePopoverRootView() {
         let rootView = PopoverContentView(
             networkMonitor: networkMonitor,
+            appDatabase: appDatabase,
             selectedTab: makeTabBinding()
         )
         (popover.contentViewController as? NSHostingController<PopoverContentView>)?.rootView = rootView
@@ -168,6 +172,14 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         )
         metrics.target = self
         menu.addItem(metrics)
+
+        let history = NSMenuItem(
+            title: "History",
+            action: #selector(showHistory),
+            keyEquivalent: ""
+        )
+        history.target = self
+        menu.addItem(history)
 
         let prefs = NSMenuItem(
             title: "Preferences",
@@ -201,6 +213,11 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     @objc private func showMetrics() {
         selectedTab = .metrics
+        showPopover()
+    }
+
+    @objc private func showHistory() {
+        selectedTab = .history
         showPopover()
     }
 

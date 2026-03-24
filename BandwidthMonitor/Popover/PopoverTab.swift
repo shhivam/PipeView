@@ -1,8 +1,10 @@
 import Network
 
 /// Tab state for the popover's segmented control (per D-04, D-06)
+/// Order determines segmented control layout: Metrics | History | Preferences
 enum PopoverTab: String, CaseIterable, Sendable {
     case metrics = "Metrics"
+    case history = "History"
     case preferences = "Preferences"
 }
 

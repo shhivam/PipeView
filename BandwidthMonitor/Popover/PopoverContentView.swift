@@ -7,6 +7,7 @@ import SwiftUI
 /// of `.metrics` (per D-06) is set by the StatusBarController when it initializes the shared tab state.
 struct PopoverContentView: View {
     let networkMonitor: NetworkMonitor
+    let appDatabase: AppDatabase?
     @Binding var selectedTab: PopoverTab
 
     var body: some View {
@@ -24,10 +25,12 @@ struct PopoverContentView: View {
             switch selectedTab {
             case .metrics:
                 MetricsView(networkMonitor: networkMonitor)
+            case .history:
+                HistoryView(appDatabase: appDatabase)
             case .preferences:
                 PreferencesPlaceholderView()
             }
         }
-        .frame(width: 400, height: 500)
+        .frame(width: 400, height: 550)
     }
 }

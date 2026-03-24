@@ -42,11 +42,15 @@ final class PopoverTests: XCTestCase {
         XCTAssertEqual(PopoverTab.metrics.rawValue, "Metrics")
     }
 
+    func testPopoverTab_historyRawValue() {
+        XCTAssertEqual(PopoverTab.history.rawValue, "History")
+    }
+
     func testPopoverTab_preferencesRawValue() {
         XCTAssertEqual(PopoverTab.preferences.rawValue, "Preferences")
     }
 
     func testPopoverTab_allCasesCount() {
-        XCTAssertEqual(PopoverTab.allCases.count, 2)
+        XCTAssertEqual(PopoverTab.allCases.count, 3)
     }
 }

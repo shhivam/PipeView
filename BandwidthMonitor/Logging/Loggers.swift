@@ -21,4 +21,7 @@ extension Logger {
 
     /// Popover UI lifecycle, tab navigation, view events
     static let popover = Logger(subsystem: subsystem, category: "popover")
+
+    /// History tab: chart data loading, cumulative stats queries
+    static let history = Logger(subsystem: subsystem, category: "history")
 }

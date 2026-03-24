@@ -52,6 +52,10 @@
 		A10000010000000000000075 /* PreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000075 /* PreferencesTests.swift */; };
 		A10000010000000000000076 /* HistoryDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000076 /* HistoryDataTests.swift */; };
 		A10000010000000000000077 /* AppDatabaseChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000077 /* AppDatabaseChartTests.swift */; };
+		A10000010000000000000080 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000080 /* HistoryView.swift */; };
+		A10000010000000000000081 /* HistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000081 /* HistoryChartView.swift */; };
+		A10000010000000000000082 /* CumulativeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000082 /* CumulativeStatsView.swift */; };
+		A10000010000000000000083 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000083 /* StatCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,10 @@
 		A20000010000000000000075 /* PreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000076 /* HistoryDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000077 /* AppDatabaseChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseChartTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000080 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A20000010000000000000081 /* HistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChartView.swift; sourceTree = "<group>"; };
+		A20000010000000000000082 /* CumulativeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeStatsView.swift; sourceTree = "<group>"; };
+		A20000010000000000000083 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +228,10 @@
 				A20000010000000000000053 /* InterfaceRowView.swift */,
 				A20000010000000000000054 /* MetricsView.swift */,
 				A20000010000000000000055 /* PreferencesPlaceholderView.swift */,
+				A20000010000000000000080 /* HistoryView.swift */,
+				A20000010000000000000081 /* HistoryChartView.swift */,
+				A20000010000000000000082 /* CumulativeStatsView.swift */,
+				A20000010000000000000083 /* StatCardView.swift */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -388,6 +400,10 @@
 				A10000010000000000000071 /* ByteFormatter.swift in Sources */,
 				A10000010000000000000072 /* HistoryTimeRange.swift in Sources */,
 				A10000010000000000000073 /* ChartDataPoint.swift in Sources */,
+				A10000010000000000000080 /* HistoryView.swift in Sources */,
+				A10000010000000000000081 /* HistoryChartView.swift in Sources */,
+				A10000010000000000000082 /* CumulativeStatsView.swift in Sources */,
+				A10000010000000000000083 /* StatCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
