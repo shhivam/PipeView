@@ -98,7 +98,7 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md -- Data layer foundation: shared types (PreferenceKeys, ByteFormatter, HistoryTimeRange, ChartDataPoint), AppDatabase query methods, unit tests
-- [ ] 05-02-PLAN.md -- History tab UI: PopoverTab.history, HistoryView, HistoryChartView, CumulativeStatsView, StatCardView, PopoverContentView updates
+- [x] 05-02-PLAN.md -- History tab UI: PopoverTab.history, HistoryView, HistoryChartView, CumulativeStatsView, StatCardView, PopoverContentView updates
 - [ ] 05-03-PLAN.md -- Preferences UI and wiring: PreferencesView, StatusBarController preference reading, NetworkMonitor interval update, human verification
 
 ## Progress
