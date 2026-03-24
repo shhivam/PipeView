@@ -36,14 +36,10 @@ final class PopoverTests: XCTestCase {
         XCTAssertEqual(sfSymbolName(for: info), "network")
     }
 
-    // MARK: - PopoverTab Tests (D-04)
+    // MARK: - PopoverTab Tests (D-07)
 
-    func testPopoverTab_metricsRawValue() {
-        XCTAssertEqual(PopoverTab.metrics.rawValue, "Metrics")
-    }
-
-    func testPopoverTab_historyRawValue() {
-        XCTAssertEqual(PopoverTab.history.rawValue, "History")
+    func testPopoverTab_dashboardRawValue() {
+        XCTAssertEqual(PopoverTab.dashboard.rawValue, "Dashboard")
     }
 
     func testPopoverTab_preferencesRawValue() {
@@ -51,6 +47,10 @@ final class PopoverTests: XCTestCase {
     }
 
     func testPopoverTab_allCasesCount() {
-        XCTAssertEqual(PopoverTab.allCases.count, 3)
+        XCTAssertEqual(PopoverTab.allCases.count, 2)
+    }
+
+    func testPopoverTab_dashboardIsFirstCase() {
+        XCTAssertEqual(PopoverTab.allCases.first, .dashboard)
     }
 }
