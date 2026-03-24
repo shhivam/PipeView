@@ -58,7 +58,7 @@ Plans:
   5. Stat card text for Today, This Week, and This Month is fully visible without truncation or wrapping
 **Plans:** 2 plans
 Plans:
-- [ ] 09-01-PLAN.md — TDD: Create ChartAxisFormatter (y-axis unit selection, nice tick calculation, tick formatting)
+- [x] 09-01-PLAN.md — TDD: Create ChartAxisFormatter (y-axis unit selection, nice tick calculation, tick formatting)
 - [ ] 09-02-PLAN.md — Apply chart axis fixes to HistoryChartView and stat card layout safety net
 **UI hint**: yes
 

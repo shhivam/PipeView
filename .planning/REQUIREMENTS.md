@@ -14,10 +14,10 @@ Requirements for v1.1 UI Polish & Chart Fixes. Each maps to roadmap phases.
 
 ### Charts
 
-- [ ] **CHRT-01**: User can hover/select a chart bar without the y-axis shifting or the chart compressing
+- [x] **CHRT-01**: User can hover/select a chart bar without the y-axis shifting or the chart compressing
 - [ ] **CHRT-02**: User sees one bar per day with day labels (Mon, Tue, etc.) in the 7D view
 - [ ] **CHRT-03**: User sees one bar per day with day labels in the 30D view
-- [ ] **CHRT-04**: User sees human-readable y-axis labels (auto-scaled KB/MB/GB) instead of raw bytes
+- [x] **CHRT-04**: User sees human-readable y-axis labels (auto-scaled KB/MB/GB) instead of raw bytes
 
 ### Layout
 
@@ -44,10 +44,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | UIST-01 | Phase 8 | Complete |
 | UIST-02 | Phase 8 | Complete |
-| CHRT-01 | Phase 9 | Pending |
+| CHRT-01 | Phase 9 | Complete |
 | CHRT-02 | Phase 9 | Pending |
 | CHRT-03 | Phase 9 | Pending |
-| CHRT-04 | Phase 9 | Pending |
+| CHRT-04 | Phase 9 | Complete |
 | LYOT-01 | Phase 9 | Pending |
 
 **Coverage:**

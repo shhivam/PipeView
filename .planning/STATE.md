@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: UI Polish & Chart Fixes
-status: Ready to plan
-stopped_at: Completed 08-02-PLAN.md
-last_updated: "2026-03-24T13:57:13.502Z"
+status: Ready to execute
+stopped_at: Completed 09-01-PLAN.md
+last_updated: "2026-03-24T18:10:20.224Z"
 progress:
   total_phases: 2
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-24)
 
 **Core value:** Reliable, always-visible network throughput monitoring -- glance at the menu bar for current speeds, open the popover for usage patterns over time
-**Current focus:** Phase 08 — panel-tab-restructure
+**Current focus:** Phase 09 — chart-fixes-layout-polish
 
 ## Current Position
 
-Phase: 9
-Plan: Not started
+Phase: 09 (chart-fixes-layout-polish) — EXECUTING
+Plan: 2 of 2
 
 ## Performance Metrics
 
@@ -39,6 +39,7 @@ Plan: Not started
 | Phase 04 P01 | 4min | 2 tasks | 8 files |
 | Phase 05 P01 | 9min | 2 tasks | 10 files |
 | Phase 05 P02 | 6min | 2 tasks | 11 files |
+| Phase 09 P01 | 3min | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -54,6 +55,7 @@ Recent decisions affecting current work:
 - [v1.0]: withObservationTracking re-registration pattern for StatusBarController popover management
 - [Phase 08-01]: Inlined MetricsView+HistoryView content into DashboardView (single ScrollView, avoids nesting)
 - [Phase 08]: NSPanel with .nonactivatingPanel style mask for floating utility window; resignKey() override for dismiss-on-focus-loss
+- [Phase 09]: Used same 1000-based thresholds as ByteFormatter for ChartAxisFormatter unit selection consistency
 
 ### Pending Todos
 
@@ -66,6 +68,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T13:22:23.272Z
-Stopped at: Completed 08-02-PLAN.md
+Last session: 2026-03-24T18:10:20.221Z
+Stopped at: Completed 09-01-PLAN.md
 Resume file: None
