@@ -112,7 +112,10 @@ Plans:
   1. Changing update interval in Preferences correctly propagates to BandwidthRecorder
   2. Recorded byte values are accurate at 1s, 2s, and 5s polling intervals
   3. Aggregated data reflects correct values after interval change
-**Plans**: 0 plans
+**Plans**: 1 plan
+
+Plans:
+- [ ] 06-01-PLAN.md -- Make BandwidthRecorder.pollingInterval mutable, wire AppDelegate preference observer, add multi-interval tests
 
 ### Phase 7: Verification and Artifact Cleanup
 **Goal**: All phases have verification artifacts and all requirement checkboxes accurately reflect implementation status
@@ -137,5 +140,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. Data Persistence and Aggregation | 3/3 | Complete | 2026-03-23 |
 | 4. Popover Shell and Interface Views | 2/2 | Complete | 2026-03-24 |
 | 5. Historical Charts, Statistics, and Settings | 3/3 | Complete | 2026-03-24 |
-| 6. Fix Polling Interval Sync | 0/0 | Planned | - |
+| 6. Fix Polling Interval Sync | 0/1 | Planned | - |
 | 7. Verification and Artifact Cleanup | 0/0 | Planned | - |
