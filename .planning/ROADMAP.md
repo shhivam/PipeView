@@ -17,6 +17,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 3: Data Persistence and Aggregation** - SQLite storage with tiered aggregation and bounded retention for historical data
 - [x] **Phase 4: Popover Shell and Interface Views** - Clickable popover window showing per-interface breakdown with dark/light mode support (completed 2026-03-24)
 - [x] **Phase 5: Historical Charts, Statistics, and Settings** - Time-range historical charts, cumulative usage stats, and a preferences interface (completed 2026-03-24)
+- [ ] **Phase 6: Fix Polling Interval Sync** - Fix BandwidthRecorder to use correct polling interval when user changes update preference
+- [ ] **Phase 7: Verification and Artifact Cleanup** - Create Phase 4 VERIFICATION.md, fix stale checkboxes across REQUIREMENTS.md and ROADMAP.md
 
 ## Phase Details
 
@@ -101,15 +103,39 @@ Plans:
 - [x] 05-02-PLAN.md -- History tab UI: PopoverTab.history, HistoryView, HistoryChartView, CumulativeStatsView, StatCardView, PopoverContentView updates
 - [x] 05-03-PLAN.md -- Preferences UI and wiring: PreferencesView, StatusBarController preference reading, NetworkMonitor interval update, human verification
 
+### Phase 6: Fix Polling Interval Sync
+**Goal**: BandwidthRecorder accurately records bandwidth regardless of the user's chosen update interval
+**Depends on**: Phase 5
+**Requirements**: MON-03, MON-04 (fix), POP-02, POP-04 (affected)
+**Gap Closure**: Closes integration defect from v1.0 audit
+**Success Criteria** (what must be TRUE):
+  1. Changing update interval in Preferences correctly propagates to BandwidthRecorder
+  2. Recorded byte values are accurate at 1s, 2s, and 5s polling intervals
+  3. Aggregated data reflects correct values after interval change
+**Plans**: 0 plans
+
+### Phase 7: Verification and Artifact Cleanup
+**Goal**: All phases have verification artifacts and all requirement checkboxes accurately reflect implementation status
+**Depends on**: Phase 6
+**Requirements**: POP-01, POP-03, POP-05, POP-06 (verification)
+**Gap Closure**: Closes verification gaps from v1.0 audit
+**Success Criteria** (what must be TRUE):
+  1. Phase 4 has VERIFICATION.md with all requirements verified
+  2. All REQUIREMENTS.md checkboxes match actual implementation status
+  3. ROADMAP.md progress table and phase checkboxes are current
+**Plans**: 0 plans
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Monitoring Engine | 0/2 | Planned | - |
-| 2. Menu Bar Display | 0/2 | Planned | - |
-| 3. Data Persistence and Aggregation | 0/3 | Planned | - |
-| 4. Popover Shell and Interface Views | 0/2 | Complete    | 2026-03-24 |
-| 5. Historical Charts, Statistics, and Settings | 3/3 | Complete   | 2026-03-24 |
+| 1. Core Monitoring Engine | 2/2 | Complete | 2026-03-23 |
+| 2. Menu Bar Display | 2/2 | Complete | 2026-03-23 |
+| 3. Data Persistence and Aggregation | 3/3 | Complete | 2026-03-23 |
+| 4. Popover Shell and Interface Views | 2/2 | Complete | 2026-03-24 |
+| 5. Historical Charts, Statistics, and Settings | 3/3 | Complete | 2026-03-24 |
+| 6. Fix Polling Interval Sync | 0/0 | Planned | - |
+| 7. Verification and Artifact Cleanup | 0/0 | Planned | - |

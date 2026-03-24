@@ -11,8 +11,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **MON-01**: App measures real-time upload and download throughput per network interface using sysctl
 - [x] **MON-02**: App identifies and enumerates active network interfaces (Wi-Fi, Ethernet, VPN tunnels) filtering loopback and inactive
-- [x] **MON-03**: App records bandwidth samples to SQLite at regular intervals
-- [x] **MON-04**: App aggregates raw samples into minute, hour, day, week, and month granularity tiers
+- [ ] **MON-03**: App records bandwidth samples to SQLite at regular intervals
+- [ ] **MON-04**: App aggregates raw samples into minute, hour, day, week, and month granularity tiers
 - [x] **MON-05**: App prunes old raw samples while preserving aggregated data to keep database bounded
 - [x] **MON-06**: App uses less than 1% CPU and minimal RAM during normal operation
 
@@ -25,11 +25,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Popover UI
 
-- [x] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
+- [ ] **POP-01**: Clicking the menu bar item opens a medium-sized popover window (~400x500px)
 - [x] **POP-02**: Popover shows historical bar/area charts with switchable time ranges (hour, day, week, month)
-- [x] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
+- [ ] **POP-03**: Popover shows per-interface bandwidth breakdown with individual stats
 - [x] **POP-04**: Popover shows cumulative statistics (total data today, this week, this month)
-- [x] **POP-05**: Popover supports dark mode and light mode automatically
+- [ ] **POP-05**: Popover supports dark mode and light mode automatically
 - [ ] **POP-06**: Popover includes a quit button
 
 ### System Integration
@@ -77,28 +77,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | MON-01 | Phase 1: Core Monitoring Engine | Complete |
 | MON-02 | Phase 1: Core Monitoring Engine | Complete |
-| MON-03 | Phase 3: Data Persistence and Aggregation | Complete |
-| MON-04 | Phase 3: Data Persistence and Aggregation | Complete |
+| MON-03 | Phase 3 → Phase 6 (fix) | Pending |
+| MON-04 | Phase 3 → Phase 6 (fix) | Pending |
 | MON-05 | Phase 3: Data Persistence and Aggregation | Complete |
 | MON-06 | Phase 1: Core Monitoring Engine | Complete |
 | BAR-01 | Phase 2: Menu Bar Display | Pending |
 | BAR-02 | Phase 2: Menu Bar Display | Pending |
 | BAR-03 | Phase 2: Menu Bar Display | Pending |
 | BAR-04 | Phase 2: Menu Bar Display | Pending |
-| POP-01 | Phase 4: Popover Shell and Interface Views | Complete |
+| POP-01 | Phase 4 → Phase 7 (verify) | Pending |
 | POP-02 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
-| POP-03 | Phase 4: Popover Shell and Interface Views | Complete |
+| POP-03 | Phase 4 → Phase 7 (verify) | Pending |
 | POP-04 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
-| POP-05 | Phase 4: Popover Shell and Interface Views | Complete |
-| POP-06 | Phase 4: Popover Shell and Interface Views | Pending |
+| POP-05 | Phase 4 → Phase 7 (verify) | Pending |
+| POP-06 | Phase 4 → Phase 7 (verify) | Pending |
 | SYS-01 | Phase 2: Menu Bar Display | Pending |
 | SYS-02 | Phase 5: Historical Charts, Statistics, and Settings | Complete |
 
 **Coverage:**
 - v1 requirements: 18 total
 - Mapped to phases: 18
+- Satisfied: 7 (checked)
+- Pending (gap closure): 11 (6 gap closure phases + 5 stale checkboxes to fix)
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-23*
-*Last updated: 2026-03-23 after roadmap creation*
+*Last updated: 2026-03-24 after gap closure phase creation*
