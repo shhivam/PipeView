@@ -41,8 +41,8 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 
 ### Active
 
-- [ ] Merge Metrics + History into a single combined tab
-- [ ] Replace NSPopover with floating utility panel
+- ✓ Merge Metrics + History into a single combined tab — Phase 8
+- ✓ Replace NSPopover with floating utility panel — Phase 8
 - [ ] Fix chart hover behavior (y-axis shift / compression)
 - [ ] Fix 7D view — one bar per day with proper labels
 - [ ] Fix 30D view — one bar per day with proper labels
@@ -71,7 +71,7 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 ## Context
 
 - Native macOS app in Swift 6.0 with strict concurrency
-- Hybrid AppKit+SwiftUI: NSStatusItem for menu bar text, NSPopover for window, SwiftUI for all content
+- Hybrid AppKit+SwiftUI: NSStatusItem for menu bar text, floating NSPanel for window, SwiftUI for all content
 - Network stats via sysctl IFMIB_IFDATA (64-bit counters, avoids NET_RT_IFLIST2 batching/truncation bugs)
 - SQLite via GRDB.swift with 5-tier aggregation (raw → minute → hour → day → week/month)
 - Charts via Swift Charts framework (macOS 13+)
@@ -115,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 after v1.1 milestone started*
+*Last updated: 2026-03-24 after Phase 8 (Panel & Tab Restructure) complete*
