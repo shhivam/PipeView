@@ -13,7 +13,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private let textBuilder = SpeedTextBuilder()
 
     // Phase 4: Popover + context menu
-    private var selectedTab: PopoverTab = .metrics
+    private let popoverState = PopoverState()
     private lazy var popover: NSPopover = {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 550)
@@ -23,25 +23,11 @@ final class StatusBarController: NSObject, NSMenuDelegate {
             rootView: PopoverContentView(
                 networkMonitor: networkMonitor,
                 appDatabase: appDatabase,
-                selectedTab: makeTabBinding()
+                popoverState: popoverState
             )
         )
         return popover
     }()
-
-    /// Creates a `Binding<PopoverTab>` that reads/writes `selectedTab` on the main actor.
-    /// Uses `MainActor.assumeIsolated` inside the Sendable closure because StatusBarController
-    /// is `@MainActor` and the Binding is only used from SwiftUI views (also main-thread).
-    private func makeTabBinding() -> Binding<PopoverTab> {
-        Binding(
-            get: { [weak self] in
-                MainActor.assumeIsolated { self?.selectedTab ?? .metrics }
-            },
-            set: { [weak self] newValue in
-                MainActor.assumeIsolated { self?.selectedTab = newValue }
-            }
-        )
-    }
 
     // MARK: - Init
 
@@ -134,9 +120,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
             popover.performClose(nil)
         } else if let button = statusItem.button {
             // D-06: Default to Metrics tab on left-click open
-            selectedTab = .metrics
-            // Update the hosting controller's root view to reflect tab change
-            updatePopoverRootView()
+            popoverState.selectedTab = .metrics
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
     }
@@ -144,7 +128,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private func showPopover() {
         guard !popover.isShown else { return }
         if let button = statusItem.button {
-            updatePopoverRootView()
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
     }
@@ -156,14 +139,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         // menu is nilled out in menuDidClose(_:)
     }
 
-    private func updatePopoverRootView() {
-        let rootView = PopoverContentView(
-            networkMonitor: networkMonitor,
-            appDatabase: appDatabase,
-            selectedTab: makeTabBinding()
-        )
-        (popover.contentViewController as? NSHostingController<PopoverContentView>)?.rootView = rootView
-    }
 
     // MARK: - Context Menu (D-02)
 
@@ -218,17 +193,17 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     // MARK: - Context Menu Actions (D-03)
 
     @objc private func showMetrics() {
-        selectedTab = .metrics
+        popoverState.selectedTab = .metrics
         showPopover()
     }
 
     @objc private func showHistory() {
-        selectedTab = .history
+        popoverState.selectedTab = .history
         showPopover()
     }
 
     @objc private func showPreferences() {
-        selectedTab = .preferences
+        popoverState.selectedTab = .preferences
         showPopover()
     }
 

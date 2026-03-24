@@ -8,11 +8,11 @@ import SwiftUI
 struct PopoverContentView: View {
     let networkMonitor: NetworkMonitor
     let appDatabase: AppDatabase?
-    @Binding var selectedTab: PopoverTab
+    @Bindable var popoverState: PopoverState
 
     var body: some View {
         VStack(spacing: 0) {
-            Picker("", selection: $selectedTab) {
+            Picker("", selection: $popoverState.selectedTab) {
                 ForEach(PopoverTab.allCases, id: \.self) { tab in
                     Text(tab.rawValue).tag(tab)
                 }
@@ -22,7 +22,7 @@ struct PopoverContentView: View {
             .padding(.top, 16)
             .padding(.bottom, 16)
 
-            switch selectedTab {
+            switch popoverState.selectedTab {
             case .metrics:
                 MetricsView(networkMonitor: networkMonitor)
             case .history:

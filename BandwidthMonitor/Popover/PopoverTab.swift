@@ -1,4 +1,5 @@
 import Network
+import Observation
 
 /// Tab state for the popover's segmented control (per D-04, D-06)
 /// Order determines segmented control layout: Metrics | History | Preferences
@@ -6,6 +7,14 @@ enum PopoverTab: String, CaseIterable, Sendable {
     case metrics = "Metrics"
     case history = "History"
     case preferences = "Preferences"
+}
+
+/// Observable state shared between StatusBarController and PopoverContentView
+/// so that tab changes from both the segmented control and the context menu
+/// trigger SwiftUI view updates.
+@MainActor @Observable
+final class PopoverState {
+    var selectedTab: PopoverTab = .metrics
 }
 
 /// Maps an interface's type and BSD name to the appropriate SF Symbol (per D-08).
