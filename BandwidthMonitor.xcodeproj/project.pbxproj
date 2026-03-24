@@ -44,6 +44,13 @@
 		A10000010000000000000054 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000054 /* MetricsView.swift */; };
 		A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000055 /* PreferencesPlaceholderView.swift */; };
 		A10000010000000000000060 /* PopoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000060 /* PopoverTests.swift */; };
+		A10000010000000000000070 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000070 /* PreferenceKeys.swift */; };
+		A10000010000000000000071 /* ByteFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000071 /* ByteFormatter.swift */; };
+		A10000010000000000000072 /* HistoryTimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000072 /* HistoryTimeRange.swift */; };
+		A10000010000000000000073 /* ChartDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000073 /* ChartDataPoint.swift */; };
+		A10000010000000000000074 /* ByteFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000074 /* ByteFormatterTests.swift */; };
+		A10000010000000000000075 /* PreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000075 /* PreferencesTests.swift */; };
+		A10000010000000000000076 /* HistoryDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000076 /* HistoryDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +104,13 @@
 		A20000010000000000000054 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		A20000010000000000000055 /* PreferencesPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPlaceholderView.swift; sourceTree = "<group>"; };
 		A20000010000000000000060 /* PopoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000070 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		A20000010000000000000071 /* ByteFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteFormatter.swift; sourceTree = "<group>"; };
+		A20000010000000000000072 /* HistoryTimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTimeRange.swift; sourceTree = "<group>"; };
+		A20000010000000000000073 /* ChartDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataPoint.swift; sourceTree = "<group>"; };
+		A20000010000000000000074 /* ByteFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteFormatterTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000075 /* PreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000076 /* HistoryDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +149,7 @@
 				A70000010000000000000007 /* MenuBar */,
 				A7000001000000000000000A /* Popover */,
 				A70000010000000000000008 /* Persistence */,
+				A7000001000000000000000B /* Shared */,
 				A70000010000000000000004 /* Logging */,
 				A20000010000000000000004 /* Info.plist */,
 			);
@@ -207,6 +222,17 @@
 			path = Popover;
 			sourceTree = "<group>";
 		};
+		A7000001000000000000000B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000070 /* PreferenceKeys.swift */,
+				A20000010000000000000071 /* ByteFormatter.swift */,
+				A20000010000000000000072 /* HistoryTimeRange.swift */,
+				A20000010000000000000073 /* ChartDataPoint.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		A70000010000000000000005 /* BandwidthMonitorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +248,9 @@
 				A20000010000000000000042 /* AggregationEngineTests.swift */,
 				A20000010000000000000043 /* PruningManagerTests.swift */,
 				A20000010000000000000060 /* PopoverTests.swift */,
+				A20000010000000000000074 /* ByteFormatterTests.swift */,
+				A20000010000000000000075 /* PreferencesTests.swift */,
+				A20000010000000000000076 /* HistoryDataTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -352,6 +381,10 @@
 				A10000010000000000000053 /* InterfaceRowView.swift in Sources */,
 				A10000010000000000000054 /* MetricsView.swift in Sources */,
 				A10000010000000000000055 /* PreferencesPlaceholderView.swift in Sources */,
+				A10000010000000000000070 /* PreferenceKeys.swift in Sources */,
+				A10000010000000000000071 /* ByteFormatter.swift in Sources */,
+				A10000010000000000000072 /* HistoryTimeRange.swift in Sources */,
+				A10000010000000000000073 /* ChartDataPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +404,9 @@
 				A10000010000000000000042 /* AggregationEngineTests.swift in Sources */,
 				A10000010000000000000043 /* PruningManagerTests.swift in Sources */,
 				A10000010000000000000060 /* PopoverTests.swift in Sources */,
+				A10000010000000000000074 /* ByteFormatterTests.swift in Sources */,
+				A10000010000000000000075 /* PreferencesTests.swift in Sources */,
+				A10000010000000000000076 /* HistoryDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
