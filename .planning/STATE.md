@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: UI Polish & Chart Fixes
-status: Ready to execute
-stopped_at: Completed 08-01-PLAN.md
-last_updated: "2026-03-24T10:14:50.674Z"
+status: Phase complete — ready for verification
+stopped_at: Completed 08-02-PLAN.md
+last_updated: "2026-03-24T13:22:23.274Z"
 progress:
   total_phases: 2
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -53,6 +53,7 @@ Recent decisions affecting current work:
 - [v1.0]: Bar chart with grouped download/upload bars; aggregate data only; interactive hover tooltip
 - [v1.0]: withObservationTracking re-registration pattern for StatusBarController popover management
 - [Phase 08-01]: Inlined MetricsView+HistoryView content into DashboardView (single ScrollView, avoids nesting)
+- [Phase 08]: NSPanel with .nonactivatingPanel style mask for floating utility window; resignKey() override for dismiss-on-focus-loss
 
 ### Pending Todos
 
@@ -65,6 +66,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T10:14:50.671Z
-Stopped at: Completed 08-01-PLAN.md
+Last session: 2026-03-24T13:22:23.272Z
+Stopped at: Completed 08-02-PLAN.md
 Resume file: None
