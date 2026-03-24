@@ -10,20 +10,32 @@ enum HistoryTimeRange: String, CaseIterable, Sendable {
 
     /// The aggregation tier to query for this time range.
     var tier: AggregationTier {
-        // Stub: returns wrong tier to fail tests
-        return .month
+        switch self {
+        case .oneHour:        return .minute
+        case .twentyFourHours: return .hour
+        case .sevenDays:      return .day
+        case .thirtyDays:     return .day
+        }
     }
 
     /// The total time span in seconds.
     var timeInterval: TimeInterval {
-        // Stub: returns wrong value to fail tests
-        return 0
+        switch self {
+        case .oneHour:        return 3_600
+        case .twentyFourHours: return 86_400
+        case .sevenDays:      return 604_800
+        case .thirtyDays:     return 2_592_000
+        }
     }
 
     /// Calendar component for BarMark x-axis unit (avoids Pitfall 1: unit mismatch).
     var calendarUnit: Calendar.Component {
-        // Stub: returns wrong unit to fail tests
-        return .year
+        switch self {
+        case .oneHour:        return .minute
+        case .twentyFourHours: return .hour
+        case .sevenDays:      return .day
+        case .thirtyDays:     return .day
+        }
     }
 
     /// Display label for the segmented control.

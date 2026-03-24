@@ -19,8 +19,12 @@ enum DisplayModePref: String, CaseIterable, Sendable {
     case downloadOnly = "downloadOnly"
 
     func toDisplayMode() -> DisplayMode {
-        // Stub: returns wrong value to fail tests
-        return .auto
+        switch self {
+        case .auto:         return .auto
+        case .both:         return .both
+        case .uploadOnly:   return .uploadOnly
+        case .downloadOnly: return .downloadOnly
+        }
     }
 }
 
@@ -33,8 +37,12 @@ enum UnitModePref: String, CaseIterable, Sendable {
     case fixedGB = "fixedGB"
 
     func toUnitMode() -> SpeedFormatter.UnitMode {
-        // Stub: returns wrong value to fail tests
-        return .auto
+        switch self {
+        case .auto:    return .auto
+        case .fixedKB: return .fixedKB
+        case .fixedMB: return .fixedMB
+        case .fixedGB: return .fixedGB
+        }
     }
 }
 
@@ -46,7 +54,6 @@ enum UpdateIntervalPref: Int, CaseIterable, Sendable {
     case fiveSeconds = 5
 
     var duration: Duration {
-        // Stub: returns wrong value to fail tests
-        return .seconds(0)
+        return .seconds(rawValue)
     }
 }
