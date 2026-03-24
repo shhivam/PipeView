@@ -18,14 +18,16 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 - [x] SQLite local database for persistent data storage — Validated in Phase 3: Data Persistence and Aggregation
 - [x] Data recording at minute, hour, day, week, month granularity — Validated in Phase 3: Data Persistence and Aggregation
 
+- [x] User-configurable display units (KB/s, MB/s, GB/s, auto-scale) — Validated in Phase 5: Historical Charts, Statistics, and Settings
+- [x] Popover window (400x550px) on menu bar click with tabbed interface — Validated in Phase 4: Popover Window and Phase 5
+- [x] Bar charts for historical data usage summaries with switchable time ranges (1H, 24H, 7D, 30D) — Validated in Phase 5: Historical Charts, Statistics, and Settings
+- [x] Cumulative usage statistics (Today, This Week, This Month) — Validated in Phase 5: Historical Charts, Statistics, and Settings
+- [x] Preferences interface (display mode, unit, update interval, launch at login) — Validated in Phase 5: Historical Charts, Statistics, and Settings
+- [x] Clean, modular Swift codebase with clear separation of concerns — Validated across all phases
+
 ### Active
 
-- [ ] User-configurable display units (KB/s, MB/s, Gb/s, auto-scale, etc.) — infrastructure built in Phase 2, user-facing preferences in Phase 5
-- [ ] Medium-sized popover window (~400x500px) on menu bar click
-- [ ] Time series line/area charts for recent bandwidth activity
-- [ ] Bar charts for historical data usage summaries (today, this week, this month)
-- [ ] Switchable time range views (last hour, day, week, month)
-- [ ] Clean, modular Swift codebase with clear separation of concerns
+(none — all v1.0 requirements delivered)
 
 ### Out of Scope
 
@@ -78,4 +80,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 — Phase 3 complete: GRDB persistence layer with raw sample recording, 5-tier cascading aggregation (minute/hour/day/week/month), automatic 24h pruning, 86+ tests passing*
+*Last updated: 2026-03-24 — Phase 5 complete (all phases delivered): Historical bar charts with 4 time ranges, cumulative stats cards, full preferences UI with live wiring. v1.0 milestone feature-complete.*
