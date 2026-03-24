@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: Menu Bar Display** - Live upload/download speeds visible in the macOS menu bar with configurable units and launch at login
 - [ ] **Phase 3: Data Persistence and Aggregation** - SQLite storage with tiered aggregation and bounded retention for historical data
 - [x] **Phase 4: Popover Shell and Interface Views** - Clickable popover window showing per-interface breakdown with dark/light mode support (completed 2026-03-24)
-- [ ] **Phase 5: Historical Charts, Statistics, and Settings** - Time-range historical charts, cumulative usage stats, and a preferences interface
+- [x] **Phase 5: Historical Charts, Statistics, and Settings** - Time-range historical charts, cumulative usage stats, and a preferences interface (completed 2026-03-24)
 
 ## Phase Details
 
@@ -99,7 +99,7 @@ Plans:
 Plans:
 - [x] 05-01-PLAN.md -- Data layer foundation: shared types (PreferenceKeys, ByteFormatter, HistoryTimeRange, ChartDataPoint), AppDatabase query methods, unit tests
 - [x] 05-02-PLAN.md -- History tab UI: PopoverTab.history, HistoryView, HistoryChartView, CumulativeStatsView, StatCardView, PopoverContentView updates
-- [ ] 05-03-PLAN.md -- Preferences UI and wiring: PreferencesView, StatusBarController preference reading, NetworkMonitor interval update, human verification
+- [x] 05-03-PLAN.md -- Preferences UI and wiring: PreferencesView, StatusBarController preference reading, NetworkMonitor interval update, human verification
 
 ## Progress
 
@@ -112,4 +112,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Menu Bar Display | 0/2 | Planned | - |
 | 3. Data Persistence and Aggregation | 0/3 | Planned | - |
 | 4. Popover Shell and Interface Views | 0/2 | Complete    | 2026-03-24 |
-| 5. Historical Charts, Statistics, and Settings | 0/3 | Planned | - |
+| 5. Historical Charts, Statistics, and Settings | 3/3 | Complete   | 2026-03-24 |

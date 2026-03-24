@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-03-24T05:54:43.510Z"
+status: Phase complete — ready for verification
+stopped_at: Completed 05-03-PLAN.md
+last_updated: "2026-03-24T06:44:16.603Z"
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 12
-  completed_plans: 11
+  completed_plans: 12
 ---
 
 # Project State
@@ -69,6 +69,8 @@ Recent decisions affecting current work:
 - [Phase 05 P01]: Shared/ directory for cross-cutting types used by multiple layers
 - [Phase 05]: [Phase 05 P02]: StatusBarController created after DB do-catch for nil-safe appDatabase passing
 - [Phase 05]: [Phase 05 P02]: Interactive Swift Charts with chartXSelection + RuleMark tooltip pattern for bar chart
+- [Phase 05]: UserDefaults.didChangeNotification in AppDelegate for preference observation (simpler than per-key KVO)
+- [Phase 05]: @Observable PopoverState class bridges AppKit context menu to SwiftUI tab state
 
 ### Pending Todos
 
@@ -82,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-24T05:54:43.507Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-03-24T06:44:16.600Z
+Stopped at: Completed 05-03-PLAN.md
 Resume file: None
