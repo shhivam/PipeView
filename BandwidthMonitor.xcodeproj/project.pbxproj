@@ -51,6 +51,7 @@
 		A10000010000000000000074 /* ByteFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000074 /* ByteFormatterTests.swift */; };
 		A10000010000000000000075 /* PreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000075 /* PreferencesTests.swift */; };
 		A10000010000000000000076 /* HistoryDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000076 /* HistoryDataTests.swift */; };
+		A10000010000000000000077 /* AppDatabaseChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000077 /* AppDatabaseChartTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		A20000010000000000000074 /* ByteFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteFormatterTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000075 /* PreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTests.swift; sourceTree = "<group>"; };
 		A20000010000000000000076 /* HistoryDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataTests.swift; sourceTree = "<group>"; };
+		A20000010000000000000077 /* AppDatabaseChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseChartTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				A20000010000000000000074 /* ByteFormatterTests.swift */,
 				A20000010000000000000075 /* PreferencesTests.swift */,
 				A20000010000000000000076 /* HistoryDataTests.swift */,
+				A20000010000000000000077 /* AppDatabaseChartTests.swift */,
 			);
 			path = BandwidthMonitorTests;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				A10000010000000000000074 /* ByteFormatterTests.swift in Sources */,
 				A10000010000000000000075 /* PreferencesTests.swift in Sources */,
 				A10000010000000000000076 /* HistoryDataTests.swift in Sources */,
+				A10000010000000000000077 /* AppDatabaseChartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

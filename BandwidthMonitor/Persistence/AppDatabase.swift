@@ -94,3 +94,22 @@ final class AppDatabase: Sendable {
         return migrator
     }
 }
+
+// MARK: - Chart & Statistics Queries
+
+extension AppDatabase {
+
+    /// Fetches chart data points for a given aggregation tier, summed across all interfaces.
+    /// Returns points sorted by timestamp ASC.
+    func fetchChartData(tier: AggregationTier, since: Date) throws -> [ChartDataPoint] {
+        // Stub: returns empty to fail tests
+        return []
+    }
+
+    /// Fetches cumulative bytes (in + out) from hour_samples since the given date.
+    /// Uses hour_samples for partial-day accuracy (more current than day_samples).
+    func fetchCumulativeStats(since: Date) throws -> (totalIn: Double, totalOut: Double) {
+        // Stub: returns zeroes to fail tests
+        return (0, 0)
+    }
+}
