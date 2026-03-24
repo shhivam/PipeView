@@ -10,7 +10,7 @@ Reliable, always-visible network throughput monitoring — the user can glance a
 
 ## Current State
 
-Shipped v1.0 MVP with 4,543 lines of Swift across 7 phases and 14 plans.
+Shipped v1.0 MVP with 4,543 lines of Swift across 7 phases and 14 plans. v1.1 milestone complete — Phase 8 merged tabs + floating panel, Phase 9 fixed chart axes and stat card layout.
 
 Tech stack: Swift 6.0 + SwiftUI + AppKit hybrid, GRDB.swift 7.10.0 for SQLite, Swift Charts for historical visualizations, sysctl IFMIB_IFDATA for network byte counters, NWPathMonitor for interface detection, SystemConfiguration for human-readable interface names.
 
@@ -43,11 +43,11 @@ Architecture: ~20% AppKit (NSStatusItem, NSPopover, AppDelegate) + ~80% SwiftUI 
 
 - ✓ Merge Metrics + History into a single combined tab — Phase 8
 - ✓ Replace NSPopover with floating utility panel — Phase 8
-- [ ] Fix chart hover behavior (y-axis shift / compression)
-- [ ] Fix 7D view — one bar per day with proper labels
-- [ ] Fix 30D view — one bar per day with proper labels
-- [ ] Human-readable y-axis labels (KB/MB/GB)
-- [ ] Fix stat card text wrapping
+- ✓ Fix chart hover behavior (y-axis shift / compression) — Phase 9
+- ✓ Fix 7D view — one bar per day with proper labels — Phase 9
+- ✓ Fix 30D view — one bar per day with proper labels — Phase 9
+- ✓ Human-readable y-axis labels (KB/MB/GB) — Phase 9
+- ✓ Fix stat card text wrapping — Phase 9
 
 ## Current Milestone: v1.1 UI Polish & Chart Fixes
 
@@ -115,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-24 after Phase 8 (Panel & Tab Restructure) complete*
+*Last updated: 2026-03-25 after Phase 9 (Chart Fixes & Layout Polish) complete*
