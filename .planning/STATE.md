@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-23T22:25:48.293Z"
+status: Planning complete, ready to execute
+stopped_at: Phase 5 plans verified, ready for execution
+last_updated: "2026-03-24"
 progress:
   total_phases: 5
-  completed_phases: 3
-  total_plans: 9
-  completed_plans: 8
+  completed_phases: 4
+  total_plans: 12
+  completed_plans: 9
 ---
 
 # Project State
@@ -19,31 +19,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-23)
 
 **Core value:** Reliable, always-visible network throughput monitoring -- glance at the menu bar for current speeds, open the popover for usage patterns over time
-**Current focus:** Phase 04 — popover-shell-and-interface-views
+**Current focus:** Phase 05 — historical-charts-statistics-and-settings
 
 ## Current Position
 
-Phase: 04 (popover-shell-and-interface-views) — EXECUTING
-Plan: 2 of 2
+Phase: 05 (historical-charts-statistics-and-settings) — PLANNED (3 plans, 3 waves)
+Plan: 0 of 3
 
 ## Performance Metrics
 
 **Velocity:**
-
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
-
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| - | - | - | - |
-
-**Recent Trend:**
-
-- Last 5 plans: -
-- Trend: -
 
 *Updated after each plan completion*
 | Phase 01 P01 | 7min | 2 tasks | 11 files |
@@ -73,6 +58,10 @@ Recent decisions affecting current work:
 - [Phase 03]: Single full aggregation cycle every 2 minutes rather than staggered tier timers; watermark-based incremental processing; UTC-only bucketing
 - [Phase 04]: Used Color.accentColor instead of .accent for foregroundStyle compatibility with current SwiftUI/Xcode version
 - [Phase 04]: sfSymbolName(for:) as free function (not method on InterfaceInfo) to keep model types clean
+- [Phase 05]: Three tabs (Metrics, History, Preferences); expand popover to ~400x550
+- [Phase 05]: Bar chart with grouped download/upload bars; aggregate data only; interactive hover tooltip
+- [Phase 05]: 3 cumulative stats cards (Today, This Week, This Month) with combined total + per-direction breakdown
+- [Phase 05]: Preferences: display mode, unit, interval, launch-at-login; @AppStorage with immediate effect
 
 ### Pending Todos
 
@@ -86,6 +75,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-23T22:25:48.291Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-03-24
+Stopped at: Phase 5 plans verified, ready for execution
 Resume file: None
