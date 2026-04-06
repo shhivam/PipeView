@@ -68,4 +68,4 @@ Then hit **⌘R** to build and run.
 
 ## License
 
-MIT
+[WTFPL](LICENSE)
