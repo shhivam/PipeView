@@ -60,6 +60,7 @@
 		A10000010000000000000091 /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000091 /* FloatingPanel.swift */; };
 		A100000100000000000000A0 /* ChartAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000100000000000000A0 /* ChartAxisFormatter.swift */; };
 		A100000100000000000000A1 /* ChartAxisFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000100000000000000A1 /* ChartAxisFormatterTests.swift */; };
+		A100000100000000000000B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A200000100000000000000B0 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		A20000010000000000000091 /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
 		A200000100000000000000A0 /* ChartAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAxisFormatter.swift; sourceTree = "<group>"; };
 		A200000100000000000000A1 /* ChartAxisFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAxisFormatterTests.swift; sourceTree = "<group>"; };
+		A200000100000000000000B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				A70000010000000000000008 /* Persistence */,
 				A7000001000000000000000B /* Shared */,
 				A70000010000000000000004 /* Logging */,
+				A200000100000000000000B0 /* Assets.xcassets */,
 				A20000010000000000000004 /* Info.plist */,
 			);
 			path = PipeView;
@@ -293,6 +296,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXResourcesBuildPhase section */
+		A300000100000000000000B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A100000100000000000000B0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		A40000010000000000000001 /* PipeView */ = {
 			isa = PBXNativeTarget;
@@ -300,6 +314,7 @@
 			buildPhases = (
 				A90000010000000000000001 /* Sources */,
 				A30000010000000000000001 /* Frameworks */,
+				A300000100000000000000B0 /* Resources */,
 			);
 			buildRules = (
 			);
