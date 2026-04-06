@@ -28,15 +28,15 @@
 ### Download
 
 1. Go to the [Releases](https://github.com/shhivam/PipeView/releases) page
-2. Download the latest `.zip` file
-3. Unzip and drag **PipeView.app** to your **Applications** folder
+2. Download **PipeView-v1.0.dmg**
+3. Open the DMG and drag **BandwidthMonitor.app** to **Applications**
 
 ### Bypass Gatekeeper (required — app is not notarized)
 
 Since this app is not signed with an Apple Developer certificate, macOS will block it by default. Run this once after installing:
 
 ```bash
-xattr -rd com.apple.quarantine /Applications/PipeView.app
+xattr -rd com.apple.quarantine /Applications/BandwidthMonitor.app
 ```
 
 Then open the app normally. If macOS still shows a warning, go to **System Settings → Privacy & Security** and click **Open Anyway**.
