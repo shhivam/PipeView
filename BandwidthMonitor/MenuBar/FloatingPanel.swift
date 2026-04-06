@@ -10,7 +10,7 @@ final class FloatingPanel: NSPanel {
     init(contentRect: NSRect) {
         super.init(
             contentRect: contentRect,
-            styleMask: [.nonactivatingPanel, .titled, .fullSizeContentView],
+            styleMask: [.nonactivatingPanel, .titled, .closable, .fullSizeContentView],
             backing: .buffered,
             defer: false
         )
@@ -23,8 +23,7 @@ final class FloatingPanel: NSPanel {
         titleVisibility = .hidden
         titlebarAppearsTransparent = true
 
-        // Hide standard window buttons (close/minimize/zoom)
-        standardWindowButton(.closeButton)?.isHidden = true
+        // Hide minimize/zoom but keep close button visible
         standardWindowButton(.miniaturizeButton)?.isHidden = true
         standardWindowButton(.zoomButton)?.isHidden = true
 
@@ -46,6 +45,15 @@ final class FloatingPanel: NSPanel {
 
     // Panels should not become main window (auxiliary panel semantics)
     override var canBecomeMain: Bool { false }
+
+    // Dismiss on Escape key press
+    override func keyDown(with event: NSEvent) {
+        if event.keyCode == 53 {
+            close()
+        } else {
+            super.keyDown(with: event)
+        }
+    }
 
     // D-02: Dismiss when user clicks outside or switches focus
     override func resignKey() {
