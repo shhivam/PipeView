@@ -178,7 +178,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
 
         let about = NSMenuItem(
-            title: "About Bandwidth Monitor",
+            title: "About PipeView",
             action: #selector(showAbout),
             keyEquivalent: ""
         )
@@ -186,7 +186,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         menu.addItem(about)
 
         let quit = NSMenuItem(
-            title: "Quit Bandwidth Monitor",
+            title: "Quit PipeView",
             action: #selector(NSApplication.terminate(_:)),
             keyEquivalent: "q"
         )

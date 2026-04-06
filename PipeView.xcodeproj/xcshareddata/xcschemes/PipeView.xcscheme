@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A40000010000000000000001"
-               BuildableName = "BandwidthMonitor.app"
-               BlueprintName = "BandwidthMonitor"
-               ReferencedContainer = "container:BandwidthMonitor.xcodeproj">
+               BuildableName = "PipeView.app"
+               BlueprintName = "PipeView"
+               ReferencedContainer = "container:PipeView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A40000010000000000000002"
-               BuildableName = "BandwidthMonitorTests.xctest"
-               BlueprintName = "BandwidthMonitorTests"
-               ReferencedContainer = "container:BandwidthMonitor.xcodeproj">
+               BuildableName = "PipeViewTests.xctest"
+               BlueprintName = "PipeViewTests"
+               ReferencedContainer = "container:PipeView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A40000010000000000000001"
-            BuildableName = "BandwidthMonitor.app"
-            BlueprintName = "BandwidthMonitor"
-            ReferencedContainer = "container:BandwidthMonitor.xcodeproj">
+            BuildableName = "PipeView.app"
+            BlueprintName = "PipeView"
+            ReferencedContainer = "container:PipeView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A40000010000000000000001"
-            BuildableName = "BandwidthMonitor.app"
-            BlueprintName = "BandwidthMonitor"
-            ReferencedContainer = "container:BandwidthMonitor.xcodeproj">
+            BuildableName = "PipeView.app"
+            BlueprintName = "PipeView"
+            ReferencedContainer = "container:PipeView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

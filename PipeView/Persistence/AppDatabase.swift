@@ -2,7 +2,7 @@ import GRDB
 import Foundation
 import os
 
-/// Central database manager for the Bandwidth Monitor app.
+/// Central database manager for the PipeView app.
 ///
 /// Owns the database connection, runs migrations, and provides the shared
 /// ``DatabaseWriter`` to all consumers. Production uses ``DatabasePool``
@@ -19,7 +19,7 @@ final class AppDatabase: Sendable {
 
     // MARK: - Factory Methods
 
-    /// Production: ~/Library/Application Support/BandwidthMonitor/bandwidth.sqlite
+    /// Production: ~/Library/Application Support/PipeView/bandwidth.sqlite
     static func makeDefault() throws -> AppDatabase {
         let fileManager = FileManager.default
         let appSupportURL = try fileManager.url(
@@ -29,7 +29,7 @@ final class AppDatabase: Sendable {
             create: true
         )
         let directoryURL = appSupportURL.appendingPathComponent(
-            "BandwidthMonitor",
+            "PipeView",
             isDirectory: true
         )
         try fileManager.createDirectory(

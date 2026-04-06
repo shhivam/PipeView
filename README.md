@@ -29,14 +29,14 @@
 
 1. Go to the [Releases](https://github.com/shhivam/PipeView/releases) page
 2. Download **PipeView-v1.0.dmg**
-3. Open the DMG and drag **BandwidthMonitor.app** to **Applications**
+3. Open the DMG and drag **PipeView.app** to **Applications**
 
 ### Bypass Gatekeeper (required — app is not notarized)
 
 Since this app is not signed with an Apple Developer certificate, macOS will block it by default. Run this once after installing:
 
 ```bash
-xattr -rd com.apple.quarantine /Applications/BandwidthMonitor.app
+xattr -rd com.apple.quarantine /Applications/PipeView.app
 ```
 
 Then open the app normally. If macOS still shows a warning, go to **System Settings → Privacy & Security** and click **Open Anyway**.
@@ -48,7 +48,7 @@ Requires **Xcode 16+** and **macOS 14 (Sonoma)** or later.
 ```bash
 git clone https://github.com/shhivam/PipeView.git
 cd PipeView
-open BandwidthMonitor.xcodeproj
+open PipeView.xcodeproj
 ```
 
 Then hit **⌘R** to build and run.

@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct BandwidthMonitorApp: App {
+struct PipeViewApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {

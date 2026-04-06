@@ -1,7 +1,7 @@
 <!-- GSD:project-start source:PROJECT.md -->
 ## Project
 
-**Bandwidth Monitor**
+**PipeView**
 
 A macOS menu bar application that monitors real-time network throughput (upload/download) per network interface, displays live speeds in the menu bar with user-configurable units, and provides beautiful graphs of historical bandwidth usage in a popover window. Data is persisted locally in SQLite for viewing usage across minutes, hours, days, weeks, and months.
 

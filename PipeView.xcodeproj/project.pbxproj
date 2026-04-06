@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10000010000000000000001 /* BandwidthMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* BandwidthMonitorApp.swift */; };
+		A10000010000000000000001 /* PipeViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* PipeViewApp.swift */; };
 		A10000010000000000000002 /* NetworkSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* NetworkSample.swift */; };
 		A10000010000000000000003 /* Loggers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* Loggers.swift */; };
 		A10000010000000000000004 /* SysctlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000007 /* SysctlReader.swift */; };
@@ -68,17 +68,17 @@
 			containerPortal = A50000010000000000000001 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A40000010000000000000001;
-			remoteInfo = BandwidthMonitor;
+			remoteInfo = PipeView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A20000010000000000000001 /* BandwidthMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandwidthMonitorApp.swift; sourceTree = "<group>"; };
+		A20000010000000000000001 /* PipeViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipeViewApp.swift; sourceTree = "<group>"; };
 		A20000010000000000000002 /* NetworkSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSample.swift; sourceTree = "<group>"; };
 		A20000010000000000000003 /* Loggers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggers.swift; sourceTree = "<group>"; };
 		A20000010000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A20000010000000000000005 /* BandwidthMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandwidthMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A20000010000000000000006 /* BandwidthMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BandwidthMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000010000000000000005 /* PipeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PipeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000010000000000000006 /* PipeViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PipeViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20000010000000000000007 /* SysctlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysctlReader.swift; sourceTree = "<group>"; };
 		A20000010000000000000008 /* InterfaceFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceFilter.swift; sourceTree = "<group>"; };
 		A20000010000000000000009 /* SpeedComputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedComputation.swift; sourceTree = "<group>"; };
@@ -152,16 +152,16 @@
 		A70000010000000000000001 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				A70000010000000000000002 /* BandwidthMonitor */,
-				A70000010000000000000005 /* BandwidthMonitorTests */,
+				A70000010000000000000002 /* PipeView */,
+				A70000010000000000000005 /* PipeViewTests */,
 				A70000010000000000000006 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A70000010000000000000002 /* BandwidthMonitor */ = {
+		A70000010000000000000002 /* PipeView */ = {
 			isa = PBXGroup;
 			children = (
-				A20000010000000000000001 /* BandwidthMonitorApp.swift */,
+				A20000010000000000000001 /* PipeViewApp.swift */,
 				A20000010000000000000017 /* AppDelegate.swift */,
 				A70000010000000000000003 /* Monitoring */,
 				A70000010000000000000007 /* MenuBar */,
@@ -171,7 +171,7 @@
 				A70000010000000000000004 /* Logging */,
 				A20000010000000000000004 /* Info.plist */,
 			);
-			path = BandwidthMonitor;
+			path = PipeView;
 			sourceTree = "<group>";
 		};
 		A70000010000000000000003 /* Monitoring */ = {
@@ -258,7 +258,7 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		A70000010000000000000005 /* BandwidthMonitorTests */ = {
+		A70000010000000000000005 /* PipeViewTests */ = {
 			isa = PBXGroup;
 			children = (
 				A2000001000000000000000A /* SpeedComputationTests.swift */,
@@ -279,14 +279,14 @@
 				A20000010000000000000077 /* AppDatabaseChartTests.swift */,
 				A200000100000000000000A1 /* ChartAxisFormatterTests.swift */,
 			);
-			path = BandwidthMonitorTests;
+			path = PipeViewTests;
 			sourceTree = "<group>";
 		};
 		A70000010000000000000006 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A20000010000000000000005 /* BandwidthMonitor.app */,
-				A20000010000000000000006 /* BandwidthMonitorTests.xctest */,
+				A20000010000000000000005 /* PipeView.app */,
+				A20000010000000000000006 /* PipeViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A40000010000000000000001 /* BandwidthMonitor */ = {
+		A40000010000000000000001 /* PipeView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A80000010000000000000001 /* Build configuration list for PBXNativeTarget "BandwidthMonitor" */;
+			buildConfigurationList = A80000010000000000000001 /* Build configuration list for PBXNativeTarget "PipeView" */;
 			buildPhases = (
 				A90000010000000000000001 /* Sources */,
 				A30000010000000000000001 /* Frameworks */,
@@ -305,19 +305,19 @@
 			);
 			dependencies = (
 			);
-			name = BandwidthMonitor;
+			name = PipeView;
 			packageProductDependencies = (
 				AB0000010000000000000001 /* DequeModule */,
 				AB0000010000000000000002 /* GRDB */,
 				AB0000010000000000000003 /* GRDBQuery */,
 			);
-			productName = BandwidthMonitor;
-			productReference = A20000010000000000000005 /* BandwidthMonitor.app */;
+			productName = PipeView;
+			productReference = A20000010000000000000005 /* PipeView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A40000010000000000000002 /* BandwidthMonitorTests */ = {
+		A40000010000000000000002 /* PipeViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A80000010000000000000002 /* Build configuration list for PBXNativeTarget "BandwidthMonitorTests" */;
+			buildConfigurationList = A80000010000000000000002 /* Build configuration list for PBXNativeTarget "PipeViewTests" */;
 			buildPhases = (
 				A90000010000000000000002 /* Sources */,
 				A30000010000000000000002 /* Frameworks */,
@@ -327,12 +327,12 @@
 			dependencies = (
 				A60000010000000000000002 /* PBXTargetDependency */,
 			);
-			name = BandwidthMonitorTests;
+			name = PipeViewTests;
 			packageProductDependencies = (
 				AB0000010000000000000004 /* GRDB */,
 			);
-			productName = BandwidthMonitorTests;
-			productReference = A20000010000000000000006 /* BandwidthMonitorTests.xctest */;
+			productName = PipeViewTests;
+			productReference = A20000010000000000000006 /* PipeViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -354,7 +354,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A80000010000000000000003 /* Build configuration list for PBXProject "BandwidthMonitor" */;
+			buildConfigurationList = A80000010000000000000003 /* Build configuration list for PBXProject "PipeView" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -372,8 +372,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A40000010000000000000001 /* BandwidthMonitor */,
-				A40000010000000000000002 /* BandwidthMonitorTests */,
+				A40000010000000000000001 /* PipeView */,
+				A40000010000000000000002 /* PipeViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10000010000000000000001 /* BandwidthMonitorApp.swift in Sources */,
+				A10000010000000000000001 /* PipeViewApp.swift in Sources */,
 				A10000010000000000000002 /* NetworkSample.swift in Sources */,
 				A10000010000000000000003 /* Loggers.swift in Sources */,
 				A10000010000000000000004 /* SysctlReader.swift in Sources */,
@@ -451,7 +451,7 @@
 /* Begin PBXTargetDependency section */
 		A60000010000000000000002 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A40000010000000000000001 /* BandwidthMonitor */;
+			target = A40000010000000000000001 /* PipeView */;
 			targetProxy = A60000010000000000000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -583,7 +583,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BandwidthMonitor/Info.plist;
+				INFOPLIST_FILE = PipeView/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = "";
@@ -593,7 +593,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bandwidth-monitor.app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pipeview.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -610,7 +610,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BandwidthMonitor/Info.plist;
+				INFOPLIST_FILE = PipeView/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = "";
@@ -620,7 +620,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bandwidth-monitor.app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pipeview.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -636,11 +636,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bandwidth-monitor.tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pipeview.tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BandwidthMonitor.app/Contents/MacOS/BandwidthMonitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PipeView.app/Contents/MacOS/PipeView";
 			};
 			name = Debug;
 		};
@@ -653,18 +653,18 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bandwidth-monitor.tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pipeview.tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BandwidthMonitor.app/Contents/MacOS/BandwidthMonitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PipeView.app/Contents/MacOS/PipeView";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A80000010000000000000001 /* Build configuration list for PBXNativeTarget "BandwidthMonitor" */ = {
+		A80000010000000000000001 /* Build configuration list for PBXNativeTarget "PipeView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B10000010000000000000003 /* Debug */,
@@ -673,7 +673,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A80000010000000000000002 /* Build configuration list for PBXNativeTarget "BandwidthMonitorTests" */ = {
+		A80000010000000000000002 /* Build configuration list for PBXNativeTarget "PipeViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B10000010000000000000005 /* Debug */,
@@ -682,7 +682,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A80000010000000000000003 /* Build configuration list for PBXProject "BandwidthMonitor" */ = {
+		A80000010000000000000003 /* Build configuration list for PBXProject "PipeView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B10000010000000000000001 /* Debug */,
